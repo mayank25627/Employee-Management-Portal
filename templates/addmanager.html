@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Manager</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #message-show {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #message-show h1 {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
+  </div>
+
+  <div class="container">
+
+    <form id="manager-details-form" action="/addmanagers" method="post" enctype="multipart/form-data">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required><br><br>
+      
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required><br><br>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      
+      <label for="phone-number">Phone Number:</label>
+      <input type="tel" id="phone-number" name="phone-number"><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      
+      <input type="submit" value="Add Manager">
+    </form>
+    
+    <div id="message-show">
+      {% if successMessage %}
+          <h1>{{ successMessage }}</h1>
+      {% endif %} 
+      
+      {% if failMessage %}
+          <h1>{{ failMessage }}</h1>
+      {% endif %} 
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("admin-dashboard").addEventListener("click", function() {
+        window.location.href = "/adminpage";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Page</title>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="logout-button" >Logout</button>
+  </div>
+
+    {% if manager %}
+        <h1>Welcome, {{ manager['first_name'] }} {{ manager['last_name'] }}</h1>
+        <p>Email: {{ manager['email'] }}</p>
+        <p>Phone Number: {{ manager['phone_number'] }}</p>
+    {% else %}
+        <p>Manager variable is empty</p>
+    {% endif %}
+    
+</body>
+
+<script>
+    document.getElementById("logout-button").addEventListener("click", function() {
+      window.location.href = "/mnglogin";
+    });
+</script>
+</html>

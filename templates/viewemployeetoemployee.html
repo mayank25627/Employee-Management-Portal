@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employees</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .actions button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .actions button:hover {
+            background-color: #3e8e41;
+        }
+        .actions .delete {
+            background-color: #f44336;
+        }
+        .actions .delete:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="employee-dashboard" >Employee Dashboard</button>
+  </div>
+
+    <h2>Employee List</h2>
+    {% if employees %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Position</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.employee_id }}</td>
+                        <td>{{ employee.first_name }}</td>
+                        <td>{{ employee.last_name }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.phone_number }}</td>
+                        <td>{{ employee.position }}</td>
+                        <td>{{ employee.address }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <script>
+         document.getElementById("employee-dashboard").addEventListener("click", function() {
+            window.location.href = "/employeepage"
+         });
+    </script>
+   
+</body>
+</html>

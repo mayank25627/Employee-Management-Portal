@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="position: absolute; right: 20px; top:15px">
+        <button style="background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;" id="logout-button" >Logout</button>
+      </div>
+
+    <div class="container">
+        {% if employee %}
+            <h1>Hello, {{ employee['first_name'] }} {{ employee['last_name'] }}</h1>
+            <button id="show-details-button">Show Full Details</button>
+            <button id="update-skills-button">Update Skills</button>
+            <button id="view-all-employees-button">View All Employees</button>
+            <button id="view-managers-button">View Managers</button>
+        {% else %}
+            <p>Employee variable is empty</p>
+        {% endif %}
+    </div>
+
+    <script>
+
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "/emplogin";
+        });
+
+        document.getElementById("update-skills-button").addEventListener("click", function() {
+            window.location.href = "/updateskills";
+        });
+
+        document.getElementById("show-details-button").addEventListener("click", function() {
+            window.location.href = "/showDetails";
+        });
+
+        document.getElementById("view-all-employees-button").addEventListener("click", function() {
+            window.location.href = "/viewEmployeePagetoEmployee";
+        });
+
+        document.getElementById("view-managers-button").addEventListener("click", function() {
+            window.location.href = "/viewManagerPagetoEmployee";
+        });
+    </script>
+</body>
+</html>

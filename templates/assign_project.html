@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Project</title>
+    <style>
+        #assign-form {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="position: absolute; right: 20px; top:15px">
+        <button style="background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
+      </div>
+
+      
+    <form action="/assignProject" method="post" id="assign-form">
+        <label for="employee">Select Employee:</label>
+        <select id="employee" name="employee_id" required>
+            <option value="" disabled selected>Select Employee</option>
+            {% for employee in unassigned_employees %}
+                <option value="{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="project">Select Project:</label>
+        <select id="project" name="project_id" required>
+            <option value="" disabled selected>Select Project</option>
+            {% for project in projects %}
+                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Assign Project">
+    </form>
+</body>
+<script>
+    document.getElementById("admin-dashboard").addEventListener("click", function() {
+        window.location.href = "/adminpage"
+      });
+  </script>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #333;
+        text-shadow: 2px 2px #ccc;
+        margin-bottom: 1em;
+      }
+
+      .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1em;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      .button:active {
+        transform: translateY(2px);
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div style="position: absolute; right: 20px; top:15px">
+      <button style="background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;" id="logout-button" >Logout</button>
+    </div>
+
+    <div class="container">
+      <h1>Welcome Admin!</h1>
+      <h1>Employee Management</h1>
+      <div class="button-container">
+        <button id="add-employee-button" class="button">Add Employee</button>
+        <button id="add-manager-button" class="button">Add Manager</button>
+        <button id="add-new-projects-button" class="button">Add New Projects</button>
+        <button id="view-employee-button" class="button">View Employee</button>
+        <button id="view-projects-button" class="button">View Projects</button>
+        <button id="employee-projects-button" class="button">View Employees and thier Assign Project</button>
+        <button id="assign-projects-button" class="button">Assign Project to Employees</button>
+        <button id="unassign-projects-button" class="button">Unassign Project to Employees</button>
+        <button id="approve-reject-button" class="button">Approve / Reject Manager Request</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("add-employee-button").addEventListener("click", function() {
+      window.location.href = "/addEmployeePage"; 
+    });
+    document.getElementById("add-manager-button").addEventListener("click", function() {
+      window.location.href = "/addManagerPage"; 
+    });
+    document.getElementById("add-new-projects-button").addEventListener("click", function() {
+      window.location.href = "/addProjectPage"; 
+    });
+    document.getElementById("view-employee-button").addEventListener("click", function() {
+      window.location.href = "/viewEmployeePage"; 
+    });
+    document.getElementById("view-projects-button").addEventListener("click", function() {
+      window.location.href = "/viewProjectPage"; 
+    });
+    document.getElementById("employee-projects-button").addEventListener("click", function() {
+      window.location.href = "/viewEmployeesWithProjects"; 
+    });
+    document.getElementById("assign-projects-button").addEventListener("click", function() {
+      window.location.href = "/assignProjectPage"; 
+    });
+    document.getElementById("unassign-projects-button").addEventListener("click", function() {
+      window.location.href = "/unassignProjectPage"; 
+    });
+    document.getElementById("approve-reject-button").addEventListener("click", function() {
+      window.location.href = "/managerRequestPage"; 
+    });
+
+    document.getElementById("logout-button").addEventListener("click", function() {
+      window.location.href = "/adminlogin"; 
+    });
+  </script>
+</html>
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Employee</title>
+
+  <style>
+    #employee-details-form {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
+  </div>
+
+  <form id="employee-details-form" action="/addemployees" method="post" enctype="multipart/form-data" id="employee-details-form">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name"><br><br>
+    
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last-name"><br><br>
+    
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="phone-number">Phone Number:</label>
+    <input type="tel" id="phone-number" name="phone-number"><br><br>
+    
+    <label for="position">Position:</label>
+    <input type="text" id="position" name="position"><br><br>
+    
+    <label for="address">Address:</label>
+    <textarea id="address" name="address"></textarea><br><br>
+    
+    <label for="manager-id">Assigned Manager (Manager ID):</label>
+    <input type="text" id="manager-id" name="manager-id"><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <input type="submit" value="Add Employee">
+  </form>
+  
+  <div>
+    <div id="message-show">
+      {% if sucessMessage %}
+          <h1 style="text-align: center; color: red;">{{sucessMessage}}</h1>
+      {% endif %} 
+    </div>
+    
+    <div id="message-show">
+      {% if failmessage %}
+          <h1 style="text-align: center; color: red;">{{failmessage}}</h1>
+      {% endif %} 
+    </div>
+</body>
+
+<script>
+  document.getElementById("admin-dashboard").addEventListener("click", function() {
+      window.location.href = "/adminpage"
+    });
+</script>
+</html>
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <style>
+        #employee-details-form {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        #cancel{
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div style="position: absolute; right: 20px; top:15px">
+        <button style="background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;" id="view-employee" >View Employee</button>
+      </div>
+
+    <form action="/updateEmployee/{{ employee.employee_id }}" method="post" enctype="multipart/form-data" id="employee-details-form">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" value="{{ employee.first_name }}"><br><br>
+        
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" value="{{ employee.last_name }}"><br><br>
+        
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" value="{{ employee.email }}" required><br><br>
+        
+        <label for="phone-number">Phone Number:</label>
+        <input type="tel" id="phone-number" name="phone-number" value="{{ employee.phone_number }}"><br><br>
+        
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" value="{{ employee.position }}"><br><br>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address">{{ employee.address }}</textarea><br><br>
+        
+        <label for="manager-id">Manager ID:</label>
+        <input type="text" id="manager-id" name="manager-id" value="{{ employee.manager_id }}"><br><br>
+        
+        <input type="submit" value="Update Employee">
+        <button id="cancel">Cancel Update</button>
+    </form>
+</body>
+
+<script>
+      document.getElementById("view-employee").addEventListener("click", function() {
+      window.location.href = "/viewEmployeePage"
+    });
+
+    document.getElementById("cancel").addEventListener("click", function() {
+      window.location.href = "/viewEmployeePage"
+    });
+
+    
+</script>
+
+</html>

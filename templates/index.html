@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Management</title>
+    <style>
+      .container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.login-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.login-button:hover {
+  background-color: #3e8e41;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to NucleusTeq Portal</h1>
+      <p>Login:</p>
+      <div class="buttons">
+        <button id="employee_login" class="login-button">Employee Login</button>
+        <button id="admin_login" class="login-button">Admin Login</button>
+        <button id="manager_login" class="login-button">Manager Login</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document.getElementById("employee_login").addEventListener("click", function() {
+      window.location.href = "/emplogin";
+    });
+
+    document.getElementById("admin_login").addEventListener("click", function() {
+      window.location.href = "/adminlogin"; 
+    });
+
+    document.getElementById("manager_login").addEventListener("click", function() {
+      window.location.href = "/mnglogin";
+    });
+  </script>
+</html>

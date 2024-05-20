@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Project</title>
+    <style>
+        #project-details-form {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        #cancel{
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="view-project" >View Project</button>
+  </div>
+
+    <form action="/updateProject/{{ project.project_id }}" method="post" enctype="multipart/form-data" id="project-details-form">
+        <label for="project-name">Project Name:</label>
+        <input type="text" id="project-name" name="project_name" value="{{ project.project_name }}" required><br><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{ project.description }}</textarea><br><br>
+        
+        <input type="submit" value="Update Project">
+        <button id="cancel">Cancel Update</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+
+<script>
+  document.getElementById("view-project").addEventListener("click", function() {
+  window.location.href = "/viewProjectPage"
+});
+
+document.getElementById("cancel").addEventListener("click", function() {
+  window.location.href = "/viewProjectPage"
+});
+
+
+</script>
+</html>
