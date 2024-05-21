@@ -542,6 +542,89 @@ def delete_project(project_id):
         con.close()
 
 
+@app.route('/viewManagers')
+def view_managers():
+    con = create_connection()
+    if con is None:
+        return render_template('viewmanagers.html', error="Could not connect to the database.")
+
+    cursor = con.cursor(dictionary=True)
+    try:
+        cursor.execute("SELECT * FROM manager")
+        managers = cursor.fetchall()
+        return render_template('viewmanagers.html', managers=managers)
+    except Error as e:
+        return render_template('viewmanagers.html', error="An error occurred while fetching managers.")
+    finally:
+        cursor.close()
+        con.close()
+
+
+@app.route('/updateManager/<int:manager_id>', methods=['GET', 'POST'])
+def update_manager(manager_id):
+    if request.method == 'GET':
+        con = create_connection()
+        if con is None:
+            return render_template('updatemanager.html', error="Could not connect to the database.")
+
+        cursor = con.cursor(dictionary=True)
+        try:
+            cursor.execute(
+                "SELECT * FROM manager WHERE manager_id = %s", (manager_id,))
+            manager = cursor.fetchone()
+            if not manager:
+                return render_template('updatemanager.html', error="Manager not found.")
+            return render_template('updatemanager.html', manager=manager)
+        except Error as e:
+            return render_template('updatemanager.html', error="An error occurred while fetching the manager.")
+        finally:
+            cursor.close()
+            con.close()
+    else:
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+        phone_number = request.form['phone_number']
+
+        con = create_connection()
+        if con is None:
+            return render_template('updatemanager.html', error="Could not connect to the database.")
+
+        cursor = con.cursor()
+        try:
+            cursor.execute("""
+                UPDATE manager 
+                SET first_name = %s, last_name = %s, email = %s, phone_number = %s
+                WHERE manager_id = %s
+            """, (first_name, last_name, email, phone_number, manager_id))
+            con.commit()
+            return redirect('/viewManagers')
+        except Error as e:
+            return render_template('updatemanager.html', error="An error occurred while updating the manager.")
+        finally:
+            cursor.close()
+            con.close()
+
+
+@app.route('/deleteManager/<int:manager_id>', methods=['POST', 'GET'])
+def delete_manager(manager_id):
+    con = create_connection()
+    if con is None:
+        return redirect('/viewManagers', error="Could not connect to the database.")
+
+    cursor = con.cursor()
+    try:
+        cursor.execute(
+            "DELETE FROM manager WHERE manager_id = %s", (manager_id,))
+        con.commit()
+        return redirect('/viewManagers')
+    except Error as e:
+        return redirect('/viewManagers', error="An error occurred while deleting the manager.")
+    finally:
+        cursor.close()
+        con.close()
+
+
 @app.route('/assignProjectPage')
 def assignProjectPage():
     unassigned_employees = get_unassigned_employees()
@@ -706,6 +789,55 @@ def show_details():
         return render_template('showdetails.html', employee=employee, project=project, manager=manager)
     except Error as e:
         return render_template('showdetails.html', error="An error occurred while fetching details.")
+    finally:
+        cursor.close()
+        con.close()
+
+
+@app.route('/addskills', methods=['POST'])
+def addskills():
+    employee = session.get('employee')
+    if not employee:
+        return redirect('/emplogin')
+
+    skill_name = request.form['skill_name']
+    proficiency_level = request.form['proficiency_level']
+
+    con = create_connection()
+    if con is None:
+        return render_template('updateskills.html', error="Could not connect to the database.")
+
+    cursor = con.cursor()
+    try:
+        cursor.execute("INSERT INTO employeeskills (employee_id, skill_name, proficiency_level) VALUES (%s, %s, %s)",
+                       (employee['employee_id'], skill_name, proficiency_level))
+        con.commit()
+        return redirect('/updateskills')
+    except Error as e:
+        return render_template('updateskills.html', error="An error occurred while adding the skill.")
+    finally:
+        cursor.close()
+        con.close()
+
+
+@app.route('/updateskills', methods=['GET'])
+def updateskills():
+    employee = session.get('employee')
+    if not employee:
+        return redirect('/emplogin')
+
+    con = create_connection()
+    if con is None:
+        return render_template('updateskills.html', error="Could not connect to the database.")
+
+    cursor = con.cursor(dictionary=True)
+    try:
+        cursor.execute(
+            "SELECT * FROM employeeskills WHERE employee_id = %s", (employee['employee_id'],))
+        skills = cursor.fetchall()
+        return render_template('updateskills.html', skills=skills)
+    except Error as e:
+        return render_template('updateskills.html', error="An error occurred while fetching skills.")
     finally:
         cursor.close()
         con.close()

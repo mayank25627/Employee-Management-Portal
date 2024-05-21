@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Skills</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .skills-list {
+            margin-top: 20px;
+        }
+        .skills-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .skills-list li span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="employee-dashboard" >Employee Dashboard</button>
+  </div>
+
+    <div class="container">
+        <h1>Update Skills</h1>
+        <form action="/addskills" method="POST">
+            <label for="skill_name">Skill Name:</label>
+            <input type="text" id="skill_name" name="skill_name" required>
+
+            <label for="proficiency_level">Proficiency Level:</label>
+            <select id="proficiency_level" name="proficiency_level" required>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Expert">Expert</option>
+            </select>
+
+            <input type="submit" value="Add Skill">
+        </form>
+        <div class="skills-list">
+            <h2>Your Skills</h2>
+            {% if skills %}
+                <ul>
+                    {% for skill in skills %}
+                        <li>
+                            <span><strong>Skill:</strong> {{ skill['skill_name'] }}</span>
+                            <span><strong>Proficiency:</strong> {{ skill['proficiency_level'] }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No skills added yet.</p>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    <script>
+        document.getElementById("employee-dashboard").addEventListener("click", function() {
+            window.location.href = "/employeepage";
+        });
+    </script>
+</body>
+</html>

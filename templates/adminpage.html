@@ -79,6 +79,7 @@
         <button id="add-new-projects-button" class="button">Add New Projects</button>
         <button id="view-employee-button" class="button">View Employee</button>
         <button id="view-projects-button" class="button">View Projects</button>
+        <button id="view-manager-button" class="button">View Managers</button>
         <button id="employee-projects-button" class="button">View Employees and thier Assign Project</button>
         <button id="assign-projects-button" class="button">Assign Project to Employees</button>
         <button id="unassign-projects-button" class="button">Unassign Project to Employees</button>
@@ -101,6 +102,9 @@
     });
     document.getElementById("view-projects-button").addEventListener("click", function() {
       window.location.href = "/viewProjectPage"; 
+    });
+    document.getElementById("view-manager-button").addEventListener("click", function() {
+      window.location.href = "/viewManagers"; 
     });
     document.getElementById("employee-projects-button").addEventListener("click", function() {
       window.location.href = "/viewEmployeesWithProjects"; 
