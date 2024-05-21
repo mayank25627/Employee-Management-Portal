@@ -276,6 +276,24 @@ def get_all_projects():
         con.close()
 
 
+def get_managers():
+    connection = create_connection()
+    if connection is None:
+        print("Failed to connect to the database")
+        return []
+
+    cursor = connection.cursor(dictionary=True)
+    try:
+        cursor.execute("SELECT manager_id, first_name, last_name FROM manager")
+        managers = cursor.fetchall()
+        return managers
+    except Error as e:
+        return []
+    finally:
+        cursor.close()
+        connection.close()
+
+
 def viewEmployeesWithProjects():
     con = create_connection()
     if con is None:
@@ -334,10 +352,11 @@ def adminloginprocess():
 
 @app.route('/addEmployeePage')
 def addEmployeePage():
-    return render_template('addemployee.html')
+    managers = get_managers()
+    return render_template('addemployee.html', managers=managers)
 
 
-@app.route('/addemployees', methods=['GET', 'POST'])
+@app.route('/addemployees', methods=['POST'])
 def addemployees():
     firstname = request.form['first-name']
     lastname = request.form['last-name']
@@ -345,18 +364,19 @@ def addemployees():
     phone = request.form['phone-number']
     position = request.form['position']
     address = request.form['address']
-    manager = request.form['manager-id']
+    manager_id = request.form['manager-id']
     password = request.form['password']
 
-    ifAddSucess = addEmployee(firstname, lastname, email, phone,
-                              position, address, manager, password)
+    print(firstname, lastname, email, phone, position, address, manager_id)
+    ifAddSucess = addEmployee(
+        firstname, lastname, email, phone, position, address, manager_id, password)
 
-    if ifAddSucess == True:
-        sucessMessage = 'Sucessfull added employee', firstname
-        return render_template('addemployee.html', sucessMessage=sucessMessage)
+    if ifAddSucess:
+        successMessage = f'Successfully added employee {firstname}'
+        return render_template('addemployee.html', successMessage=successMessage, managers=get_managers())
     else:
-        failmessage = 'Please add employee again!'
-        return render_template('addemployee.html', failmessage=failmessage)
+        failMessage = f'Please add employee again!'
+        return render_template('addemployee.html', failMessage=failMessage, managers=get_managers())
 
 
 @app.route('/addManagerPage')
@@ -375,10 +395,10 @@ def addmanagers():
     ifAddSucess = addManager(firstname, lastname, email, phone, password)
 
     if ifAddSucess == True:
-        sucessMessage = 'Sucessfull added Manager ', firstname
+        sucessMessage = f'Sucessfull added Manager ', firstname
         return render_template('addmanager.html', sucessMessage=sucessMessage)
     else:
-        failmessage = 'Please add Manager again! '
+        failmessage = f'Please add Manager again! '
         return render_template('addmanager.html', failmessage=failmessage)
 
 
@@ -884,6 +904,70 @@ def manager_page():
         return render_template('managerpage.html', manager=manager)
     else:
         return render_template('mnglogin.html', failedtext=failedtext)
+
+
+@app.route('/managerpage')
+def managerpage():
+    manager = session.get('manager')
+    if not manager:
+        return redirect('/mnglogin')
+
+    return render_template('managerpage.html', manager=manager)
+
+
+@app.route('/showManagerDetails')
+def show_manager_details():
+    manager = session.get('manager')
+    if not manager:
+        return redirect('/mnglogin')
+
+    con = create_connection()
+    if con is None:
+        return render_template('showdetailsmanager.html', error="Could not connect to the database.")
+
+    cursor = con.cursor(dictionary=True)
+    try:
+        # Fetch employees managed by this manager
+        cursor.execute("""
+            SELECT employee_id, first_name, last_name, email, phone_number, position
+            FROM employee
+            WHERE manager_id = %s
+        """, (manager['manager_id'],))
+        employees = cursor.fetchall()
+
+        return render_template('showdetailsmanager.html', manager=manager, employees=employees)
+    except Error as e:
+        return render_template('showdetailsmanager.html', error="An error occurred while fetching details.")
+    finally:
+        cursor.close()
+        con.close()
+
+
+@app.route('/viewEmployeePagetoManager')
+def viewEmployeePagetoManager():
+    success, employees = viewEmployee()
+    if success:
+        return render_template('viewemployeetomanager.html', employees=employees)
+    else:
+        return render_template('viewemployeetomanager.html', error="No employees found or an error occurred.")
+
+
+@app.route('/viewManagerPagetoManager')
+def viewManagerPagetoManager():
+    success, managers = viewManager()
+    if success:
+        return render_template('viewmanagertomanager.html', managers=managers)
+    else:
+        return render_template('viewmanagertomanager.html', error="No employees found or an error occurred.")
+
+
+@app.route('/viewProjecttoMnager')
+def viewProjectToMnager():
+    success, project = viewProject()
+    if success:
+        return render_template('viewProjecttoManager.html', project=project)
+    else:
+        return render_template('viewProjecttoManager.html', error="No employees found or an error occurred.")
 
 
 if __name__ == "__main__":

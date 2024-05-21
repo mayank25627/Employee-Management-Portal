@@ -3,31 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Manager Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .logout-button {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+    </style>
 </head>
 <body>
 
-  <div style="position: absolute; right: 20px; top:15px">
-    <button style="background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;" id="logout-button" >Logout</button>
-  </div>
+    <div class="logout-button">
+        <button id="logout-button">Logout</button>
+    </div>
 
-    {% if manager %}
-        <h1>Welcome, {{ manager['first_name'] }} {{ manager['last_name'] }}</h1>
-        <p>Email: {{ manager['email'] }}</p>
-        <p>Phone Number: {{ manager['phone_number'] }}</p>
-    {% else %}
-        <p>Manager variable is empty</p>
-    {% endif %}
-    
+    <div class="container">
+        {% if manager %}
+            <h1>Welcome, {{ manager['first_name'] }} {{ manager['last_name'] }}</h1>
+            <div class="button-container">
+                <button id="show-details">Show Details</button>
+                <button id="view-employees">View Employees</button>
+                <button id="view-managers">View Managers</button>
+                <button id="view-projects">View Projects</button>
+            </div>
+        {% else %}
+            <p>Manager variable is empty</p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "/mnglogin";
+        });
+        document.getElementById("show-details").addEventListener("click", function() {
+            window.location.href = "/showManagerDetails";
+        });
+        document.getElementById("view-employees").addEventListener("click", function() {
+            window.location.href = "/viewEmployeePagetoManager";
+        });
+        document.getElementById("view-managers").addEventListener("click", function() {
+            window.location.href = "/viewManagerPagetoManager";
+        });
+        document.getElementById("view-projects").addEventListener("click", function() {
+            window.location.href = "/viewProjecttoMnager";
+        });
+    </script>
 </body>
-
-<script>
-    document.getElementById("logout-button").addEventListener("click", function() {
-      window.location.href = "/mnglogin";
-    });
-</script>
 </html>

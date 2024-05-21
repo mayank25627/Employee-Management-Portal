@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .actions button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .actions button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="dashboard-button" >Manager Dashboard</button>
+  </div>
+
+    <div class="container">
+        <h1>Manager Details</h1>
+        {% if manager %}
+            <p><strong>Manager ID:</strong> {{ manager['manager_id'] }}</p>
+            <p><strong>First Name:</strong> {{ manager['first_name'] }}</p>
+            <p><strong>Last Name:</strong> {{ manager['last_name'] }}</p>
+            <p><strong>Email:</strong> {{ manager['email'] }}</p>
+            <p><strong>Phone Number:</strong> {{ manager['phone_number'] }}</p>
+            <h2>Employees Managed</h2>
+            {% if employees %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employees %}
+                            <tr>
+                                <td>{{ employee['employee_id'] }}</td>
+                                <td>{{ employee['first_name'] }}</td>
+                                <td>{{ employee['last_name'] }}</td>
+                                <td>{{ employee['email'] }}</td>
+                                <td>{{ employee['phone_number'] }}</td>
+                                <td>{{ employee['position'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No employees assigned to this manager.</p>
+            {% endif %}
+        {% else %}
+            <p>Manager details not available.</p>
+        {% endif %}
+        
+    </div>
+</body>
+
+<script>
+  document.getElementById("dashboard-button").addEventListener("click", function() {
+      window.location.href = "/managerpage";
+  });
+</script>
+</html>
