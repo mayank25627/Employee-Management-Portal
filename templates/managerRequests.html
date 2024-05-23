@@ -91,7 +91,7 @@
                 {% for employee in unassignEmployee %}
                     <div>
                         <input type="checkbox" id="employee_{{ employee.employee_id }}" name="employee_ids" value="{{ employee.employee_id }}">
-                        <label for="employee_{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}</label>
+                        <label for="employee_{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}{% if employee.skills %} - {{ employee.skills }}{% endif %}</label>
                     </div>
                 {% endfor %}
             </div>

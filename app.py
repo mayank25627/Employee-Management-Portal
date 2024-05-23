@@ -241,6 +241,28 @@ def get_unassigned_employees():
         con.close()
 
 
+def get_unassigned_employees_with_skills():
+    con = create_connection()
+    if con is None:
+        return []
+    cursor = con.cursor(dictionary=True)
+    try:
+        cursor.execute("""
+            SELECT e.employee_id, e.first_name, e.last_name,
+                   GROUP_CONCAT(s.skill_name SEPARATOR ', ') AS skills
+            FROM Employee e
+            LEFT JOIN employeeskills s ON e.employee_id = s.employee_id
+            WHERE e.employee_id NOT IN (SELECT employee_id FROM EmployeeProject)
+            GROUP BY e.employee_id, e.first_name, e.last_name
+        """)
+        return cursor.fetchall()
+    except Error as e:
+        return []
+    finally:
+        cursor.close()
+        con.close()
+
+
 def get_assigned_employees():
     con = create_connection()
     if con is None:
@@ -967,42 +989,6 @@ def show_details():
         cursor.close()
         con.close()
 
-# @app.route('/showDetails')
-# def show_details():
-    employee = session.get('employee')
-    if not employee:
-        return redirect('/emplogin')
-
-    con = create_connection()
-    if con is None:
-        return render_template('showdetails.html', error="Could not connect to the database.")
-
-    cursor = con.cursor(dictionary=True)
-    try:
-        # Fetch assigned project details
-        cursor.execute("""
-            SELECT project.project_id, project.project_name
-            FROM EmployeeProject
-            JOIN project ON EmployeeProject.project_id = project.project_id
-            WHERE EmployeeProject.employee_id = %s
-        """, (employee['employee_id'],))
-        project = cursor.fetchone()
-
-        # Fetch assigned manager details
-        cursor.execute("""
-            SELECT first_name, last_name
-            FROM manager
-            WHERE manager_id = %s
-        """, (employee['manager_id'],))
-        manager = cursor.fetchone()
-
-        return render_template('showdetails.html', employee=employee, project=project, manager=manager)
-    except Error as e:
-        return render_template('showdetails.html', error="An error occurred while fetching details.")
-    finally:
-        cursor.close()
-        con.close()
-
 
 @app.route('/addskills', methods=['POST'])
 def addskills():
@@ -1162,7 +1148,7 @@ def viewProjectToMnager():
 
 @app.route('/managerRequests')
 def managerRequests():
-    unassignEmployee = get_unassigned_employees()
+    unassignEmployee = get_unassigned_employees_with_skills()
     allProjects = get_all_projects()
     return render_template('managerRequests.html', unassignEmployee=unassignEmployee, allProjects=allProjects)
 
