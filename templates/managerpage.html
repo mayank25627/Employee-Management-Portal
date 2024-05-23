@@ -53,6 +53,7 @@
                 <button id="view-managers">View Managers</button>
                 <button id="view-projects">View Projects</button>
                 <button id="make-request">Make Request</button>
+                <button id="request-status"> Show Request Status</button>
             </div>
         {% else %}
             <p>Manager variable is empty</p>
@@ -77,6 +78,9 @@
         });
         document.getElementById("make-request").addEventListener("click", function() {
             window.location.href = "/managerRequests";
+        });
+        document.getElementById("request-status").addEventListener("click", function() {
+            window.location.href = "/managerRequestStatus";
         });
     </script>
 </body>

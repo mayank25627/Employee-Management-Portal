@@ -461,6 +461,27 @@ def get_request_status():
         connection.close()
 
 
+def get_manager_requests(manager_id):
+    connection = create_connection()
+    if connection is None:
+        return []
+
+    cursor = connection.cursor()
+    try:
+        cursor.execute(
+            "SELECT request_id, manager_id, request_text, status FROM requests WHERE manager_id = %s", (
+                manager_id,)
+        )
+        requests = cursor.fetchall()
+        return requests
+    except Error as e:
+        print(f"Error: {e}")
+        return []
+    finally:
+        cursor.close()
+        connection.close()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -1160,6 +1181,13 @@ def managerRequestRoute():
         return render_template('managerRequests.html', successMessage="Successfully Sent Request to Admin")
     else:
         return render_template('managerRequests.html', errorMessage="An error occurred while sending the request")
+
+
+@app.route('/managerRequestStatus', methods=['GET'])
+def managerRequestStatus():
+    manager_id = session['manager'].get('manager_id')
+    requests = get_manager_requests(manager_id)
+    return render_template('managerRequestStatus.html', requests=requests)
 
 
 if __name__ == "__main__":
