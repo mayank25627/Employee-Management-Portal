@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .center {
+            text-align: center;
+        }
+        #div-css{
+          position: absolute; 
+          right: 10px; top:15px;
+        }
+
+        .buttons{
+          background-color: #4CAF50;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="div-css">
+    <button class="buttons" id="admin-dashboard" >Admin Dashboard</button>
+  </div>
+
+  <div style="position: absolute; 
+  right: 160px; top:15px;">
+    <button class="buttons" id="view-request" >View Requests</button>
+  </div>
+
+    <div class="container">
+        <h1>Request History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Manager ID</th>
+                    <th>Manager First Name</th>
+                    <th>Manager Last Name</th>
+                    <th>Request Text</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td class="center">{{ request[0] }}</td>
+                    <td class="center">{{ request[1] }}</td>
+                    <td>{{ request[2] }}</td>
+                    <td>{{ request[3] }}</td>
+                    <td>{{ request[4] }}</td>
+                    <td style="color: green;" class="center">{{ request[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+  document.getElementById("admin-dashboard").addEventListener("click", function() {
+      window.location.href = "/adminpage"
+    });
+  document.getElementById("view-request").addEventListener("click", function() {
+      window.location.href = "/approveRejectManagerRequest"
+    });
+    
+</script>
+
+</html>

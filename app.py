@@ -355,6 +355,112 @@ def make_request(selected_employee_ids, project_id, request_text, manager_id):
         connection.close()
 
 
+def get_requests_data():
+    try:
+        # Get database connection
+        connection = create_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        query = """
+            SELECT req.request_id, req.manager_id, req.project_id, req.request_text, req.status,
+                   mgr.first_name AS manager_first_name, mgr.last_name AS manager_last_name,
+                   emp.first_name AS employee_first_name, emp.last_name AS employee_last_name,
+                   proj.project_name
+            FROM requests req
+            INNER JOIN manager mgr ON req.manager_id = mgr.manager_id
+            INNER JOIN request_employees req_emp ON req.request_id = req_emp.request_id
+            INNER JOIN employee emp ON req_emp.employee_id = emp.employee_id
+            INNER JOIN project proj ON req.project_id = proj.project_id
+            WHERE req.status = 'pending'
+        """
+        cursor.execute(query)
+        requests_data = cursor.fetchall()
+
+        requests = []
+        for request_data in requests_data:
+            request_info = {
+                'request_id': request_data['request_id'],
+                'manager_name': f"{request_data['manager_first_name']} {request_data['manager_last_name']}",
+                'project_name': request_data['project_name'],
+                'request_text': request_data['request_text'],
+                'status': request_data['status'],
+                'employees': [{'first_name': request_data['employee_first_name'], 'last_name': request_data['employee_last_name']}]
+            }
+            # Check if the request already exists in the list
+            for request in requests:
+                if request['request_id'] == request_info['request_id']:
+                    request['employees'].append(
+                        {'first_name': request_data['employee_first_name'], 'last_name': request_data['employee_last_name']})
+                    break
+            else:
+                requests.append(request_info)
+
+        return requests
+
+    except Error as e:
+        print(f"Error: {e}")
+        return []
+
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
+
+def approvingRequest(request_id):
+    con = create_connection()
+    if con is None:
+        return "Connection to the database failed.", 500
+
+    cursor = con.cursor()
+    try:
+        cursor.execute(
+            "UPDATE requests SET status = 'approved' WHERE request_id = %s", (request_id,))
+        con.commit()
+        return True
+    except Error as e:
+        return False
+    finally:
+        cursor.close()
+        con.close()
+
+
+def rejectingRequest(request_id):
+    con = create_connection()
+    if con is None:
+        return "Connection to the database failed.", 500
+
+    cursor = con.cursor()
+    try:
+        cursor.execute(
+            "UPDATE requests SET status = 'rejected' WHERE request_id = %s", (request_id,))
+        con.commit()
+        return True
+    except Error as e:
+        return False
+    finally:
+        cursor.close()
+        con.close()
+
+
+def get_request_status():
+    connection = create_connection()
+    if connection is None:
+        return None
+
+    cursor = connection.cursor()
+    try:
+        cursor.execute(
+            "SELECT r.request_id, r.manager_id, m.first_name, m.last_name, r.request_text, r.status FROM requests r JOIN manager m ON r.manager_id = m.manager_id")
+        request = cursor.fetchall()
+        return request
+    except Error as e:
+        return None
+    finally:
+        cursor.close()
+        connection.close()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -746,9 +852,34 @@ def viewEmployeesWithProjectsPage():
         return render_template('employee_with_project.html', error="No employees found or an error occurred.")
 
 
+@app.route('/approveRejectManagerRequest')
+def approveRejectManagerRequest():
+    requests = get_requests_data()
+    return render_template('approve_reject_manager_req.html', requests=requests)
+
+
+@app.route('/approveRequest/<int:request_id>')
+def approveRequest(request_id):
+    approvingRequest(request_id)
+    requests = get_requests_data()
+    return render_template('approve_reject_manager_req.html', requests=requests, message="Sucessfully Approved Request")
+
+
+@app.route('/rejectRequest/<int:request_id>')
+def rejectRequest(request_id):
+    success = rejectingRequest(request_id)
+    requests = get_requests_data()
+    return render_template('approve_reject_manager_req.html', requests=requests, message="Sucessfully Reject Request")
+
+
+@app.route('/requestStatus', methods=['GET'])
+def requestStatus():
+    requests = get_request_status()
+    return render_template('request_history.html', requests=requests)
 
 
 # Employee Routes --------------------------------
+
 
 @app.route('/emplogin')
 def emplogin():

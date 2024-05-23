@@ -84,6 +84,7 @@
         <button id="assign-projects-button" class="button">Assign Project to Employees</button>
         <button id="unassign-projects-button" class="button">Unassign Project to Employees</button>
         <button id="approve-reject-button" class="button">Approve / Reject Manager Request</button>
+        <button id="request-history-button" class="button">Request History</button>
       </div>
     </div>
   </body>
@@ -116,7 +117,10 @@
       window.location.href = "/unassignProjectPage"; 
     });
     document.getElementById("approve-reject-button").addEventListener("click", function() {
-      window.location.href = "/managerRequestPage"; 
+      window.location.href = "/approveRejectManagerRequest"; 
+    });
+    document.getElementById("request-history-button").addEventListener("click", function() {
+      window.location.href = "/requestStatus"; 
     });
 
     document.getElementById("logout-button").addEventListener("click", function() {
