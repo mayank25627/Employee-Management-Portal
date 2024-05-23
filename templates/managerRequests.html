@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Request</title>
+    <style>
+        #assign-form {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        select, input[type="submit"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .dropdown-btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            background-color: #fff;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content div {
+            padding: 12px 16px;
+            cursor: pointer;
+        }
+        .dropdown-content div:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown-content input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .show {
+            display: block;
+        }
+        .message {
+            text-align: center;
+            color: green;
+        }
+        .error {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; right: 20px; top:15px">
+        <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" id="manager-dashboard">Manager Dashboard</button>
+    </div>
+    
+    <form action="/managerRequestRoute" method="post" id="assign-form">
+        <label for="employee">Select Unassign Employee(s):</label>
+        <div class="dropdown">
+            <button type="button" class="dropdown-btn" onclick="toggleDropdown()">Select Employee(s)</button>
+            <div class="dropdown-content" id="dropdown-content">
+                {% for employee in unassignEmployee %}
+                    <div>
+                        <input type="checkbox" id="employee_{{ employee.employee_id }}" name="employee_ids" value="{{ employee.employee_id }}">
+                        <label for="employee_{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <br><br>
+        
+        <label for="project">Select Project:</label>
+        <select id="project" name="project_id" required>
+            <option value="" disabled selected>Select Project</option>
+            {% for project in allProjects %}
+                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+            {% endfor %}
+        </select>
+
+        <textarea rows="4" cols="50" name="request-text" maxlength="500" placeholder="Enter Your Request" id="textarea"></textarea>
+        <br><br>
+        <input type="submit" value="Make Request">
+    </form>
+
+    {% if successMessage %}
+            <p class="message">{{ successMessage }}</p>
+        {% elif errorMessage %}
+            <p class="error">{{ errorMessage }}</p>
+        {% endif %}
+
+    <script>
+        document.getElementById("manager-dashboard").addEventListener("click", function() {
+            window.location.href = "/managerpage"
+        });
+
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

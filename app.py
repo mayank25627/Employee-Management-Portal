@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect,  session
+from flask import Flask, render_template, request, redirect,  session, jsonify
 import bcrypt
 import mysql.connector
 from mysql.connector import Error
@@ -317,6 +317,42 @@ def viewEmployeesWithProjects():
     finally:
         cursor.close()
         con.close()
+
+
+def make_request(selected_employee_ids, project_id, request_text, manager_id):
+    try:
+        connection = create_connection()
+        cursor = connection.cursor()
+
+        insert_request_query = """
+        INSERT INTO requests (manager_id, project_id, request_text, status) 
+        VALUES (%s, %s, %s, 'pending')
+        """
+        cursor.execute(insert_request_query,
+                       (manager_id, project_id, request_text))
+        connection.commit()
+
+        request_id = cursor.lastrowid
+
+        insert_request_employee_query = """
+        INSERT INTO request_employees (request_id, employee_id) 
+        VALUES (%s, %s)
+        """
+        for employee_id in selected_employee_ids:
+            cursor.execute(insert_request_employee_query,
+                           (request_id, employee_id))
+
+        connection.commit()
+
+        return True
+
+    except Error as e:
+        print(f"Error: {e}")
+        return False
+
+    finally:
+        cursor.close()
+        connection.close()
 
 
 @app.route('/')
@@ -710,6 +746,8 @@ def viewEmployeesWithProjectsPage():
         return render_template('employee_with_project.html', error="No employees found or an error occurred.")
 
 
+
+
 # Employee Routes --------------------------------
 
 @app.route('/emplogin')
@@ -968,6 +1006,29 @@ def viewProjectToMnager():
         return render_template('viewProjecttoManager.html', project=project)
     else:
         return render_template('viewProjecttoManager.html', error="No employees found or an error occurred.")
+
+
+@app.route('/managerRequests')
+def managerRequests():
+    unassignEmployee = get_unassigned_employees()
+    allProjects = get_all_projects()
+    return render_template('managerRequests.html', unassignEmployee=unassignEmployee, allProjects=allProjects)
+
+
+@app.route('/managerRequestRoute', methods=['POST'])
+def managerRequestRoute():
+    selected_employee_ids = request.form.getlist('employee_ids')
+    project_id = request.form.get('project_id')
+    request_text = request.form.get('request-text')
+    manager_id = session['manager']['manager_id']
+
+    sucess = make_request(selected_employee_ids,
+                          project_id, request_text, manager_id)
+
+    if sucess:
+        return render_template('managerRequests.html', successMessage="Successfully Sent Request to Admin")
+    else:
+        return render_template('managerRequests.html', errorMessage="An error occurred while sending the request")
 
 
 if __name__ == "__main__":
