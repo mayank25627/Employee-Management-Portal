@@ -229,8 +229,8 @@ def get_unassigned_employees():
     cursor = con.cursor(dictionary=True)
     try:
         cursor.execute("""
-            SELECT employee_id, first_name, last_name 
-            FROM Employee 
+            SELECT employee_id, first_name, last_name
+            FROM Employee
             WHERE employee_id NOT IN (SELECT employee_id FROM EmployeeProject)
         """)
         return cursor.fetchall()
@@ -270,9 +270,9 @@ def get_assigned_employees():
     cursor = con.cursor(dictionary=True)
     try:
         cursor.execute("""
-            SELECT e.employee_id, e.first_name, e.last_name, p.project_id, p.project_name 
-            FROM Employee e 
-            JOIN EmployeeProject ep ON e.employee_id = ep.employee_id 
+            SELECT e.employee_id, e.first_name, e.last_name, p.project_id, p.project_name
+            FROM Employee e
+            JOIN EmployeeProject ep ON e.employee_id = ep.employee_id
             JOIN Project p ON ep.project_id = p.project_id
         """)
         return cursor.fetchall()
@@ -347,7 +347,7 @@ def make_request(selected_employee_ids, project_id, request_text, manager_id):
         cursor = connection.cursor()
 
         insert_request_query = """
-        INSERT INTO requests (manager_id, project_id, request_text, status) 
+        INSERT INTO requests (manager_id, project_id, request_text, status)
         VALUES (%s, %s, %s, 'pending')
         """
         cursor.execute(insert_request_query,
@@ -357,7 +357,7 @@ def make_request(selected_employee_ids, project_id, request_text, manager_id):
         request_id = cursor.lastrowid
 
         insert_request_employee_query = """
-        INSERT INTO request_employees (request_id, employee_id) 
+        INSERT INTO request_employees (request_id, employee_id)
         VALUES (%s, %s)
         """
         for employee_id in selected_employee_ids:
@@ -516,12 +516,106 @@ def adminlogin():
     return render_template('adminlogin.html')
 
 
-@app.route('/adminpage')
+@app.route('/forgetPassword')
+def forgotPassword():
+    return render_template('forgetpassword.html')
+
+
+def forgetAdminPassword(email, password):
+    connection = create_connection()
+    if connection is None:
+        return "Password Change Failed! Please Retry"
+
+    cursor = connection.cursor()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    try:
+        cursor.execute("""
+            UPDATE admin
+            SET password = %s
+            WHERE email = %s
+        """, (hashed_password, email))
+        connection.commit()
+        return "Sucessfully Updated Password"
+    except Error as e:
+        return "Password Change Failed! Please Retry"
+    finally:
+        cursor.close()
+        connection.close()
+
+
+def forgotEmployeePassword(email, password):
+    connection = create_connection()
+    if connection is None:
+        return "Password Change Failed! Please Retry"
+
+    cursor = connection.cursor()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    try:
+        cursor.execute("""
+            UPDATE employee
+            SET password = %s
+            WHERE email = %s
+        """, (hashed_password, email))
+        connection.commit()
+        return "Sucessfully Updated Password"
+    except Error as e:
+        return "Password Change Failed! Please Retry"
+    finally:
+        cursor.close()
+        connection.close()
+
+
+def forgotManagerPassword(email, password):
+    connection = create_connection()
+    if connection is None:
+        return "Password Change Failed! Please Retry"
+
+    cursor = connection.cursor()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    try:
+        cursor.execute("""
+            UPDATE manager
+            SET password = %s
+            WHERE email = %s
+        """, (hashed_password, email))
+        connection.commit()
+        return "Sucessfully Updated Password"
+    except Error as e:
+        return "Password Change Failed! Please Retry"
+    finally:
+        cursor.close()
+        connection.close()
+
+
+@app.route('/forgetPasswordRoute', methods=['POST'])
+def forgotPasswordRoute():
+    role = request.form['option']
+    email = request.form['email-id']
+    password = request.form['password']
+    message = "Failed to update your password"
+
+    if role == "1":
+        message = forgetAdminPassword(email, password)
+        return render_template('forgetpassword.html', message=message)
+    elif role == "2":
+        message = forgotEmployeePassword(email, password)
+        return render_template('forgetpassword.html', message=message)
+    elif role == "3":
+        message = forgotManagerPassword(email, password)
+        return render_template('forgetpassword.html', message=message)
+
+    return render_template('forgetpassword.html', message=message)
+
+
+@ app.route('/adminpage')
 def adminpage():
     return render_template('adminpage.html')
 
 
-@app.route('/adminloginprocess', methods=['POST'])
+@ app.route('/adminloginprocess', methods=['POST'])
 def adminloginprocess():
     email = request.form['email']
     password = request.form['password']
@@ -535,13 +629,13 @@ def adminloginprocess():
         return render_template('adminlogin.html', failedtext=failedtext)
 
 
-@app.route('/addEmployeePage')
+@ app.route('/addEmployeePage')
 def addEmployeePage():
     managers = get_managers()
     return render_template('addemployee.html', managers=managers)
 
 
-@app.route('/addemployees', methods=['POST'])
+@ app.route('/addemployees', methods=['POST'])
 def addemployees():
     firstname = request.form['first-name']
     lastname = request.form['last-name']
@@ -564,12 +658,12 @@ def addemployees():
         return render_template('addemployee.html', failMessage=failMessage, managers=get_managers())
 
 
-@app.route('/addManagerPage')
+@ app.route('/addManagerPage')
 def addManagerPage():
     return render_template('addmanager.html')
 
 
-@app.route('/addmanagers', methods=['GET', 'POST'])
+@ app.route('/addmanagers', methods=['GET', 'POST'])
 def addmanagers():
     firstname = request.form['first-name']
     lastname = request.form['last-name']
@@ -587,12 +681,12 @@ def addmanagers():
         return render_template('addmanager.html', failmessage=failmessage)
 
 
-@app.route('/addProjectPage')
+@ app.route('/addProjectPage')
 def addProjectPage():
     return render_template('addproject.html')
 
 
-@app.route('/addprojects',  methods=['GET', 'POST'])
+@ app.route('/addprojects',  methods=['GET', 'POST'])
 def addprojects():
     project_name = request.form['project-name']
     description = request.form['description']
@@ -607,7 +701,7 @@ def addprojects():
         return render_template('addproject.html', failmessage=failmessage)
 
 
-@app.route('/viewEmployeePage')
+@ app.route('/viewEmployeePage')
 def viewEmployeePage():
     success, employees = viewEmployee()
     if success:
@@ -616,7 +710,7 @@ def viewEmployeePage():
         return render_template('viewemployee.html', error="No employees found or an error occurred.")
 
 
-@app.route('/updateEmployee/<int:employee_id>', methods=['GET', 'POST'])
+@ app.route('/updateEmployee/<int:employee_id>', methods=['GET', 'POST'])
 def update_employee(employee_id):
     con = create_connection()
     if con is None:
@@ -634,7 +728,7 @@ def update_employee(employee_id):
 
         try:
             cursor.execute("""
-                UPDATE employee 
+                UPDATE employee
                 SET first_name = %s, last_name = %s, email = %s, phone_number = %s, position = %s, address = %s, manager_id = %s
                 WHERE employee_id = %s
             """, (first_name, last_name, email, phone_number, position, address, manager_id, employee_id))
@@ -654,7 +748,7 @@ def update_employee(employee_id):
         return render_template('update_employee.html', employee=employee)
 
 
-@app.route('/deleteEmployee/<int:employee_id>')
+@ app.route('/deleteEmployee/<int:employee_id>')
 def delete_employee(employee_id):
     con = create_connection()
     if con is None:
@@ -673,7 +767,7 @@ def delete_employee(employee_id):
         con.close()
 
 
-@app.route('/viewProjectPage')
+@ app.route('/viewProjectPage')
 def viewProjectPage():
     success, project = viewProject()
     if success:
@@ -682,7 +776,7 @@ def viewProjectPage():
         return render_template('viewproject.html', error="No employees found or an error occurred.")
 
 
-@app.route('/updateProject/<int:project_id>', methods=['GET'])
+@ app.route('/updateProject/<int:project_id>', methods=['GET'])
 def showUpdateProjectForm(project_id):
     con = create_connection()
     if con is None:
@@ -704,7 +798,7 @@ def showUpdateProjectForm(project_id):
         con.close()
 
 
-@app.route('/updateProject/<int:project_id>', methods=['POST'])
+@ app.route('/updateProject/<int:project_id>', methods=['POST'])
 def updateProject(project_id):
     project_name = request.form['project_name']
     description = request.form['description']
@@ -728,7 +822,7 @@ def updateProject(project_id):
         con.close()
 
 
-@app.route('/deleteProject/<int:project_id>')
+@ app.route('/deleteProject/<int:project_id>')
 def delete_project(project_id):
     con = create_connection()
     if con is None:
@@ -747,7 +841,7 @@ def delete_project(project_id):
         con.close()
 
 
-@app.route('/viewManagers')
+@ app.route('/viewManagers')
 def view_managers():
     con = create_connection()
     if con is None:
@@ -765,7 +859,7 @@ def view_managers():
         con.close()
 
 
-@app.route('/updateManager/<int:manager_id>', methods=['GET', 'POST'])
+@ app.route('/updateManager/<int:manager_id>', methods=['GET', 'POST'])
 def update_manager(manager_id):
     if request.method == 'GET':
         con = create_connection()
@@ -798,7 +892,7 @@ def update_manager(manager_id):
         cursor = con.cursor()
         try:
             cursor.execute("""
-                UPDATE manager 
+                UPDATE manager
                 SET first_name = %s, last_name = %s, email = %s, phone_number = %s
                 WHERE manager_id = %s
             """, (first_name, last_name, email, phone_number, manager_id))
@@ -811,7 +905,7 @@ def update_manager(manager_id):
             con.close()
 
 
-@app.route('/deleteManager/<int:manager_id>', methods=['POST', 'GET'])
+@ app.route('/deleteManager/<int:manager_id>', methods=['POST', 'GET'])
 def delete_manager(manager_id):
     con = create_connection()
     if con is None:
@@ -830,14 +924,14 @@ def delete_manager(manager_id):
         con.close()
 
 
-@app.route('/assignProjectPage')
+@ app.route('/assignProjectPage')
 def assignProjectPage():
     unassigned_employees = get_unassigned_employees()
     projects = get_all_projects()
     return render_template('assign_project.html', unassigned_employees=unassigned_employees, projects=projects)
 
 
-@app.route('/assignProject', methods=['POST'])
+@ app.route('/assignProject', methods=['POST'])
 def assignProject():
     employee_id = request.form['employee_id']
     project_id = request.form['project_id']
@@ -859,13 +953,13 @@ def assignProject():
         con.close()
 
 
-@app.route('/unassignProjectPage')
+@ app.route('/unassignProjectPage')
 def unassignProjectPage():
     assigned_employees = get_assigned_employees()
     return render_template('unassign_project.html', assigned_employees=assigned_employees)
 
 
-@app.route('/unassignProject', methods=['POST'])
+@ app.route('/unassignProject', methods=['POST'])
 def unassignProject():
     employee_id = request.form['employee_id']
 
@@ -886,7 +980,7 @@ def unassignProject():
         con.close()
 
 
-@app.route('/viewEmployeesWithProjects')
+@ app.route('/viewEmployeesWithProjects')
 def viewEmployeesWithProjectsPage():
     success, employees = viewEmployeesWithProjects()
     if success:
@@ -895,27 +989,27 @@ def viewEmployeesWithProjectsPage():
         return render_template('employee_with_project.html', error="No employees found or an error occurred.")
 
 
-@app.route('/approveRejectManagerRequest')
+@ app.route('/approveRejectManagerRequest')
 def approveRejectManagerRequest():
     requests = get_requests_data()
     return render_template('approve_reject_manager_req.html', requests=requests)
 
 
-@app.route('/approveRequest/<int:request_id>')
+@ app.route('/approveRequest/<int:request_id>')
 def approveRequest(request_id):
     approvingRequest(request_id)
     requests = get_requests_data()
     return render_template('approve_reject_manager_req.html', requests=requests, message="Sucessfully Approved Request")
 
 
-@app.route('/rejectRequest/<int:request_id>')
+@ app.route('/rejectRequest/<int:request_id>')
 def rejectRequest(request_id):
     success = rejectingRequest(request_id)
     requests = get_requests_data()
     return render_template('approve_reject_manager_req.html', requests=requests, message="Sucessfully Reject Request")
 
 
-@app.route('/requestStatus', methods=['GET'])
+@ app.route('/requestStatus', methods=['GET'])
 def requestStatus():
     requests = get_request_status()
     return render_template('request_history.html', requests=requests)
@@ -924,12 +1018,12 @@ def requestStatus():
 # Employee Routes --------------------------------
 
 
-@app.route('/emplogin')
+@ app.route('/emplogin')
 def emplogin():
     return render_template('emplogin.html')
 
 
-@app.route('/employeeloginprocess', methods=['GET', 'POST'])
+@ app.route('/employeeloginprocess', methods=['GET', 'POST'])
 def employeeloginprocess():
     email = request.form['email']
     password = request.form['password']
@@ -944,7 +1038,7 @@ def employeeloginprocess():
         return render_template('emplogin.html', failedtext=failedtext)
 
 
-@app.route('/employeepage')
+@ app.route('/employeepage')
 def employeepage():
     employee = session.get('employee')
     if not employee:
@@ -953,7 +1047,7 @@ def employeepage():
     return render_template('employeepage.html', employee=employee)
 
 
-@app.route('/showDetails')
+@ app.route('/showDetails')
 def show_details():
     employee = session.get('employee')
     if not employee:
@@ -990,7 +1084,7 @@ def show_details():
         con.close()
 
 
-@app.route('/addskills', methods=['POST'])
+@ app.route('/addskills', methods=['POST'])
 def addskills():
     employee = session.get('employee')
     if not employee:
@@ -1016,7 +1110,7 @@ def addskills():
         con.close()
 
 
-@app.route('/updateskills', methods=['GET'])
+@ app.route('/updateskills', methods=['GET'])
 def updateskills():
     employee = session.get('employee')
     if not employee:
@@ -1039,7 +1133,7 @@ def updateskills():
         con.close()
 
 
-@app.route('/viewEmployeePagetoEmployee')
+@ app.route('/viewEmployeePagetoEmployee')
 def viewEmployeePagetoEmployee():
     success, employees = viewEmployee()
     if success:
@@ -1048,7 +1142,7 @@ def viewEmployeePagetoEmployee():
         return render_template('viewemployeetoemployee.html', error="No employees found or an error occurred.")
 
 
-@app.route('/viewManagerPagetoEmployee')
+@ app.route('/viewManagerPagetoEmployee')
 def viewManagerPagetoEmployee():
     success, managers = viewManager()
     if success:
@@ -1060,12 +1154,12 @@ def viewManagerPagetoEmployee():
 # Manager Routes --------------------------------
 
 
-@app.route('/mnglogin')
+@ app.route('/mnglogin')
 def mnglogin():
     return render_template('mnglogin.html')
 
 
-@app.route('/managerloginprocess', methods=['GET', 'POST'])
+@ app.route('/managerloginprocess', methods=['GET', 'POST'])
 def manager_page():
     email = request.form['email']
     password = request.form['password']
@@ -1082,7 +1176,7 @@ def manager_page():
         return render_template('mnglogin.html', failedtext=failedtext)
 
 
-@app.route('/managerpage')
+@ app.route('/managerpage')
 def managerpage():
     manager = session.get('manager')
     if not manager:
@@ -1091,7 +1185,7 @@ def managerpage():
     return render_template('managerpage.html', manager=manager)
 
 
-@app.route('/showManagerDetails')
+@ app.route('/showManagerDetails')
 def show_manager_details():
     manager = session.get('manager')
     if not manager:
@@ -1119,7 +1213,7 @@ def show_manager_details():
         con.close()
 
 
-@app.route('/viewEmployeePagetoManager')
+@ app.route('/viewEmployeePagetoManager')
 def viewEmployeePagetoManager():
     success, employees = viewEmployee()
     if success:
@@ -1128,7 +1222,7 @@ def viewEmployeePagetoManager():
         return render_template('viewemployeetomanager.html', error="No employees found or an error occurred.")
 
 
-@app.route('/viewManagerPagetoManager')
+@ app.route('/viewManagerPagetoManager')
 def viewManagerPagetoManager():
     success, managers = viewManager()
     if success:
@@ -1137,7 +1231,7 @@ def viewManagerPagetoManager():
         return render_template('viewmanagertomanager.html', error="No employees found or an error occurred.")
 
 
-@app.route('/viewProjecttoMnager')
+@ app.route('/viewProjecttoMnager')
 def viewProjectToMnager():
     success, project = viewProject()
     if success:
@@ -1146,14 +1240,14 @@ def viewProjectToMnager():
         return render_template('viewProjecttoManager.html', error="No employees found or an error occurred.")
 
 
-@app.route('/managerRequests')
+@ app.route('/managerRequests')
 def managerRequests():
     unassignEmployee = get_unassigned_employees_with_skills()
     allProjects = get_all_projects()
     return render_template('managerRequests.html', unassignEmployee=unassignEmployee, allProjects=allProjects)
 
 
-@app.route('/managerRequestRoute', methods=['POST'])
+@ app.route('/managerRequestRoute', methods=['POST'])
 def managerRequestRoute():
     selected_employee_ids = request.form.getlist('employee_ids')
     project_id = request.form.get('project_id')
@@ -1169,7 +1263,7 @@ def managerRequestRoute():
         return render_template('managerRequests.html', errorMessage="An error occurred while sending the request")
 
 
-@app.route('/managerRequestStatus', methods=['GET'])
+@ app.route('/managerRequestStatus', methods=['GET'])
 def managerRequestStatus():
     manager_id = session['manager'].get('manager_id')
     requests = get_manager_requests(manager_id)

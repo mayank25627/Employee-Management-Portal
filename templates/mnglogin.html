@@ -254,10 +254,11 @@ body {
             <p>
               <input type="submit" value="Sing In" />
             </p>
-            <p>
-              <a href="">Forget Password?</a>
-            </p>
+           
           </form>
+          <p>
+            <button id="forget-password">Forget Password?</buttton>
+          </p>
 
           <div>
             {% if failedtext %}
@@ -275,6 +276,10 @@ body {
 <script>
   document.getElementById("home-button").addEventListener("click", function() {
       window.location.href = "/";
+    });
+
+    document.getElementById("forget-password").addEventListener("click", function() {
+      window.location.href = "/forgetPassword";
     });
 </script>
 </html>

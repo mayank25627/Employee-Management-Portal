@@ -253,26 +253,31 @@ body {
             <p>
               <input type="submit" value="Sing In" />
             </p>
-            <p>
-              <a href="">Forget Password?</a>
-            </p>
           </form>
 
-          <div>
-            {% if failedtext %}
-                <h1 style="text-align: center; color: red;">{{failedtext}}</h1>
-            {% endif %} 
-          </div>
+          <p>
+            <button id="forget-password">Forget Password?</buttton>
+          </p>
+
         </div>
       </div>
     </div>
     
+  </div>
+
+  <div>
+    {% if failedtext %}
+        <h1 style="text-align: center; color: red;">{{failedtext}}</h1>
+    {% endif %} 
   </div>
   
 </body>
 <script>
   document.getElementById("home-button").addEventListener("click", function() {
       window.location.href = "/";
+    });
+  document.getElementById("forget-password").addEventListener("click", function() {
+      window.location.href = "/forgetPassword";
     });
 </script>
 </html>
