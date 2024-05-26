@@ -1,15 +1,45 @@
-from flask import Flask, render_template, request, redirect,  session, jsonify
+from flask import Flask, render_template, request, redirect,  session, has_request_context
 import bcrypt
 import mysql.connector
 from mysql.connector import Error
+import logging
+from logging.handlers import RotatingFileHandler
 import os
 
+# Create Logger instance
+logger = logging.getLogger()
+
+
+class newFormate(logging.Formatter):
+    def format(self, record):
+        if has_request_context():
+            record.url = request.url
+            request.remote = request.remote_addr
+        else:
+            record.url = None
+            record.remote = None
+        return super().format(record)
+
+
+# log formatter
+logFormatter = newFormate(
+    "%(asctime)s - %(levelname)s - %(message)s",  datefmt="%Y-%m-%d %H:%M:%S")
+
+# # For Console Logs Generating
+consoleHandeler = logging.StreamHandler()
+logger.addHandler(consoleHandeler)
+
+# For log file
+fileHanddler = RotatingFileHandler("logs.log")
+fileHanddler.setFormatter(logFormatter)
+logger.addHandler(fileHanddler)
+
+# Create Flask App
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
 def create_connection():
-    """ Create a database connection """
     try:
         connection = mysql.connector.connect(
             host="localhost",

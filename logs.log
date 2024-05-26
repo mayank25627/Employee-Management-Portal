@@ -1,0 +1,97 @@
+2024-05-26 17:04:33 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 17:04:33 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 17:04:33 - INFO -  * Restarting with stat
+2024-05-26 17:04:34 - WARNING -  * Debugger is active!
+2024-05-26 17:04:34 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:04:47 - INFO - 127.0.0.1 - - [26/May/2024 17:04:47] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-26 17:05:02 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:05:02 - INFO -  * Restarting with stat
+2024-05-26 17:05:03 - WARNING -  * Debugger is active!
+2024-05-26 17:05:03 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:05:04 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:05:04 - INFO -  * Restarting with stat
+2024-05-26 17:05:04 - WARNING -  * Debugger is active!
+2024-05-26 17:05:04 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:05:06 - INFO - 127.0.0.1 - - [26/May/2024 17:05:06] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:05:12 - INFO - 127.0.0.1 - - [26/May/2024 17:05:12] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-26 17:05:16 - INFO - 127.0.0.1 - - [26/May/2024 17:05:16] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:05:17 - INFO - 127.0.0.1 - - [26/May/2024 17:05:17] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 17:05:30 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 17:05:30 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 17:05:30 - INFO -  * Restarting with stat
+2024-05-26 17:05:30 - WARNING -  * Debugger is active!
+2024-05-26 17:05:30 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:05:36 - INFO - 127.0.0.1 - - [26/May/2024 17:05:36] "GET / HTTP/1.1" 200 -
+2024-05-26 17:05:37 - INFO - 127.0.0.1 - - [26/May/2024 17:05:37] "[36mGET /static/image.png HTTP/1.1[0m" 304 -
+2024-05-26 17:05:42 - INFO - 127.0.0.1 - - [26/May/2024 17:05:42] "GET /emplogin HTTP/1.1" 200 -
+2024-05-26 17:05:47 - INFO - 127.0.0.1 - - [26/May/2024 17:05:47] "GET / HTTP/1.1" 200 -
+2024-05-26 17:05:47 - INFO - 127.0.0.1 - - [26/May/2024 17:05:47] "[36mGET /static/image.png HTTP/1.1[0m" 304 -
+2024-05-26 17:08:34 - INFO - 127.0.0.1 - - [26/May/2024 17:08:34] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 17:08:43 - INFO - 127.0.0.1 - - [26/May/2024 17:08:43] "POST /adminloginprocess HTTP/1.1" 200 -
+2024-05-26 17:08:53 - INFO - 127.0.0.1 - - [26/May/2024 17:08:53] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-26 17:09:48 - INFO - 127.0.0.1 - - [26/May/2024 17:09:48] "POST /addemployees HTTP/1.1" 200 -
+2024-05-26 17:09:55 - INFO - 127.0.0.1 - - [26/May/2024 17:09:55] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:10:03 - INFO - 127.0.0.1 - - [26/May/2024 17:10:03] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-26 17:10:09 - INFO - 127.0.0.1 - - [26/May/2024 17:10:09] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:29:06 - WARNING -  * Debugger is active!
+2024-05-26 17:29:06 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:29:07 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:29:08 - WARNING -  * Debugger is active!
+2024-05-26 17:29:08 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:29:13 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 17:29:13 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 17:29:13 - INFO -  * Restarting with stat
+2024-05-26 17:29:14 - WARNING -  * Debugger is active!
+2024-05-26 17:29:14 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:29:22 - INFO - 127.0.0.1 - - [26/May/2024 17:29:22] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-05-26 17:29:23 - INFO - 127.0.0.1 - - [26/May/2024 17:29:23] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-05-26 17:29:23 - INFO - 127.0.0.1 - - [26/May/2024 17:29:23] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-05-26 17:29:25 - INFO - 127.0.0.1 - - [26/May/2024 17:29:25] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:29:38 - INFO - 127.0.0.1 - - [26/May/2024 17:29:38] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-26 17:29:40 - INFO - 127.0.0.1 - - [26/May/2024 17:29:40] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:30:05 - INFO - 127.0.0.1 - - [26/May/2024 17:30:05] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-05-26 17:30:07 - INFO - 127.0.0.1 - - [26/May/2024 17:30:07] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:30:10 - INFO - 127.0.0.1 - - [26/May/2024 17:30:10] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-26 17:30:18 - INFO - 127.0.0.1 - - [26/May/2024 17:30:18] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:30:20 - INFO - 127.0.0.1 - - [26/May/2024 17:30:20] "GET /requestStatus HTTP/1.1" 200 -
+2024-05-26 17:30:34 - INFO - 127.0.0.1 - - [26/May/2024 17:30:34] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-26 17:32:22 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:32:22 - INFO -  * Restarting with stat
+2024-05-26 17:32:22 - WARNING -  * Debugger is active!
+2024-05-26 17:32:22 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:32:27 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:32:28 - INFO -  * Restarting with stat
+2024-05-26 17:32:28 - WARNING -  * Debugger is active!
+2024-05-26 17:32:28 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:32:32 - INFO - 127.0.0.1 - - [26/May/2024 17:32:32] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:32:51 - INFO - 127.0.0.1 - - [26/May/2024 17:32:51] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-26 17:32:55 - INFO - 127.0.0.1 - - [26/May/2024 17:32:55] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 17:33:13 - INFO - 127.0.0.1 - - [26/May/2024 17:33:13] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 17:33:15 - INFO - 127.0.0.1 - - [26/May/2024 17:33:15] "GET / HTTP/1.1" 200 -
+2024-05-26 17:33:15 - INFO - 127.0.0.1 - - [26/May/2024 17:33:15] "[36mGET /static/image.png HTTP/1.1[0m" 304 -
+2024-05-26 17:33:57 - INFO - 127.0.0.1 - - [26/May/2024 17:33:57] "GET / HTTP/1.1" 200 -
+2024-05-26 17:33:57 - INFO - 127.0.0.1 - - [26/May/2024 17:33:57] "[33mGET /static/image.png HTTP/1.1[0m" 404 -
+2024-05-26 17:34:19 - INFO - 127.0.0.1 - - [26/May/2024 17:34:19] "GET / HTTP/1.1" 200 -
+2024-05-26 17:34:19 - INFO - 127.0.0.1 - - [26/May/2024 17:34:19] "GET /static/images/image.png HTTP/1.1" 200 -
+2024-05-26 17:34:26 - INFO - 127.0.0.1 - - [26/May/2024 17:34:26] "GET / HTTP/1.1" 200 -
+2024-05-26 17:34:26 - INFO - 127.0.0.1 - - [26/May/2024 17:34:26] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 17:34:38 - INFO - 127.0.0.1 - - [26/May/2024 17:34:38] "GET /emplogin HTTP/1.1" 200 -
+2024-05-26 17:34:40 - INFO - 127.0.0.1 - - [26/May/2024 17:34:40] "GET / HTTP/1.1" 200 -
+2024-05-26 17:34:40 - INFO - 127.0.0.1 - - [26/May/2024 17:34:40] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 17:35:13 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:35:13 - INFO -  * Restarting with stat
+2024-05-26 17:35:13 - WARNING -  * Debugger is active!
+2024-05-26 17:35:13 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:35:19 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 17:35:19 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 17:35:19 - INFO -  * Restarting with stat
+2024-05-26 17:35:19 - WARNING -  * Debugger is active!
+2024-05-26 17:35:19 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:35:35 - INFO -  * Detected change in 'd:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-05-26 17:35:35 - INFO -  * Restarting with stat
+2024-05-26 17:35:36 - WARNING -  * Debugger is active!
+2024-05-26 17:35:36 - INFO -  * Debugger PIN: 777-212-917
