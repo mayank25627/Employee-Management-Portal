@@ -95,3 +95,11 @@
 2024-05-26 17:35:35 - INFO -  * Restarting with stat
 2024-05-26 17:35:36 - WARNING -  * Debugger is active!
 2024-05-26 17:35:36 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:38:43 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 17:38:43 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 17:38:43 - INFO -  * Restarting with stat
+2024-05-26 17:38:43 - WARNING -  * Debugger is active!
+2024-05-26 17:38:43 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 17:38:46 - INFO - 127.0.0.1 - - [26/May/2024 17:38:46] "GET / HTTP/1.1" 200 -
+2024-05-26 17:38:46 - INFO - 127.0.0.1 - - [26/May/2024 17:38:46] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
