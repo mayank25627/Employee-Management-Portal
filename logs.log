@@ -103,3 +103,116 @@
 2024-05-26 17:38:43 - INFO -  * Debugger PIN: 777-212-917
 2024-05-26 17:38:46 - INFO - 127.0.0.1 - - [26/May/2024 17:38:46] "GET / HTTP/1.1" 200 -
 2024-05-26 17:38:46 - INFO - 127.0.0.1 - - [26/May/2024 17:38:46] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:40:44 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-26 20:40:44 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-26 20:40:44 - INFO -  * Restarting with stat
+2024-05-26 20:40:45 - WARNING -  * Debugger is active!
+2024-05-26 20:40:45 - INFO -  * Debugger PIN: 777-212-917
+2024-05-26 20:40:48 - INFO - 127.0.0.1 - - [26/May/2024 20:40:48] "GET / HTTP/1.1" 200 -
+2024-05-26 20:40:48 - INFO - 127.0.0.1 - - [26/May/2024 20:40:48] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:40:53 - INFO - 127.0.0.1 - - [26/May/2024 20:40:53] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 20:40:59 - INFO - 127.0.0.1 - - [26/May/2024 20:40:59] "POST /adminloginprocess HTTP/1.1" 200 -
+2024-05-26 20:41:09 - INFO - 127.0.0.1 - - [26/May/2024 20:41:09] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-05-26 20:41:12 - INFO - 127.0.0.1 - - [26/May/2024 20:41:12] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:14 - INFO - 127.0.0.1 - - [26/May/2024 20:41:14] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-05-26 20:41:16 - INFO - 127.0.0.1 - - [26/May/2024 20:41:16] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:18 - INFO - 127.0.0.1 - - [26/May/2024 20:41:18] "GET /viewManagers HTTP/1.1" 200 -
+2024-05-26 20:41:19 - INFO - 127.0.0.1 - - [26/May/2024 20:41:19] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:21 - INFO - 127.0.0.1 - - [26/May/2024 20:41:21] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-05-26 20:41:24 - INFO - 127.0.0.1 - - [26/May/2024 20:41:24] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:26 - INFO - 127.0.0.1 - - [26/May/2024 20:41:26] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-05-26 20:41:32 - INFO - 127.0.0.1 - - [26/May/2024 20:41:32] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:33 - INFO - 127.0.0.1 - - [26/May/2024 20:41:33] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-05-26 20:41:35 - INFO - 127.0.0.1 - - [26/May/2024 20:41:35] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:36 - INFO - 127.0.0.1 - - [26/May/2024 20:41:36] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-26 20:41:44 - INFO - 127.0.0.1 - - [26/May/2024 20:41:44] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:45 - INFO - 127.0.0.1 - - [26/May/2024 20:41:45] "GET /requestStatus HTTP/1.1" 200 -
+2024-05-26 20:41:50 - INFO - 127.0.0.1 - - [26/May/2024 20:41:50] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:41:51 - INFO - 127.0.0.1 - - [26/May/2024 20:41:51] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 20:41:53 - INFO - 127.0.0.1 - - [26/May/2024 20:41:53] "GET /forgetPassword HTTP/1.1" 200 -
+2024-05-26 20:41:54 - INFO - 127.0.0.1 - - [26/May/2024 20:41:54] "GET / HTTP/1.1" 200 -
+2024-05-26 20:41:54 - INFO - 127.0.0.1 - - [26/May/2024 20:41:54] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:41:56 - INFO - 127.0.0.1 - - [26/May/2024 20:41:56] "GET /mnglogin HTTP/1.1" 200 -
+2024-05-26 20:42:03 - INFO - 127.0.0.1 - - [26/May/2024 20:42:03] "POST /managerloginprocess HTTP/1.1" 200 -
+2024-05-26 20:42:05 - INFO - 127.0.0.1 - - [26/May/2024 20:42:05] "GET /showManagerDetails HTTP/1.1" 200 -
+2024-05-26 20:42:09 - INFO - 127.0.0.1 - - [26/May/2024 20:42:09] "GET /managerpage HTTP/1.1" 200 -
+2024-05-26 20:42:10 - INFO - 127.0.0.1 - - [26/May/2024 20:42:10] "GET /viewEmployeePagetoManager HTTP/1.1" 200 -
+2024-05-26 20:42:12 - INFO - 127.0.0.1 - - [26/May/2024 20:42:12] "GET /managerpage HTTP/1.1" 200 -
+2024-05-26 20:42:15 - INFO - 127.0.0.1 - - [26/May/2024 20:42:15] "GET /managerRequests HTTP/1.1" 200 -
+2024-05-26 20:42:40 - INFO - 127.0.0.1 - - [26/May/2024 20:42:40] "POST /managerRequestRoute HTTP/1.1" 200 -
+2024-05-26 20:42:43 - INFO - 127.0.0.1 - - [26/May/2024 20:42:43] "GET /managerpage HTTP/1.1" 200 -
+2024-05-26 20:42:45 - INFO - 127.0.0.1 - - [26/May/2024 20:42:45] "GET /managerRequestStatus HTTP/1.1" 200 -
+2024-05-26 20:42:50 - INFO - 127.0.0.1 - - [26/May/2024 20:42:50] "GET /managerpage HTTP/1.1" 200 -
+2024-05-26 20:42:51 - INFO - 127.0.0.1 - - [26/May/2024 20:42:51] "GET /mnglogin HTTP/1.1" 200 -
+2024-05-26 20:42:52 - INFO - 127.0.0.1 - - [26/May/2024 20:42:52] "GET / HTTP/1.1" 200 -
+2024-05-26 20:42:52 - INFO - 127.0.0.1 - - [26/May/2024 20:42:52] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:42:53 - INFO - 127.0.0.1 - - [26/May/2024 20:42:53] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 20:42:58 - INFO - 127.0.0.1 - - [26/May/2024 20:42:58] "POST /adminloginprocess HTTP/1.1" 200 -
+2024-05-26 20:43:01 - INFO - 127.0.0.1 - - [26/May/2024 20:43:01] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-26 20:43:06 - INFO - 127.0.0.1 - - [26/May/2024 20:43:06] "GET /rejectRequest/6 HTTP/1.1" 200 -
+2024-05-26 20:43:07 - INFO - 127.0.0.1 - - [26/May/2024 20:43:07] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:43:08 - INFO - 127.0.0.1 - - [26/May/2024 20:43:08] "GET /requestStatus HTTP/1.1" 200 -
+2024-05-26 20:43:17 - INFO - 127.0.0.1 - - [26/May/2024 20:43:17] "GET /adminpage HTTP/1.1" 200 -
+2024-05-26 20:43:18 - INFO - 127.0.0.1 - - [26/May/2024 20:43:18] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 20:43:19 - INFO - 127.0.0.1 - - [26/May/2024 20:43:19] "GET / HTTP/1.1" 200 -
+2024-05-26 20:43:19 - INFO - 127.0.0.1 - - [26/May/2024 20:43:19] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:43:40 - INFO - 127.0.0.1 - - [26/May/2024 20:43:40] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-26 20:43:42 - INFO - 127.0.0.1 - - [26/May/2024 20:43:42] "GET / HTTP/1.1" 200 -
+2024-05-26 20:43:42 - INFO - 127.0.0.1 - - [26/May/2024 20:43:42] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-26 20:43:44 - INFO - 127.0.0.1 - - [26/May/2024 20:43:44] "GET /emplogin HTTP/1.1" 200 -
+2024-05-26 20:43:48 - INFO - 127.0.0.1 - - [26/May/2024 20:43:48] "GET / HTTP/1.1" 200 -
+2024-05-26 20:43:48 - INFO - 127.0.0.1 - - [26/May/2024 20:43:48] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-28 01:33:18 - INFO - Testing the admin login route
+2024-05-28 01:33:44 - INFO - Testing the admin login route
+2024-05-28 01:41:55 - INFO - Testing the admin login route
+2024-05-28 01:43:24 - INFO - Testing the admin login route
+2024-05-28 01:43:24 - INFO - Testing the admin login process with correct credentials
+2024-05-28 01:43:24 - INFO - Testing the admin login process with incorrect credentials
+2024-05-28 01:44:48 - INFO - Testing the admin login route
+2024-05-28 01:44:48 - INFO - Testing the admin login process with correct credentials
+2024-05-28 01:44:48 - INFO - Testing the admin login process with incorrect credentials
+2024-05-28 01:47:17 - INFO - Testing the admin login route
+2024-05-28 01:47:17 - INFO - Testing the admin login process with correct credentials
+2024-05-28 01:47:17 - INFO - Testing the admin login process with incorrect credentials
+2024-05-28 01:47:45 - INFO - Testing the admin login route
+2024-05-28 01:47:45 - INFO - Testing the admin login process with correct credentials
+2024-05-28 01:47:45 - INFO - Testing the admin login process with incorrect credentials
+2024-05-28 01:51:11 - INFO - Testing the admin login route
+2024-05-28 01:51:11 - INFO - Testing the admin login process with correct credentials
+2024-05-28 01:51:11 - INFO - Testing the admin login process with incorrect credentials
+2024-05-28 01:51:11 - INFO - Testing the forget password route
+2024-05-28 01:52:26 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-28 01:52:26 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-28 01:52:26 - INFO -  * Restarting with stat
+2024-05-28 01:52:26 - WARNING -  * Debugger is active!
+2024-05-28 01:52:26 - INFO -  * Debugger PIN: 777-212-917
+2024-05-28 01:52:28 - INFO - 127.0.0.1 - - [28/May/2024 01:52:28] "GET / HTTP/1.1" 200 -
+2024-05-28 01:52:28 - INFO - 127.0.0.1 - - [28/May/2024 01:52:28] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-28 01:52:28 - INFO - 127.0.0.1 - - [28/May/2024 01:52:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-05-28 01:52:29 - INFO - 127.0.0.1 - - [28/May/2024 01:52:29] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-28 01:52:33 - INFO - 127.0.0.1 - - [28/May/2024 01:52:33] "POST /adminloginprocess HTTP/1.1" 200 -
+2024-05-28 01:52:35 - INFO - 127.0.0.1 - - [28/May/2024 01:52:35] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-05-28 01:52:36 - INFO - 127.0.0.1 - - [28/May/2024 01:52:36] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:52:37 - INFO - 127.0.0.1 - - [28/May/2024 01:52:37] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-05-28 01:52:39 - INFO - 127.0.0.1 - - [28/May/2024 01:52:39] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:52:40 - INFO - 127.0.0.1 - - [28/May/2024 01:52:40] "GET /requestStatus HTTP/1.1" 200 -
+2024-05-28 01:52:42 - INFO - 127.0.0.1 - - [28/May/2024 01:52:42] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:52:43 - INFO - 127.0.0.1 - - [28/May/2024 01:52:43] "GET /viewManagers HTTP/1.1" 200 -
+2024-05-28 01:52:46 - INFO - 127.0.0.1 - - [28/May/2024 01:52:46] "GET /updateManager/1 HTTP/1.1" 200 -
+2024-05-28 01:52:48 - INFO - 127.0.0.1 - - [28/May/2024 01:52:48] "GET /viewManagers HTTP/1.1" 200 -
+2024-05-28 01:52:52 - INFO - 127.0.0.1 - - [28/May/2024 01:52:52] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:52:54 - INFO - 127.0.0.1 - - [28/May/2024 01:52:54] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-05-28 01:53:00 - INFO - 127.0.0.1 - - [28/May/2024 01:53:00] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:53:02 - INFO - 127.0.0.1 - - [28/May/2024 01:53:02] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-05-28 01:53:03 - INFO - 127.0.0.1 - - [28/May/2024 01:53:03] "GET /adminpage HTTP/1.1" 200 -
+2024-05-28 01:53:04 - INFO - 127.0.0.1 - - [28/May/2024 01:53:04] "GET /adminlogin HTTP/1.1" 200 -
+2024-05-28 01:53:05 - INFO - 127.0.0.1 - - [28/May/2024 01:53:05] "GET / HTTP/1.1" 200 -
+2024-05-28 01:53:05 - INFO - 127.0.0.1 - - [28/May/2024 01:53:05] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-28 01:53:07 - INFO - 127.0.0.1 - - [28/May/2024 01:53:07] "GET /emplogin HTTP/1.1" 200 -
+2024-05-28 01:53:09 - INFO - 127.0.0.1 - - [28/May/2024 01:53:09] "GET / HTTP/1.1" 200 -
+2024-05-28 01:53:09 - INFO - 127.0.0.1 - - [28/May/2024 01:53:09] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-05-28 01:53:10 - INFO - 127.0.0.1 - - [28/May/2024 01:53:10] "GET /mnglogin HTTP/1.1" 200 -
+2024-05-28 01:53:12 - INFO - 127.0.0.1 - - [28/May/2024 01:53:12] "GET / HTTP/1.1" 200 -
+2024-05-28 01:53:12 - INFO - 127.0.0.1 - - [28/May/2024 01:53:12] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -

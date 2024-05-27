@@ -534,23 +534,6 @@ def get_manager_requests(manager_id):
         connection.close()
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-# Admin routes --------------------------------
-
-@app.route('/adminlogin')
-def adminlogin():
-    return render_template('adminlogin.html')
-
-
-@app.route('/forgetPassword')
-def forgotPassword():
-    return render_template('forgetpassword.html')
-
-
 def forgetAdminPassword(email, password):
     connection = create_connection()
     if connection is None:
@@ -620,6 +603,37 @@ def forgotManagerPassword(email, password):
         connection.close()
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+# Admin routes --------------------------------
+
+@app.route('/adminlogin')
+def adminlogin():
+    return render_template('adminlogin.html')
+
+
+@app.route('/adminloginprocess', methods=['POST'])
+def adminloginprocess():
+    email = request.form['email']
+    password = request.form['password']
+
+    output = login_admin(email, password)
+    failedtext = 'Please login with correct email and password'
+
+    if output is True:
+        return render_template('adminpage.html')
+    else:
+        return render_template('adminlogin.html', failedtext=failedtext)
+
+
+@app.route('/forgetPassword')
+def forgotPassword():
+    return render_template('forgetpassword.html')
+
+
 @app.route('/forgetPasswordRoute', methods=['POST'])
 def forgotPasswordRoute():
     role = request.form['option']
@@ -643,20 +657,6 @@ def forgotPasswordRoute():
 @ app.route('/adminpage')
 def adminpage():
     return render_template('adminpage.html')
-
-
-@ app.route('/adminloginprocess', methods=['POST'])
-def adminloginprocess():
-    email = request.form['email']
-    password = request.form['password']
-
-    output = login_admin(email, password)
-    failedtext = 'Please login with correct email and password'
-
-    if output is True:
-        return render_template('adminpage.html')
-    else:
-        return render_template('adminlogin.html', failedtext=failedtext)
 
 
 @ app.route('/addEmployeePage')
