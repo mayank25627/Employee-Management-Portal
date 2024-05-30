@@ -4833,3 +4833,811 @@
 2024-05-30 18:33:05 - INFO - Testing the View Employee route
 2024-05-30 18:33:05 - INFO - Testing the View Manager route
 2024-05-30 18:33:05 - INFO - Testing the manager Login route
+2024-05-30 18:39:19 - INFO - Testing the admin login route
+2024-05-30 18:39:19 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:39:19 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:39:19 - INFO - Testing the forget password route
+2024-05-30 18:39:19 - INFO - Testing the admin page route
+2024-05-30 18:39:19 - INFO - Testing the addEmployeePage route
+2024-05-30 18:39:19 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:39:19 - INFO - Add Employee Test Success
+2024-05-30 18:39:19 - INFO - Testing the add manager page route route
+2024-05-30 18:39:19 - INFO - Adding manager route Testing
+2024-05-30 18:39:19 - INFO - Testing the add project page route route
+2024-05-30 18:39:19 - INFO - Adding project route Testing
+2024-05-30 18:39:19 - INFO - Testing the view employee page route route
+2024-05-30 18:39:19 - INFO - Testing the view employee route
+2024-05-30 18:39:19 - INFO - Testing the update employee route
+2024-05-30 18:39:19 - INFO - Testing the update employee route
+2024-05-30 18:39:19 - INFO - Testing the view Project page route
+2024-05-30 18:39:19 - INFO - Testing the update Project route
+2024-05-30 18:39:19 - INFO - Testing the update project route
+2024-05-30 18:39:19 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:39:19 - INFO - Testing the delete project route
+2024-05-30 18:39:19 - INFO - Testing the view manager route
+2024-05-30 18:39:19 - INFO - Testing the update manager route
+2024-05-30 18:39:19 - INFO - Testing updateManager Updates done
+2024-05-30 18:39:19 - INFO - Testing the delete Manager route
+2024-05-30 18:39:19 - INFO - Testing the assign project page route
+2024-05-30 18:39:19 - INFO - Testing the assign project route
+2024-05-30 18:39:19 - INFO - Testing the unassignassign project page route
+2024-05-30 18:39:19 - INFO - Testing the unassign employee route
+2024-05-30 18:39:19 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:39:19 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:39:19 - INFO - Testing the approve reject manager request route
+2024-05-30 18:39:19 - INFO - Testing the reject manager request route
+2024-05-30 18:39:19 - INFO - Testing the manager request status route
+2024-05-30 18:39:19 - INFO - Testing the employee login route
+2024-05-30 18:39:19 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:39:19 - INFO - Testing the show details route
+2024-05-30 18:39:19 - INFO - Testing the ADD Skills route
+2024-05-30 18:39:19 - INFO - Testing the ADD Skills route
+2024-05-30 18:39:20 - INFO - Testing the View Employee route
+2024-05-30 18:39:20 - INFO - Testing the View Manager route
+2024-05-30 18:39:20 - INFO - Testing the manager Login route
+2024-05-30 18:39:46 - INFO - Testing the admin login route
+2024-05-30 18:39:46 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:39:46 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:39:46 - INFO - Testing the forget password route
+2024-05-30 18:39:46 - INFO - Testing the admin page route
+2024-05-30 18:39:46 - INFO - Testing the addEmployeePage route
+2024-05-30 18:39:46 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:39:46 - INFO - Add Employee Test Success
+2024-05-30 18:39:46 - INFO - Testing the add manager page route route
+2024-05-30 18:39:46 - INFO - Adding manager route Testing
+2024-05-30 18:39:46 - INFO - Testing the add project page route route
+2024-05-30 18:39:46 - INFO - Adding project route Testing
+2024-05-30 18:39:46 - INFO - Testing the view employee page route route
+2024-05-30 18:39:46 - INFO - Testing the view employee route
+2024-05-30 18:39:46 - INFO - Testing the update employee route
+2024-05-30 18:39:46 - INFO - Testing the update employee route
+2024-05-30 18:39:46 - INFO - Testing the view Project page route
+2024-05-30 18:39:46 - INFO - Testing the update Project route
+2024-05-30 18:39:46 - INFO - Testing the update project route
+2024-05-30 18:39:46 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:39:46 - INFO - Testing the delete project route
+2024-05-30 18:39:46 - INFO - Testing the view manager route
+2024-05-30 18:39:46 - INFO - Testing the update manager route
+2024-05-30 18:39:46 - INFO - Testing updateManager Updates done
+2024-05-30 18:39:46 - INFO - Testing the delete Manager route
+2024-05-30 18:39:46 - INFO - Testing the assign project page route
+2024-05-30 18:39:46 - INFO - Testing the assign project route
+2024-05-30 18:39:46 - INFO - Testing the unassignassign project page route
+2024-05-30 18:39:46 - INFO - Testing the unassign employee route
+2024-05-30 18:39:46 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:39:46 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:39:46 - INFO - Testing the approve reject manager request route
+2024-05-30 18:39:46 - INFO - Testing the reject manager request route
+2024-05-30 18:39:46 - INFO - Testing the manager request status route
+2024-05-30 18:39:46 - INFO - Testing the employee login route
+2024-05-30 18:39:46 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:39:46 - INFO - Testing the show details route
+2024-05-30 18:39:46 - INFO - Testing the ADD Skills route
+2024-05-30 18:39:46 - INFO - Testing the ADD Skills route
+2024-05-30 18:39:46 - INFO - Testing the View Employee route
+2024-05-30 18:39:46 - INFO - Testing the View Manager route
+2024-05-30 18:39:46 - INFO - Testing the manager Login route
+2024-05-30 18:40:22 - INFO - Testing the admin login route
+2024-05-30 18:40:22 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:40:22 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:40:22 - INFO - Testing the forget password route
+2024-05-30 18:40:22 - INFO - Testing the admin page route
+2024-05-30 18:40:22 - INFO - Testing the addEmployeePage route
+2024-05-30 18:40:22 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:40:22 - INFO - Add Employee Test Success
+2024-05-30 18:40:22 - INFO - Testing the add manager page route route
+2024-05-30 18:40:22 - INFO - Adding manager route Testing
+2024-05-30 18:40:22 - INFO - Testing the add project page route route
+2024-05-30 18:40:22 - INFO - Adding project route Testing
+2024-05-30 18:40:22 - INFO - Testing the view employee page route route
+2024-05-30 18:40:22 - INFO - Testing the view employee route
+2024-05-30 18:40:22 - INFO - Testing the update employee route
+2024-05-30 18:40:22 - INFO - Testing the update employee route
+2024-05-30 18:40:22 - INFO - Testing the view Project page route
+2024-05-30 18:40:22 - INFO - Testing the update Project route
+2024-05-30 18:40:22 - INFO - Testing the update project route
+2024-05-30 18:40:22 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:40:22 - INFO - Testing the delete project route
+2024-05-30 18:40:22 - INFO - Testing the view manager route
+2024-05-30 18:40:22 - INFO - Testing the update manager route
+2024-05-30 18:40:22 - INFO - Testing updateManager Updates done
+2024-05-30 18:40:22 - INFO - Testing the delete Manager route
+2024-05-30 18:40:22 - INFO - Testing the assign project page route
+2024-05-30 18:40:22 - INFO - Testing the assign project route
+2024-05-30 18:40:22 - INFO - Testing the unassignassign project page route
+2024-05-30 18:40:22 - INFO - Testing the unassign employee route
+2024-05-30 18:40:22 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:40:22 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:40:22 - INFO - Testing the approve reject manager request route
+2024-05-30 18:40:22 - INFO - Testing the reject manager request route
+2024-05-30 18:40:22 - INFO - Testing the manager request status route
+2024-05-30 18:40:22 - INFO - Testing the employee login route
+2024-05-30 18:40:22 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:40:22 - INFO - Testing the show details route
+2024-05-30 18:40:22 - INFO - Testing the ADD Skills route
+2024-05-30 18:40:22 - INFO - Testing the ADD Skills route
+2024-05-30 18:40:22 - INFO - Testing the View Employee route
+2024-05-30 18:40:22 - INFO - Testing the View Manager route
+2024-05-30 18:40:22 - INFO - Testing the manager Login route
+2024-05-30 18:40:28 - INFO - Testing the admin login route
+2024-05-30 18:40:28 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:40:28 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:40:28 - INFO - Testing the forget password route
+2024-05-30 18:40:28 - INFO - Testing the admin page route
+2024-05-30 18:40:28 - INFO - Testing the addEmployeePage route
+2024-05-30 18:40:28 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:40:28 - INFO - Add Employee Test Success
+2024-05-30 18:40:28 - INFO - Testing the add manager page route route
+2024-05-30 18:40:28 - INFO - Adding manager route Testing
+2024-05-30 18:40:28 - INFO - Testing the add project page route route
+2024-05-30 18:40:28 - INFO - Adding project route Testing
+2024-05-30 18:40:28 - INFO - Testing the view employee page route route
+2024-05-30 18:40:28 - INFO - Testing the view employee route
+2024-05-30 18:40:28 - INFO - Testing the update employee route
+2024-05-30 18:40:28 - INFO - Testing the update employee route
+2024-05-30 18:40:28 - INFO - Testing the view Project page route
+2024-05-30 18:40:28 - INFO - Testing the update Project route
+2024-05-30 18:40:28 - INFO - Testing the update project route
+2024-05-30 18:40:28 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:40:28 - INFO - Testing the delete project route
+2024-05-30 18:40:28 - INFO - Testing the view manager route
+2024-05-30 18:40:28 - INFO - Testing the update manager route
+2024-05-30 18:40:28 - INFO - Testing updateManager Updates done
+2024-05-30 18:40:28 - INFO - Testing the delete Manager route
+2024-05-30 18:40:28 - INFO - Testing the assign project page route
+2024-05-30 18:40:28 - INFO - Testing the assign project route
+2024-05-30 18:40:28 - INFO - Testing the unassignassign project page route
+2024-05-30 18:40:28 - INFO - Testing the unassign employee route
+2024-05-30 18:40:28 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:40:28 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:40:28 - INFO - Testing the approve reject manager request route
+2024-05-30 18:40:28 - INFO - Testing the reject manager request route
+2024-05-30 18:40:29 - INFO - Testing the manager request status route
+2024-05-30 18:40:29 - INFO - Testing the employee login route
+2024-05-30 18:40:29 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:40:29 - INFO - Testing the show details route
+2024-05-30 18:40:29 - INFO - Testing the ADD Skills route
+2024-05-30 18:40:29 - INFO - Testing the ADD Skills route
+2024-05-30 18:40:29 - INFO - Testing the View Employee route
+2024-05-30 18:40:29 - INFO - Testing the View Manager route
+2024-05-30 18:40:29 - INFO - Testing the manager Login route
+2024-05-30 18:45:11 - INFO - Testing the admin login route
+2024-05-30 18:45:11 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:45:11 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:45:11 - INFO - Testing the forget password route
+2024-05-30 18:45:11 - INFO - Testing the admin page route
+2024-05-30 18:45:11 - INFO - Testing the addEmployeePage route
+2024-05-30 18:45:11 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:45:11 - INFO - Add Employee Test Success
+2024-05-30 18:45:11 - INFO - Testing the add manager page route route
+2024-05-30 18:45:11 - INFO - Adding manager route Testing
+2024-05-30 18:45:11 - INFO - Testing the add project page route route
+2024-05-30 18:45:12 - INFO - Adding project route Testing
+2024-05-30 18:45:12 - INFO - Testing the view employee page route route
+2024-05-30 18:45:12 - INFO - Testing the view employee route
+2024-05-30 18:45:12 - INFO - Testing the update employee route
+2024-05-30 18:45:12 - INFO - Testing the update employee route
+2024-05-30 18:45:12 - INFO - Testing the view Project page route
+2024-05-30 18:45:12 - INFO - Testing the update Project route
+2024-05-30 18:45:12 - INFO - Testing the update project route
+2024-05-30 18:45:12 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:45:12 - INFO - Testing the delete project route
+2024-05-30 18:45:12 - INFO - Testing the view manager route
+2024-05-30 18:45:12 - INFO - Testing the update manager route
+2024-05-30 18:45:12 - INFO - Testing updateManager Updates done
+2024-05-30 18:45:12 - INFO - Testing the delete Manager route
+2024-05-30 18:45:12 - INFO - Testing the assign project page route
+2024-05-30 18:45:12 - INFO - Testing the assign project route
+2024-05-30 18:45:12 - INFO - Testing the unassignassign project page route
+2024-05-30 18:45:12 - INFO - Testing the unassign employee route
+2024-05-30 18:45:12 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:45:12 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:45:12 - INFO - Testing the approve reject manager request route
+2024-05-30 18:45:12 - INFO - Testing the reject manager request route
+2024-05-30 18:45:12 - INFO - Testing the manager request status route
+2024-05-30 18:45:12 - INFO - Testing the employee login route
+2024-05-30 18:45:12 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:45:12 - INFO - Testing the show details route
+2024-05-30 18:45:12 - INFO - Testing the ADD Skills route
+2024-05-30 18:45:12 - INFO - Testing the ADD Skills route
+2024-05-30 18:45:12 - INFO - Testing the View Employee route
+2024-05-30 18:45:12 - INFO - Testing the View Manager route
+2024-05-30 18:45:12 - INFO - Testing the manager Login route
+2024-05-30 18:45:18 - INFO - Testing the admin login route
+2024-05-30 18:45:18 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:45:18 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:45:18 - INFO - Testing the forget password route
+2024-05-30 18:45:18 - INFO - Testing the admin page route
+2024-05-30 18:45:18 - INFO - Testing the addEmployeePage route
+2024-05-30 18:45:18 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:45:18 - INFO - Add Employee Test Success
+2024-05-30 18:45:18 - INFO - Testing the add manager page route route
+2024-05-30 18:45:18 - INFO - Adding manager route Testing
+2024-05-30 18:45:18 - INFO - Testing the add project page route route
+2024-05-30 18:45:18 - INFO - Adding project route Testing
+2024-05-30 18:45:18 - INFO - Testing the view employee page route route
+2024-05-30 18:45:18 - INFO - Testing the view employee route
+2024-05-30 18:45:18 - INFO - Testing the update employee route
+2024-05-30 18:45:18 - INFO - Testing the update employee route
+2024-05-30 18:45:18 - INFO - Testing the view Project page route
+2024-05-30 18:45:18 - INFO - Testing the update Project route
+2024-05-30 18:45:18 - INFO - Testing the update project route
+2024-05-30 18:45:18 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:45:18 - INFO - Testing the delete project route
+2024-05-30 18:45:18 - INFO - Testing the view manager route
+2024-05-30 18:45:18 - INFO - Testing the update manager route
+2024-05-30 18:45:18 - INFO - Testing updateManager Updates done
+2024-05-30 18:45:18 - INFO - Testing the delete Manager route
+2024-05-30 18:45:18 - INFO - Testing the assign project page route
+2024-05-30 18:45:19 - INFO - Testing the assign project route
+2024-05-30 18:45:19 - INFO - Testing the unassignassign project page route
+2024-05-30 18:45:19 - INFO - Testing the unassign employee route
+2024-05-30 18:45:19 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:45:19 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:45:19 - INFO - Testing the approve reject manager request route
+2024-05-30 18:45:19 - INFO - Testing the reject manager request route
+2024-05-30 18:45:19 - INFO - Testing the manager request status route
+2024-05-30 18:45:19 - INFO - Testing the employee login route
+2024-05-30 18:45:19 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:45:19 - INFO - Testing the show details route
+2024-05-30 18:45:19 - INFO - Testing the ADD Skills route
+2024-05-30 18:45:19 - INFO - Testing the ADD Skills route
+2024-05-30 18:45:19 - INFO - Testing the View Employee route
+2024-05-30 18:45:19 - INFO - Testing the View Manager route
+2024-05-30 18:45:19 - INFO - Testing the manager Login route
+2024-05-30 18:47:52 - INFO - Testing the admin login route
+2024-05-30 18:47:52 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:47:52 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:47:52 - INFO - Testing the forget password route
+2024-05-30 18:47:52 - INFO - Testing the admin page route
+2024-05-30 18:47:52 - INFO - Testing the addEmployeePage route
+2024-05-30 18:47:52 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:47:52 - INFO - Add Employee Test Success
+2024-05-30 18:47:52 - INFO - Testing the add manager page route route
+2024-05-30 18:47:52 - INFO - Adding manager route Testing
+2024-05-30 18:47:52 - INFO - Testing the add project page route route
+2024-05-30 18:47:52 - INFO - Adding project route Testing
+2024-05-30 18:47:52 - INFO - Testing the view employee page route route
+2024-05-30 18:47:52 - INFO - Testing the view employee route
+2024-05-30 18:47:52 - INFO - Testing the update employee route
+2024-05-30 18:47:52 - INFO - Testing the update employee route
+2024-05-30 18:47:52 - INFO - Testing the view Project page route
+2024-05-30 18:47:52 - INFO - Testing the update Project route
+2024-05-30 18:47:52 - INFO - Testing the update project route
+2024-05-30 18:47:52 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:47:52 - INFO - Testing the delete project route
+2024-05-30 18:47:52 - INFO - Testing the view manager route
+2024-05-30 18:47:52 - INFO - Testing the update manager route
+2024-05-30 18:47:52 - INFO - Testing updateManager Updates done
+2024-05-30 18:47:52 - INFO - Testing the delete Manager route
+2024-05-30 18:47:52 - INFO - Testing the assign project page route
+2024-05-30 18:47:52 - INFO - Testing the assign project route
+2024-05-30 18:47:52 - INFO - Testing the unassignassign project page route
+2024-05-30 18:47:52 - INFO - Testing the unassign employee route
+2024-05-30 18:47:52 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:47:52 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:47:52 - INFO - Testing the approve reject manager request route
+2024-05-30 18:47:52 - INFO - Testing the reject manager request route
+2024-05-30 18:47:52 - INFO - Testing the manager request status route
+2024-05-30 18:47:52 - INFO - Testing the employee login route
+2024-05-30 18:47:52 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:47:52 - INFO - Testing the show details route
+2024-05-30 18:47:52 - INFO - Testing the ADD Skills route
+2024-05-30 18:47:52 - INFO - Testing the ADD Skills route
+2024-05-30 18:47:52 - INFO - Testing the View Employee route
+2024-05-30 18:47:52 - INFO - Testing the View Manager route
+2024-05-30 18:47:52 - INFO - Testing the manager Login route
+2024-05-30 18:48:12 - INFO - Testing the admin login route
+2024-05-30 18:48:12 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:48:12 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:48:12 - INFO - Testing the forget password route
+2024-05-30 18:48:12 - INFO - Testing the admin page route
+2024-05-30 18:48:12 - INFO - Testing the addEmployeePage route
+2024-05-30 18:48:12 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:48:12 - INFO - Add Employee Test Success
+2024-05-30 18:48:12 - INFO - Testing the add manager page route route
+2024-05-30 18:48:12 - INFO - Adding manager route Testing
+2024-05-30 18:48:12 - INFO - Testing the add project page route route
+2024-05-30 18:48:12 - INFO - Adding project route Testing
+2024-05-30 18:48:12 - INFO - Testing the view employee page route route
+2024-05-30 18:48:12 - INFO - Testing the view employee route
+2024-05-30 18:48:12 - INFO - Testing the update employee route
+2024-05-30 18:48:12 - INFO - Testing the update employee route
+2024-05-30 18:48:12 - INFO - Testing the view Project page route
+2024-05-30 18:48:12 - INFO - Testing the update Project route
+2024-05-30 18:48:12 - INFO - Testing the update project route
+2024-05-30 18:48:12 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:48:12 - INFO - Testing the delete project route
+2024-05-30 18:48:12 - INFO - Testing the view manager route
+2024-05-30 18:48:12 - INFO - Testing the update manager route
+2024-05-30 18:48:12 - INFO - Testing updateManager Updates done
+2024-05-30 18:48:12 - INFO - Testing the delete Manager route
+2024-05-30 18:48:12 - INFO - Testing the assign project page route
+2024-05-30 18:48:12 - INFO - Testing the assign project route
+2024-05-30 18:48:12 - INFO - Testing the unassignassign project page route
+2024-05-30 18:48:12 - INFO - Testing the unassign employee route
+2024-05-30 18:48:12 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:48:12 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:48:12 - INFO - Testing the approve reject manager request route
+2024-05-30 18:48:12 - INFO - Testing the reject manager request route
+2024-05-30 18:48:12 - INFO - Testing the manager request status route
+2024-05-30 18:48:12 - INFO - Testing the employee login route
+2024-05-30 18:48:12 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:48:12 - INFO - Testing the show details route
+2024-05-30 18:48:12 - INFO - Testing the ADD Skills route
+2024-05-30 18:48:12 - INFO - Testing the ADD Skills route
+2024-05-30 18:48:12 - INFO - Testing the View Employee route
+2024-05-30 18:48:13 - INFO - Testing the View Manager route
+2024-05-30 18:48:13 - INFO - Testing the manager Login route
+2024-05-30 18:48:36 - INFO - Testing the admin login route
+2024-05-30 18:48:36 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:48:36 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:48:36 - INFO - Testing the forget password route
+2024-05-30 18:48:36 - INFO - Testing the admin page route
+2024-05-30 18:48:36 - INFO - Testing the addEmployeePage route
+2024-05-30 18:48:36 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:48:36 - INFO - Add Employee Test Success
+2024-05-30 18:48:36 - INFO - Testing the add manager page route route
+2024-05-30 18:48:36 - INFO - Adding manager route Testing
+2024-05-30 18:48:36 - INFO - Testing the add project page route route
+2024-05-30 18:48:36 - INFO - Adding project route Testing
+2024-05-30 18:48:36 - INFO - Testing the view employee page route route
+2024-05-30 18:48:36 - INFO - Testing the view employee route
+2024-05-30 18:48:36 - INFO - Testing the update employee route
+2024-05-30 18:48:36 - INFO - Testing the update employee route
+2024-05-30 18:48:36 - INFO - Testing the view Project page route
+2024-05-30 18:48:36 - INFO - Testing the update Project route
+2024-05-30 18:48:36 - INFO - Testing the update project route
+2024-05-30 18:48:36 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:48:36 - INFO - Testing the delete project route
+2024-05-30 18:48:36 - INFO - Testing the view manager route
+2024-05-30 18:48:36 - INFO - Testing the update manager route
+2024-05-30 18:48:36 - INFO - Testing updateManager Updates done
+2024-05-30 18:48:36 - INFO - Testing the delete Manager route
+2024-05-30 18:48:36 - INFO - Testing the assign project page route
+2024-05-30 18:48:36 - INFO - Testing the assign project route
+2024-05-30 18:48:36 - INFO - Testing the unassignassign project page route
+2024-05-30 18:48:36 - INFO - Testing the unassign employee route
+2024-05-30 18:48:36 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:48:36 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:48:36 - INFO - Testing the approve reject manager request route
+2024-05-30 18:48:36 - INFO - Testing the reject manager request route
+2024-05-30 18:48:36 - INFO - Testing the manager request status route
+2024-05-30 18:48:36 - INFO - Testing the employee login route
+2024-05-30 18:48:36 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:48:36 - INFO - Testing the show details route
+2024-05-30 18:48:36 - INFO - Testing the ADD Skills route
+2024-05-30 18:48:36 - INFO - Testing the ADD Skills route
+2024-05-30 18:48:36 - INFO - Testing the View Employee route
+2024-05-30 18:48:36 - INFO - Testing the View Manager route
+2024-05-30 18:48:36 - INFO - Testing the manager Login route
+2024-05-30 18:50:37 - INFO - Testing the admin login route
+2024-05-30 18:50:37 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:50:37 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:50:37 - INFO - Testing the forget password route
+2024-05-30 18:50:37 - INFO - Testing the admin page route
+2024-05-30 18:50:37 - INFO - Testing the addEmployeePage route
+2024-05-30 18:50:37 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:50:37 - INFO - Add Employee Test Success
+2024-05-30 18:50:37 - INFO - Testing the add manager page route route
+2024-05-30 18:50:37 - INFO - Adding manager route Testing
+2024-05-30 18:50:37 - INFO - Testing the add project page route route
+2024-05-30 18:50:37 - INFO - Adding project route Testing
+2024-05-30 18:50:37 - INFO - Testing the view employee page route route
+2024-05-30 18:50:37 - INFO - Testing the view employee route
+2024-05-30 18:50:37 - INFO - Testing the update employee route
+2024-05-30 18:50:37 - INFO - Testing the update employee route
+2024-05-30 18:50:37 - INFO - Testing the view Project page route
+2024-05-30 18:50:37 - INFO - Testing the update Project route
+2024-05-30 18:50:37 - INFO - Testing the update project route
+2024-05-30 18:50:37 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:50:37 - INFO - Testing the delete project route
+2024-05-30 18:50:37 - INFO - Testing the view manager route
+2024-05-30 18:50:37 - INFO - Testing the update manager route
+2024-05-30 18:50:37 - INFO - Testing updateManager Updates done
+2024-05-30 18:50:37 - INFO - Testing the delete Manager route
+2024-05-30 18:50:37 - INFO - Testing the assign project page route
+2024-05-30 18:50:37 - INFO - Testing the assign project route
+2024-05-30 18:50:37 - INFO - Testing the unassignassign project page route
+2024-05-30 18:50:37 - INFO - Testing the unassign employee route
+2024-05-30 18:50:37 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:50:37 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:50:37 - INFO - Testing the approve reject manager request route
+2024-05-30 18:50:37 - INFO - Testing the reject manager request route
+2024-05-30 18:50:37 - INFO - Testing the manager request status route
+2024-05-30 18:50:37 - INFO - Testing the employee login route
+2024-05-30 18:50:37 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:50:37 - INFO - Testing the show details route
+2024-05-30 18:50:37 - INFO - Testing the ADD Skills route
+2024-05-30 18:50:37 - INFO - Testing the ADD Skills route
+2024-05-30 18:50:37 - INFO - Testing the View Employee route
+2024-05-30 18:50:37 - INFO - Testing the View Manager route
+2024-05-30 18:50:37 - INFO - Testing the manager Login route
+2024-05-30 18:51:01 - INFO - Testing the admin login route
+2024-05-30 18:51:01 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:51:01 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:51:01 - INFO - Testing the forget password route
+2024-05-30 18:51:01 - INFO - Testing the admin page route
+2024-05-30 18:51:01 - INFO - Testing the addEmployeePage route
+2024-05-30 18:51:01 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:51:01 - INFO - Add Employee Test Success
+2024-05-30 18:51:01 - INFO - Testing the add manager page route route
+2024-05-30 18:51:01 - INFO - Adding manager route Testing
+2024-05-30 18:51:01 - INFO - Testing the add project page route route
+2024-05-30 18:51:01 - INFO - Adding project route Testing
+2024-05-30 18:51:01 - INFO - Testing the view employee page route route
+2024-05-30 18:51:01 - INFO - Testing the view employee route
+2024-05-30 18:51:01 - INFO - Testing the update employee route
+2024-05-30 18:51:01 - INFO - Testing the update employee route
+2024-05-30 18:51:01 - INFO - Testing the view Project page route
+2024-05-30 18:51:01 - INFO - Testing the update Project route
+2024-05-30 18:51:01 - INFO - Testing the update project route
+2024-05-30 18:51:01 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:51:01 - INFO - Testing the delete project route
+2024-05-30 18:51:01 - INFO - Testing the view manager route
+2024-05-30 18:51:01 - INFO - Testing the update manager route
+2024-05-30 18:51:01 - INFO - Testing updateManager Updates done
+2024-05-30 18:51:01 - INFO - Testing the delete Manager route
+2024-05-30 18:51:01 - INFO - Testing the assign project page route
+2024-05-30 18:51:01 - INFO - Testing the assign project route
+2024-05-30 18:51:01 - INFO - Testing the unassignassign project page route
+2024-05-30 18:51:01 - INFO - Testing the unassign employee route
+2024-05-30 18:51:01 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:51:01 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:51:01 - INFO - Testing the approve reject manager request route
+2024-05-30 18:51:01 - INFO - Testing the reject manager request route
+2024-05-30 18:51:01 - INFO - Testing the manager request status route
+2024-05-30 18:51:01 - INFO - Testing the employee login route
+2024-05-30 18:51:01 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:51:01 - INFO - Testing the show details route
+2024-05-30 18:51:01 - INFO - Testing the ADD Skills route
+2024-05-30 18:51:01 - INFO - Testing the ADD Skills route
+2024-05-30 18:51:01 - INFO - Testing the View Employee route
+2024-05-30 18:51:01 - INFO - Testing the View Manager route
+2024-05-30 18:51:01 - INFO - Testing the manager Login route
+2024-05-30 18:51:15 - INFO - Testing the admin login route
+2024-05-30 18:51:15 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:51:15 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:51:15 - INFO - Testing the forget password route
+2024-05-30 18:51:15 - INFO - Testing the admin page route
+2024-05-30 18:51:15 - INFO - Testing the addEmployeePage route
+2024-05-30 18:51:15 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:51:15 - INFO - Add Employee Test Success
+2024-05-30 18:51:15 - INFO - Testing the add manager page route route
+2024-05-30 18:51:15 - INFO - Adding manager route Testing
+2024-05-30 18:51:15 - INFO - Testing the add project page route route
+2024-05-30 18:51:15 - INFO - Adding project route Testing
+2024-05-30 18:51:15 - INFO - Testing the view employee page route route
+2024-05-30 18:51:15 - INFO - Testing the view employee route
+2024-05-30 18:51:15 - INFO - Testing the update employee route
+2024-05-30 18:51:15 - INFO - Testing the update employee route
+2024-05-30 18:51:15 - INFO - Testing the view Project page route
+2024-05-30 18:51:15 - INFO - Testing the update Project route
+2024-05-30 18:51:15 - INFO - Testing the update project route
+2024-05-30 18:51:15 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:51:15 - INFO - Testing the delete project route
+2024-05-30 18:51:15 - INFO - Testing the view manager route
+2024-05-30 18:51:15 - INFO - Testing the update manager route
+2024-05-30 18:51:15 - INFO - Testing updateManager Updates done
+2024-05-30 18:51:15 - INFO - Testing the delete Manager route
+2024-05-30 18:51:15 - INFO - Testing the assign project page route
+2024-05-30 18:51:15 - INFO - Testing the assign project route
+2024-05-30 18:51:15 - INFO - Testing the unassignassign project page route
+2024-05-30 18:51:15 - INFO - Testing the unassign employee route
+2024-05-30 18:51:15 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:51:15 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:51:15 - INFO - Testing the approve reject manager request route
+2024-05-30 18:51:15 - INFO - Testing the reject manager request route
+2024-05-30 18:51:15 - INFO - Testing the manager request status route
+2024-05-30 18:51:15 - INFO - Testing the employee login route
+2024-05-30 18:51:15 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:51:15 - INFO - Testing the show details route
+2024-05-30 18:51:15 - INFO - Testing the ADD Skills route
+2024-05-30 18:51:15 - INFO - Testing the ADD Skills route
+2024-05-30 18:51:15 - INFO - Testing the View Employee route
+2024-05-30 18:51:15 - INFO - Testing the View Manager route
+2024-05-30 18:51:15 - INFO - Testing the manager Login route
+2024-05-30 18:53:08 - INFO - Testing the admin login route
+2024-05-30 18:53:08 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:53:08 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:53:08 - INFO - Testing the forget password route
+2024-05-30 18:53:08 - INFO - Testing the admin page route
+2024-05-30 18:53:08 - INFO - Testing the addEmployeePage route
+2024-05-30 18:53:08 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:53:08 - INFO - Add Employee Test Success
+2024-05-30 18:53:08 - INFO - Testing the add manager page route route
+2024-05-30 18:53:08 - INFO - Adding manager route Testing
+2024-05-30 18:53:08 - INFO - Testing the add project page route route
+2024-05-30 18:53:08 - INFO - Adding project route Testing
+2024-05-30 18:53:08 - INFO - Testing the view employee page route route
+2024-05-30 18:53:08 - INFO - Testing the view employee route
+2024-05-30 18:53:08 - INFO - Testing the update employee route
+2024-05-30 18:53:08 - INFO - Testing the update employee route
+2024-05-30 18:53:08 - INFO - Testing the view Project page route
+2024-05-30 18:53:08 - INFO - Testing the update Project route
+2024-05-30 18:53:08 - INFO - Testing the update project route
+2024-05-30 18:53:08 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:53:08 - INFO - Testing the delete project route
+2024-05-30 18:53:08 - INFO - Testing the view manager route
+2024-05-30 18:53:08 - INFO - Testing the update manager route
+2024-05-30 18:53:08 - INFO - Testing updateManager Updates done
+2024-05-30 18:53:08 - INFO - Testing the delete Manager route
+2024-05-30 18:53:08 - INFO - Testing the assign project page route
+2024-05-30 18:53:08 - INFO - Testing the assign project route
+2024-05-30 18:53:08 - INFO - Testing the unassignassign project page route
+2024-05-30 18:53:08 - INFO - Testing the unassign employee route
+2024-05-30 18:53:08 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:53:08 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:53:08 - INFO - Testing the approve reject manager request route
+2024-05-30 18:53:08 - INFO - Testing the reject manager request route
+2024-05-30 18:53:08 - INFO - Testing the manager request status route
+2024-05-30 18:53:08 - INFO - Testing the employee login route
+2024-05-30 18:53:08 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:53:08 - INFO - Testing the show details route
+2024-05-30 18:53:08 - INFO - Testing the ADD Skills route
+2024-05-30 18:53:08 - INFO - Testing the ADD Skills route
+2024-05-30 18:53:08 - INFO - Testing the View Employee route
+2024-05-30 18:53:08 - INFO - Testing the View Manager route
+2024-05-30 18:53:08 - INFO - Testing the manager Login route
+2024-05-30 18:54:43 - INFO - Testing the admin login route
+2024-05-30 18:54:43 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:54:43 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:54:43 - INFO - Testing the forget password route
+2024-05-30 18:54:43 - INFO - Testing the admin page route
+2024-05-30 18:54:43 - INFO - Testing the addEmployeePage route
+2024-05-30 18:54:43 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:54:43 - INFO - Add Employee Test Success
+2024-05-30 18:54:44 - INFO - Testing the add manager page route route
+2024-05-30 18:54:44 - INFO - Adding manager route Testing
+2024-05-30 18:54:44 - INFO - Testing the add project page route route
+2024-05-30 18:54:44 - INFO - Adding project route Testing
+2024-05-30 18:54:44 - INFO - Testing the view employee page route route
+2024-05-30 18:54:44 - INFO - Testing the view employee route
+2024-05-30 18:54:44 - INFO - Testing the update employee route
+2024-05-30 18:54:44 - INFO - Testing the update employee route
+2024-05-30 18:54:44 - INFO - Testing the view Project page route
+2024-05-30 18:54:44 - INFO - Testing the update Project route
+2024-05-30 18:54:44 - INFO - Testing the update project route
+2024-05-30 18:54:44 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:54:44 - INFO - Testing the delete project route
+2024-05-30 18:54:44 - INFO - Testing the view manager route
+2024-05-30 18:54:44 - INFO - Testing the update manager route
+2024-05-30 18:54:44 - INFO - Testing updateManager Updates done
+2024-05-30 18:54:44 - INFO - Testing the delete Manager route
+2024-05-30 18:54:44 - INFO - Testing the assign project page route
+2024-05-30 18:54:44 - INFO - Testing the assign project route
+2024-05-30 18:54:44 - INFO - Testing the unassignassign project page route
+2024-05-30 18:54:44 - INFO - Testing the unassign employee route
+2024-05-30 18:54:44 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:54:44 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:54:44 - INFO - Testing the approve reject manager request route
+2024-05-30 18:54:44 - INFO - Testing the reject manager request route
+2024-05-30 18:54:44 - INFO - Testing the manager request status route
+2024-05-30 18:54:44 - INFO - Testing the employee login route
+2024-05-30 18:54:44 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:54:44 - INFO - Testing the show details route
+2024-05-30 18:54:44 - INFO - Testing the ADD Skills route
+2024-05-30 18:54:44 - INFO - Testing the ADD Skills route
+2024-05-30 18:54:44 - INFO - Testing the View Employee route
+2024-05-30 18:54:44 - INFO - Testing the View Manager route
+2024-05-30 18:54:44 - INFO - Testing the manager Login route
+2024-05-30 18:57:01 - INFO - Testing the admin login route
+2024-05-30 18:57:01 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:57:01 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:57:01 - INFO - Testing the forget password route
+2024-05-30 18:57:01 - INFO - Testing the admin page route
+2024-05-30 18:57:01 - INFO - Testing the addEmployeePage route
+2024-05-30 18:57:01 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:57:01 - INFO - Add Employee Test Success
+2024-05-30 18:57:01 - INFO - Testing the add manager page route route
+2024-05-30 18:57:01 - INFO - Adding manager route Testing
+2024-05-30 18:57:01 - INFO - Testing the add project page route route
+2024-05-30 18:57:01 - INFO - Adding project route Testing
+2024-05-30 18:57:01 - INFO - Testing the view employee page route route
+2024-05-30 18:57:01 - INFO - Testing the view employee route
+2024-05-30 18:57:01 - INFO - Testing the update employee route
+2024-05-30 18:57:01 - INFO - Testing the update employee route
+2024-05-30 18:57:01 - INFO - Testing the view Project page route
+2024-05-30 18:57:01 - INFO - Testing the update Project route
+2024-05-30 18:57:01 - INFO - Testing the update project route
+2024-05-30 18:57:01 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:57:01 - INFO - Testing the delete project route
+2024-05-30 18:57:01 - INFO - Testing the view manager route
+2024-05-30 18:57:01 - INFO - Testing the update manager route
+2024-05-30 18:57:01 - INFO - Testing updateManager Updates done
+2024-05-30 18:57:01 - INFO - Testing the delete Manager route
+2024-05-30 18:57:01 - INFO - Testing the assign project page route
+2024-05-30 18:57:01 - INFO - Testing the assign project route
+2024-05-30 18:57:01 - INFO - Testing the unassignassign project page route
+2024-05-30 18:57:01 - INFO - Testing the unassign employee route
+2024-05-30 18:57:01 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:57:01 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:57:01 - INFO - Testing the approve reject manager request route
+2024-05-30 18:57:01 - INFO - Testing the reject manager request route
+2024-05-30 18:57:01 - INFO - Testing the manager request status route
+2024-05-30 18:57:01 - INFO - Testing the employee login route
+2024-05-30 18:57:01 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:57:01 - INFO - Testing the show details route
+2024-05-30 18:57:01 - INFO - Testing the ADD Skills route
+2024-05-30 18:57:01 - INFO - Testing the ADD Skills route
+2024-05-30 18:57:01 - INFO - Testing the View Employee route
+2024-05-30 18:57:01 - INFO - Testing the View Manager route
+2024-05-30 18:57:01 - INFO - Testing the manager Login route
+2024-05-30 18:57:01 - INFO - Testing the view Project page route
+2024-05-30 18:57:58 - INFO - Testing the admin login route
+2024-05-30 18:57:58 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:57:58 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:57:58 - INFO - Testing the forget password route
+2024-05-30 18:57:58 - INFO - Testing the admin page route
+2024-05-30 18:57:58 - INFO - Testing the addEmployeePage route
+2024-05-30 18:57:58 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:57:58 - INFO - Add Employee Test Success
+2024-05-30 18:57:58 - INFO - Testing the add manager page route route
+2024-05-30 18:57:58 - INFO - Adding manager route Testing
+2024-05-30 18:57:58 - INFO - Testing the add project page route route
+2024-05-30 18:57:58 - INFO - Adding project route Testing
+2024-05-30 18:57:58 - INFO - Testing the view employee page route route
+2024-05-30 18:57:58 - INFO - Testing the view employee route
+2024-05-30 18:57:58 - INFO - Testing the update employee route
+2024-05-30 18:57:58 - INFO - Testing the update employee route
+2024-05-30 18:57:58 - INFO - Testing the view Project page route
+2024-05-30 18:57:58 - INFO - Testing the update Project route
+2024-05-30 18:57:58 - INFO - Testing the update project route
+2024-05-30 18:57:58 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:57:58 - INFO - Testing the delete project route
+2024-05-30 18:57:58 - INFO - Testing the view manager route
+2024-05-30 18:57:58 - INFO - Testing the update manager route
+2024-05-30 18:57:58 - INFO - Testing updateManager Updates done
+2024-05-30 18:57:58 - INFO - Testing the delete Manager route
+2024-05-30 18:57:58 - INFO - Testing the assign project page route
+2024-05-30 18:57:58 - INFO - Testing the assign project route
+2024-05-30 18:57:58 - INFO - Testing the unassignassign project page route
+2024-05-30 18:57:58 - INFO - Testing the unassign employee route
+2024-05-30 18:57:58 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:57:58 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:57:58 - INFO - Testing the approve reject manager request route
+2024-05-30 18:57:58 - INFO - Testing the reject manager request route
+2024-05-30 18:57:58 - INFO - Testing the manager request status route
+2024-05-30 18:57:58 - INFO - Testing the employee login route
+2024-05-30 18:57:58 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:57:58 - INFO - Testing the show details route
+2024-05-30 18:57:58 - INFO - Testing the ADD Skills route
+2024-05-30 18:57:58 - INFO - Testing the ADD Skills route
+2024-05-30 18:57:58 - INFO - Testing the View Employee route
+2024-05-30 18:57:58 - INFO - Testing the View Manager route
+2024-05-30 18:57:58 - INFO - Testing the manager Login route
+2024-05-30 18:57:58 - INFO - Testing the view Project page route
+2024-05-30 18:58:29 - INFO - Testing the admin login route
+2024-05-30 18:58:29 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:58:29 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:58:29 - INFO - Testing the forget password route
+2024-05-30 18:58:29 - INFO - Testing the admin page route
+2024-05-30 18:58:29 - INFO - Testing the addEmployeePage route
+2024-05-30 18:58:29 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:58:29 - INFO - Add Employee Test Success
+2024-05-30 18:58:29 - INFO - Testing the add manager page route route
+2024-05-30 18:58:29 - INFO - Adding manager route Testing
+2024-05-30 18:58:29 - INFO - Testing the add project page route route
+2024-05-30 18:58:29 - INFO - Adding project route Testing
+2024-05-30 18:58:29 - INFO - Testing the view employee page route route
+2024-05-30 18:58:29 - INFO - Testing the view employee route
+2024-05-30 18:58:29 - INFO - Testing the update employee route
+2024-05-30 18:58:29 - INFO - Testing the update employee route
+2024-05-30 18:58:29 - INFO - Testing the view Project page route
+2024-05-30 18:58:29 - INFO - Testing the update Project route
+2024-05-30 18:58:29 - INFO - Testing the update project route
+2024-05-30 18:58:29 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:58:29 - INFO - Testing the delete project route
+2024-05-30 18:58:29 - INFO - Testing the view manager route
+2024-05-30 18:58:29 - INFO - Testing the update manager route
+2024-05-30 18:58:29 - INFO - Testing updateManager Updates done
+2024-05-30 18:58:29 - INFO - Testing the delete Manager route
+2024-05-30 18:58:29 - INFO - Testing the assign project page route
+2024-05-30 18:58:29 - INFO - Testing the assign project route
+2024-05-30 18:58:29 - INFO - Testing the unassignassign project page route
+2024-05-30 18:58:29 - INFO - Testing the unassign employee route
+2024-05-30 18:58:29 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:58:29 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:58:29 - INFO - Testing the approve reject manager request route
+2024-05-30 18:58:29 - INFO - Testing the reject manager request route
+2024-05-30 18:58:29 - INFO - Testing the manager request status route
+2024-05-30 18:58:29 - INFO - Testing the employee login route
+2024-05-30 18:58:29 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:58:29 - INFO - Testing the show details route
+2024-05-30 18:58:29 - INFO - Testing the ADD Skills route
+2024-05-30 18:58:29 - INFO - Testing the ADD Skills route
+2024-05-30 18:58:29 - INFO - Testing the View Employee route
+2024-05-30 18:58:29 - INFO - Testing the View Manager route
+2024-05-30 18:58:29 - INFO - Testing the manager Login route
+2024-05-30 18:58:29 - INFO - Testing the view Project page route
+2024-05-30 18:58:37 - INFO - Testing the admin login route
+2024-05-30 18:58:37 - INFO - Testing the admin login process with correct credentials
+2024-05-30 18:58:37 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 18:58:37 - INFO - Testing the forget password route
+2024-05-30 18:58:37 - INFO - Testing the admin page route
+2024-05-30 18:58:37 - INFO - Testing the addEmployeePage route
+2024-05-30 18:58:37 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 18:58:37 - INFO - Add Employee Test Success
+2024-05-30 18:58:37 - INFO - Testing the add manager page route route
+2024-05-30 18:58:37 - INFO - Adding manager route Testing
+2024-05-30 18:58:37 - INFO - Testing the add project page route route
+2024-05-30 18:58:37 - INFO - Adding project route Testing
+2024-05-30 18:58:37 - INFO - Testing the view employee page route route
+2024-05-30 18:58:37 - INFO - Testing the view employee route
+2024-05-30 18:58:37 - INFO - Testing the update employee route
+2024-05-30 18:58:38 - INFO - Testing the update employee route
+2024-05-30 18:58:38 - INFO - Testing the view Project page route
+2024-05-30 18:58:38 - INFO - Testing the update Project route
+2024-05-30 18:58:38 - INFO - Testing the update project route
+2024-05-30 18:58:38 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 18:58:38 - INFO - Testing the delete project route
+2024-05-30 18:58:38 - INFO - Testing the view manager route
+2024-05-30 18:58:38 - INFO - Testing the update manager route
+2024-05-30 18:58:38 - INFO - Testing updateManager Updates done
+2024-05-30 18:58:38 - INFO - Testing the delete Manager route
+2024-05-30 18:58:38 - INFO - Testing the assign project page route
+2024-05-30 18:58:38 - INFO - Testing the assign project route
+2024-05-30 18:58:38 - INFO - Testing the unassignassign project page route
+2024-05-30 18:58:38 - INFO - Testing the unassign employee route
+2024-05-30 18:58:38 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 18:58:38 - INFO - Test approveRejectManagerRequest route
+2024-05-30 18:58:38 - INFO - Testing the approve reject manager request route
+2024-05-30 18:58:38 - INFO - Testing the reject manager request route
+2024-05-30 18:58:38 - INFO - Testing the manager request status route
+2024-05-30 18:58:38 - INFO - Testing the employee login route
+2024-05-30 18:58:38 - INFO - Testing the employee login process with correct credentials
+2024-05-30 18:58:38 - INFO - Testing the show details route
+2024-05-30 18:58:38 - INFO - Testing the ADD Skills route
+2024-05-30 18:58:38 - INFO - Testing the ADD Skills route
+2024-05-30 18:58:38 - INFO - Testing the View Employee route
+2024-05-30 18:58:38 - INFO - Testing the View Manager route
+2024-05-30 18:58:38 - INFO - Testing the manager Login route
+2024-05-30 18:58:38 - INFO - Testing the view Project page route
+2024-05-30 19:00:34 - INFO - Testing the admin login route
+2024-05-30 19:00:34 - INFO - Testing the admin login process with correct credentials
+2024-05-30 19:00:34 - INFO - Testing the admin login process with incorrect credentials
+2024-05-30 19:00:34 - INFO - Testing the forget password route
+2024-05-30 19:00:34 - INFO - Testing the admin page route
+2024-05-30 19:00:34 - INFO - Testing the addEmployeePage route
+2024-05-30 19:00:34 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-05-30 19:00:34 - INFO - Add Employee Test Success
+2024-05-30 19:00:34 - INFO - Testing the add manager page route route
+2024-05-30 19:00:34 - INFO - Adding manager route Testing
+2024-05-30 19:00:34 - INFO - Testing the add project page route route
+2024-05-30 19:00:34 - INFO - Adding project route Testing
+2024-05-30 19:00:34 - INFO - Testing the view employee page route route
+2024-05-30 19:00:34 - INFO - Testing the view employee route
+2024-05-30 19:00:34 - INFO - Testing the update employee route
+2024-05-30 19:00:34 - INFO - Testing the update employee route
+2024-05-30 19:00:34 - INFO - Testing the view Project page route
+2024-05-30 19:00:35 - INFO - Testing the update Project route
+2024-05-30 19:00:35 - INFO - Testing the update project route
+2024-05-30 19:00:35 - INFO - Project with ID 11 deleted successfully.
+2024-05-30 19:00:35 - INFO - Testing the delete project route
+2024-05-30 19:00:35 - INFO - Testing the view manager route
+2024-05-30 19:00:35 - INFO - Testing the update manager route
+2024-05-30 19:00:35 - INFO - Testing updateManager Updates done
+2024-05-30 19:00:35 - INFO - Testing the delete Manager route
+2024-05-30 19:00:35 - INFO - Testing the assign project page route
+2024-05-30 19:00:35 - INFO - Testing the assign project route
+2024-05-30 19:00:35 - INFO - Testing the unassignassign project page route
+2024-05-30 19:00:35 - INFO - Testing the unassign employee route
+2024-05-30 19:00:35 - INFO - Test viewEmployeesWithProjects route
+2024-05-30 19:00:35 - INFO - Test approveRejectManagerRequest route
+2024-05-30 19:00:35 - INFO - Testing the approve reject manager request route
+2024-05-30 19:00:35 - INFO - Testing the reject manager request route
+2024-05-30 19:00:35 - INFO - Testing the manager request status route
+2024-05-30 19:00:35 - INFO - Testing the employee login route
+2024-05-30 19:00:35 - INFO - Testing the employee login process with correct credentials
+2024-05-30 19:00:35 - INFO - Testing the show details route
+2024-05-30 19:00:35 - INFO - Testing the ADD Skills route
+2024-05-30 19:00:35 - INFO - Testing the ADD Skills route
+2024-05-30 19:00:35 - INFO - Testing the View Employee route
+2024-05-30 19:00:35 - INFO - Testing the View Manager route
+2024-05-30 19:00:35 - INFO - Testing the manager Login route
+2024-05-30 19:00:35 - INFO - Testing the manager login page route
+2024-05-30 19:00:35 - INFO - Testing the manager page route
+2024-05-30 19:00:35 - INFO - Testing the Show Manager page route
+2024-05-30 19:00:35 - INFO - Testing the view Employee page route
+2024-05-30 19:00:35 - INFO - Testing the view manager page route
+2024-05-30 19:00:35 - INFO - Testing the view Project page route

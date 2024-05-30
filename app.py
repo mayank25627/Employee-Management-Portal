@@ -1201,8 +1201,6 @@ def viewManagerPagetoEmployee():
 def mnglogin():
     return render_template('mnglogin.html')
 
-# testig done at above route
-
 
 @ app.route('/managerloginprocess', methods=['GET', 'POST'])
 def manager_page():
@@ -1274,6 +1272,9 @@ def viewManagerPagetoManager():
         return render_template('viewmanagertomanager.html', managers=managers)
     else:
         return render_template('viewmanagertomanager.html', error="No employees found or an error occurred.")
+
+
+# testig done at above route
 
 
 @ app.route('/viewProjecttoMnager')

@@ -633,3 +633,100 @@ def test_managerloginprocess(client, mocker):
     """
     Test Manager Login process route
     """
+
+    mocker.patch('app.login_manager', return_value=[True, {
+        'first_name': 'Rohan',
+        'last_name': 'Khatri',
+        'email': 'rohan_khatri@nucleusteq.com'
+    }])
+
+    response = client.post('/managerloginprocess', data={
+        'email': 'rohan_khatri@nucleusteq.com',
+        'password': 'Rohan@123'
+    })
+    logger.info("Testing the manager login page route")
+    assert response.status_code == 200
+    assert b'Welcome' in response.data
+
+
+def test_managerpage(client, mocker):
+    """
+    Test Manager Page route that return to the home page of manager login
+    """
+
+    with client.session_transaction() as sess:
+        sess['manager'] = {'manager_id': 1,
+                           'first_name': 'Rahul', 'last_name': 'Khatri'}
+
+    response = client.get('/managerpage')
+    logger.info("Testing the manager page route")
+    assert response.status_code is 200
+    assert b'Welcome' in response.data
+
+
+def test_showManagerDetails(client):
+    """
+    Test show Manager Page details route
+    """
+
+    with client.session_transaction() as sess:
+        sess['manager'] = {'manager_id': 1,
+                           'first_name': 'Rahul', 'last_name': 'Khatri'}
+
+    response = client.get('/showManagerDetails')
+    logger.info("Testing the Show Manager page route")
+    assert response.status_code is 200
+    assert b'Manager Details' in response.data
+
+
+def test_viewEmployeePagetoManager(client, mocker):
+    """
+    Test the viewEmployeePagetoManager route
+    """
+
+    mocker.patch('app.viewEmployee', return_value=[True, {
+        'first_name': 'Mayank',
+        'last_name': 'Sahu',
+        'email': 'sahu25627@nucleusteq.com',
+        'phone': '8458809510',
+        'position': 'Senio Software engineer',
+        'address': 'Pithampur MP'
+    }])
+
+    response = client.get('/viewEmployeePagetoManager', follow_redirects=True)
+    logger.info("Testing the view Employee page route")
+    assert response.status_code is 200
+    assert b'Employee List' in response.data
+
+
+def test_viewManagerPagetoManager(client, mocker):
+    """
+    Test the viewManagerPagetoManager route
+    """
+
+    mocker.patch('app.viewManager', return_value=[True, {
+        'first_name': 'Rahul',
+        'last_name': 'Khatri',
+        'email': 'rahul_khatri@nucleusteq.com',
+        'phone_number': '7895478998'
+    }])
+
+    response = client.get('/viewManagerPagetoManager', follow_redirects=True)
+    logger.info("Testing the view manager page route")
+    assert response.status_code is 200
+    assert b'Manager List' in response.data
+
+
+def test_viewProjecttoMnager(client, mocker):
+    """
+    Test the viewProjecttoMnager route
+    """
+
+    mocker.patch('app.viewProject', return_value=(True, [
+        {'project_name': 'Employee Management Portal',
+            'description': 'This is the employee management system '}
+    ]))
+
+    response = client.get('/viewManagerPagetoManager', follow_redirects=True)
+    logger.info("Testing the view Project page route")
+    assert response.status_code is 200
