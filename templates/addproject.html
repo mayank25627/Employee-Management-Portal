@@ -94,21 +94,21 @@ button[type="submit"]:hover {
     </form>
 
     <div id="message-show">
-      {% if sucessMessage %}
-          <h1>{{ sucessMessage }}</h1>
-      {% endif %} 
-      
-      {% if failmessage %}
-          <h1>{{ failmessage }}</h1>
-      {% endif %} 
+      {% if successMessage %}
+          <h1 style="color: green;">{{ successMessage }}</h1>
+      {% endif %}
+      {% if failMessage %}
+          <h1 style="color: red;">{{ failMessage }}</h1>
+      {% endif %}
     </div>
   </div>
 
-</body>
+
 
 <script>
   document.getElementById("admin-dashboard").addEventListener("click", function() {
       window.location.href = "/adminpage"
     });
 </script>
+</body>
 </html>

@@ -667,25 +667,30 @@ def addEmployeePage():
 
 @ app.route('/addemployees', methods=['POST'])
 def addemployees():
-    firstname = request.form['first-name']
-    lastname = request.form['last-name']
-    email = request.form['email']
-    phone = request.form['phone-number']
-    position = request.form['position']
-    address = request.form['address']
-    manager_id = request.form['manager-id']
-    password = request.form['password']
+    try:
+        firstname = request.form['first-name']
+        lastname = request.form['last-name']
+        email = request.form['email']
+        phone = request.form['phone-number']
+        position = request.form['position']
+        address = request.form['address']
+        manager_id = request.form['manager-id']
+        password = request.form['password']
 
-    print(firstname, lastname, email, phone, position, address, manager_id)
-    ifAddSucess = addEmployee(
-        firstname, lastname, email, phone, position, address, manager_id, password)
+        logger.info(f"Received form data: {request.form}")
 
-    if ifAddSucess:
-        successMessage = f'Successfully added employee {firstname}'
-        return render_template('addemployee.html', successMessage=successMessage, managers=get_managers())
-    else:
-        failMessage = f'Please add employee again!'
-        return render_template('addemployee.html', failMessage=failMessage, managers=get_managers())
+        ifAddSucess = addEmployee(
+            firstname, lastname, email, phone, position, address, manager_id, password)
+
+        if ifAddSucess:
+            successMessage = f'Successfully added employee {firstname}'
+            return render_template('addemployee.html', successMessage=successMessage, managers=get_managers())
+        else:
+            failMessage = f'Please add employee again!'
+            return render_template('addemployee.html', failMessage=failMessage, managers=get_managers())
+    except Exception as e:
+        logger.error(f"Error processing form data: {e}")
+        return "An error occurred", 500
 
 
 @ app.route('/addManagerPage')
@@ -693,22 +698,24 @@ def addManagerPage():
     return render_template('addmanager.html')
 
 
-@ app.route('/addmanagers', methods=['GET', 'POST'])
+@app.route('/addmanagers', methods=['GET', 'POST'])
 def addmanagers():
-    firstname = request.form['first-name']
-    lastname = request.form['last-name']
-    email = request.form['email']
-    phone = request.form['phone-number']
-    password = request.form['password']
+    if request.method == 'POST':
+        firstname = request.form['first-name']
+        lastname = request.form['last-name']
+        email = request.form['email']
+        phone = request.form['phone-number']
+        password = request.form['password']
 
-    ifAddSucess = addManager(firstname, lastname, email, phone, password)
+        ifAddSucess = addManager(firstname, lastname, email, phone, password)
 
-    if ifAddSucess == True:
-        sucessMessage = f'Sucessfull added Manager ', firstname
-        return render_template('addmanager.html', sucessMessage=sucessMessage)
-    else:
-        failmessage = f'Please add Manager again! '
-        return render_template('addmanager.html', failmessage=failmessage)
+        if ifAddSucess:
+            successMessage = f'Successfully added Manager {firstname}'
+            return render_template('addmanager.html', successMessage=successMessage)
+        else:
+            failMessage = 'Please add Manager again!'
+            return render_template('addmanager.html', failMessage=failMessage)
+    return render_template('addmanager.html')
 
 
 @ app.route('/addProjectPage')
@@ -716,19 +723,21 @@ def addProjectPage():
     return render_template('addproject.html')
 
 
-@ app.route('/addprojects',  methods=['GET', 'POST'])
+@app.route('/addprojects', methods=['GET', 'POST'])
 def addprojects():
-    project_name = request.form['project-name']
-    description = request.form['description']
+    if request.method == 'POST':
+        project_name = request.form['project-name']
+        description = request.form['description']
 
-    ifAddSucess = addProjects(project_name, description)
+        ifAddSucess = addProjects(project_name, description)
 
-    if ifAddSucess == True:
-        sucessMessage = 'Sucessfull added Project ', project_name
-        return render_template('addproject.html', sucessMessage=sucessMessage)
-    else:
-        failmessage = 'Error Please add Project again! '
-        return render_template('addproject.html', failmessage=failmessage)
+        if ifAddSucess:
+            successMessage = f'Successfully added Project {project_name}'
+            return render_template('addproject.html', successMessage=successMessage)
+        else:
+            failMessage = 'Error: Please add Project again!'
+            return render_template('addproject.html', failMessage=failMessage)
+    return render_template('addproject.html')
 
 
 @ app.route('/viewEmployeePage')
@@ -743,8 +752,6 @@ def viewEmployeePage():
 @ app.route('/updateEmployee/<int:employee_id>', methods=['GET', 'POST'])
 def update_employee(employee_id):
     con = create_connection()
-    if con is None:
-        return "Connection to the database failed.", 500
 
     cursor = con.cursor(dictionary=True)
     if request.method == 'POST':
@@ -781,16 +788,16 @@ def update_employee(employee_id):
 @ app.route('/deleteEmployee/<int:employee_id>')
 def delete_employee(employee_id):
     con = create_connection()
-    if con is None:
-        return "Connection to the database failed.", 500
 
     cursor = con.cursor()
     try:
         cursor.execute(
             "DELETE FROM employee WHERE employee_id = %s", (employee_id,))
         con.commit()
+        logger.info(f"Employee with ID {employee_id} deleted successfully.")
         return redirect('/viewEmployeePage')
     except Error as e:
+        logger.error(f"Error deleting employee with ID {employee_id}: {e}")
         return "Delete failed.", 500
     finally:
         cursor.close()
@@ -856,6 +863,7 @@ def updateProject(project_id):
 def delete_project(project_id):
     con = create_connection()
     if con is None:
+        logger.error("Connection to the database failed.")
         return "Connection to the database failed.", 500
 
     cursor = con.cursor()
@@ -863,8 +871,10 @@ def delete_project(project_id):
         cursor.execute(
             "DELETE FROM project WHERE project_id = %s", (project_id,))
         con.commit()
+        logger.info(f"Project with ID {project_id} deleted successfully.")
         return redirect('/viewProjectPage')
     except Error as e:
+        logger.error(f"Error deleting project with ID {project_id}: {e}")
         return "Delete failed.", 500
     finally:
         cursor.close()
@@ -939,7 +949,8 @@ def update_manager(manager_id):
 def delete_manager(manager_id):
     con = create_connection()
     if con is None:
-        return redirect('/viewManagers', error="Could not connect to the database.")
+        session['error'] = "Could not connect to the database."
+        return redirect('/viewManagers')
 
     cursor = con.cursor()
     try:
@@ -948,7 +959,8 @@ def delete_manager(manager_id):
         con.commit()
         return redirect('/viewManagers')
     except Error as e:
-        return redirect('/viewManagers', error="An error occurred while deleting the manager.")
+        session['error'] = "An error occurred while deleting the manager."
+        return redirect('/viewManagers')
     finally:
         cursor.close()
         con.close()
@@ -961,7 +973,7 @@ def assignProjectPage():
     return render_template('assign_project.html', unassigned_employees=unassigned_employees, projects=projects)
 
 
-@ app.route('/assignProject', methods=['POST'])
+@app.route('/assignProject', methods=['POST'])
 def assignProject():
     employee_id = request.form['employee_id']
     project_id = request.form['project_id']
@@ -977,6 +989,7 @@ def assignProject():
         con.commit()
         return redirect('/assignProjectPage')
     except Error as e:
+        logger.error(f"Database error: {e}")
         return render_template('assign_project.html', error="An error occurred while assigning the project.", unassigned_employees=get_unassigned_employees(), projects=get_all_projects())
     finally:
         cursor.close()
@@ -1066,6 +1079,8 @@ def employeeloginprocess():
         return redirect('/employeepage')
     else:
         return render_template('emplogin.html', failedtext=failedtext)
+
+# testig done at above route
 
 
 @ app.route('/employeepage')

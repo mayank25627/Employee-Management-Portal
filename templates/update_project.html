@@ -60,6 +60,10 @@
     cursor: pointer;" id="view-project" >View Project</button>
   </div>
 
+    {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
+
     <form action="/updateProject/{{ project.project_id }}" method="post" enctype="multipart/form-data" id="project-details-form">
         <label for="project-name">Project Name:</label>
         <input type="text" id="project-name" name="project_name" value="{{ project.project_name }}" required><br><br>
@@ -70,9 +74,8 @@
         <input type="submit" value="Update Project">
         <button id="cancel">Cancel Update</button>
     </form>
-    {% if error %}
-        <p class="error">{{ error }}</p>
     {% endif %}
+    
 </body>
 
 <script>

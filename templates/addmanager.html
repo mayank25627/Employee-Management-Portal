@@ -71,7 +71,7 @@
   </div>
 
   <div class="container">
-
+    <h1 style="text-align: center;">Add Manager</h1>
     <form id="manager-details-form" action="/addmanagers" method="post" enctype="multipart/form-data">
       <label for="first-name">First Name:</label>
       <input type="text" id="first-name" name="first-name" required><br><br>
@@ -83,23 +83,23 @@
       <input type="email" id="email" name="email" required><br><br>
       
       <label for="phone-number">Phone Number:</label>
-      <input type="tel" id="phone-number" name="phone-number"><br><br>
+      <input type="tel" id="phone-number" name="phone-number" required><br><br>
       
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required><br><br>
       
       <input type="submit" value="Add Manager">
-    </form>
+  </form>
+  
     
-    <div id="message-show">
-      {% if sucessMessage %}
-          <h1>{{ sucessMessage }}</h1>
-      {% endif %} 
-      
-      {% if failmessage %}
-          <h1>{{ failmessage }}</h1>
-      {% endif %} 
-    </div>
+  <div id="message-show">
+    {% if successMessage %}
+        <h1 style="color: green;">{{ successMessage }}</h1>
+    {% endif %}
+    {% if failMessage %}
+        <h1 style="color: red;">{{ failMessage }}</h1>
+    {% endif %}
+  </div>
   </div>
 
   <script>
