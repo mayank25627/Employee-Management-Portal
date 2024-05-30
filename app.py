@@ -1080,8 +1080,6 @@ def employeeloginprocess():
     else:
         return render_template('emplogin.html', failedtext=failedtext)
 
-# testig done at above route
-
 
 @ app.route('/employeepage')
 def employeepage():
@@ -1202,6 +1200,8 @@ def viewManagerPagetoEmployee():
 @ app.route('/mnglogin')
 def mnglogin():
     return render_template('mnglogin.html')
+
+# testig done at above route
 
 
 @ app.route('/managerloginprocess', methods=['GET', 'POST'])

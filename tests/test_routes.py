@@ -527,7 +527,8 @@ def test_emplogin(client):
 
 def test_employeeloginprocess(client, mocker):
     mocker.patch('app.login_employee', return_value=[True, {
-
+        'first_name': 'Mayank',
+        'last_name': 'Sahu'
     }])
 
     response = client.post('/employeeloginprocess', data={
@@ -536,3 +537,99 @@ def test_employeeloginprocess(client, mocker):
     })
     logger.info("Testing the employee login process with correct credentials")
     assert response.status_code == 302
+
+
+def test_showDetails(client):
+    """
+    Test the showDetails routes
+    """
+    with client.session_transaction() as sess:
+        sess['employee'] = {'employee_id': 1, 'manager_id': 1,
+                            'first_name': 'Mayank', 'last_name': 'Sahu'}
+
+    response = client.get('/showDetails')
+    logger.info("Testing the show details route")
+    assert response.status_code == 200
+
+
+def test_addskills(client, mocker):
+    """
+    Test the showDetails routes
+    """
+    with client.session_transaction() as sess:
+        sess['employee'] = {'employee_id': 1, 'manager_id': 1,
+                            'first_name': 'Mayank', 'last_name': 'Sahu'}
+
+    response = client.post('/addskills', data={
+        'skill_name': 'Java',
+        'proficiency_level': 'Intermediate'
+    })
+
+    logger.info("Testing the ADD Skills route")
+    assert response.status_code == 302
+
+
+def test_updateskills(client):
+    """
+    Test the Update skills routes
+    """
+    with client.session_transaction() as sess:
+        sess['employee'] = {'employee_id': 1, 'manager_id': 1,
+                            'first_name': 'Mayank', 'last_name': 'Sahu'}
+
+    response = client.get('/updateskills')
+    logger.info("Testing the ADD Skills route")
+    assert response.status_code == 200
+    assert b'Update Skills' in response.data
+
+
+def test_viewEmployeePagetoEmployee(client, mocker):
+    """
+    Test the viewEmployeePagetoEmployee route
+    """
+
+    mocker.patch('app.viewEmployee', return_value=[True, {
+        'first_name': 'Mayank',
+        'last_name': 'Sahu',
+        'email': 'sahu25627@nucleusteq.com',
+        'phone': '8458809510',
+        'position': 'Senio Software engineer',
+        'address': 'Pithampur MP'
+    }])
+
+    response = client.get('/viewEmployeePagetoEmployee')
+    logger.info("Testing the View Employee route")
+    assert response.status_code == 200
+
+
+def test_viewManagerPagetoEmployee(client, mocker):
+    """
+    Test the viewManager route
+    """
+    mocker.patch('app.viewManager', return_value=[True, {
+        'first_name': 'Rahul',
+        'last_name': 'Khatri',
+        'email': 'rahul_khatri@nucleusteq.com',
+        'phone_number': '7895478998'
+    }])
+
+    response = client.get('/viewManagerPagetoEmployee')
+    logger.info("Testing the View Manager route")
+    assert response.status_code == 200
+    assert b'Manager List' in response.data
+
+
+def test_mnglogin(client):
+    """
+    Test Manager Login route
+    """
+    response = client.get('/mnglogin')
+    logger.info("Testing the manager Login route")
+    assert response.status_code == 200
+    assert b'Welcome Manager' in response.data
+
+
+def test_managerloginprocess(client, mocker):
+    """
+    Test Manager Login process route
+    """
