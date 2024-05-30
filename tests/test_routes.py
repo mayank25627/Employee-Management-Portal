@@ -730,3 +730,63 @@ def test_viewProjecttoMnager(client, mocker):
     response = client.get('/viewManagerPagetoManager', follow_redirects=True)
     logger.info("Testing the view Project page route")
     assert response.status_code is 200
+
+
+def test_managerRequests(client, mocker):
+    """
+    Test Manager requests route
+    """
+    mocker.patch('app.get_unassigned_employees_with_skills', return_value={
+        'employee_id': '1',
+        'first_name': 'Mayank',
+        'last_name': 'Sahu'
+    })
+
+    mocker.patch('app.get_all_projects', return_value={
+        'project_id': '20',
+        'project_name': 'Acident Detection Project'
+    })
+
+    response = client.get('/managerRequests', follow_redirects=True)
+    logger.info("Testing the manager requests route")
+    assert response.status_code is 200
+    assert b'Select Unassign Employee(s):' in response.data
+
+
+def test_managerRequestRoute(client, mocker):
+    """
+    Test the manager requests route for multiple employees
+    """
+    mocker.patch('app.make_request', return_value=True)
+    with client.session_transaction() as sess:
+        sess['manager'] = {'manager_id': 10}
+
+    response = client.post('/managerRequestRoute', data={
+        'employee_ids': [1, 2, 3, 4,],
+        'project_id': 20,
+        'request-text': 'This the demo text'
+    })
+    logger.info("Testing the manager requests routes route")
+    assert response.status_code == 200
+    assert b'Select Unassign Employee(s):' in response.data
+
+
+def test_managerRequestStatus(client, mocker):
+    """
+    Test the manager requests route for multiple employees
+    """
+    mocker.patch('app.get_manager_requests', return_value={
+        'request_id': '1',
+        'manager_id': '20',
+        'request_text': 'this is a demo text',
+        'status': 'pending'
+
+    })
+    with client.session_transaction() as sess:
+        sess['manager'] = {'manager_id': 10}
+
+    response = client.get('/managerRequestStatus')
+
+    logger.info("Testing the manager requests status route")
+    assert response.status_code == 200
+    assert b'Request ID' in response.data

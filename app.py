@@ -1274,9 +1274,6 @@ def viewManagerPagetoManager():
         return render_template('viewmanagertomanager.html', error="No employees found or an error occurred.")
 
 
-# testig done at above route
-
-
 @ app.route('/viewProjecttoMnager')
 def viewProjectToMnager():
     success, project = viewProject()
@@ -1307,6 +1304,9 @@ def managerRequestRoute():
         return render_template('managerRequests.html', successMessage="Successfully Sent Request to Admin")
     else:
         return render_template('managerRequests.html', errorMessage="An error occurred while sending the request")
+
+
+# testig done at above route
 
 
 @ app.route('/managerRequestStatus', methods=['GET'])
