@@ -25,7 +25,7 @@ class newFormate(logging.Formatter):
 logFormatter = newFormate(
     "%(asctime)s - %(levelname)s - %(message)s",  datefmt="%Y-%m-%d %H:%M:%S")
 
-# # For Console Logs Generating
+# For Console Logs Generating
 consoleHandeler = logging.StreamHandler()
 logger.addHandler(consoleHandeler)
 
