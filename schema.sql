@@ -23,7 +23,7 @@ CREATE TABLE employee (
   address VARCHAR(255),
   manager_id INT,
   password VARCHAR(255),
-  FOREIGN KEY (manager_id) REFERENCES manager(manager_id)
+  FOREIGN KEY (manager_id) REFERENCES manager(manager_id) ON DELETE SET NULL
 );
 
 CREATE TABLE manager(
@@ -40,6 +40,7 @@ CREATE TABLE project (
     project_name VARCHAR(255) NOT NULL,
     description TEXT
 );
+
 
 CREATE TABLE employeeproject (
     employee_id INT,
@@ -63,15 +64,16 @@ CREATE TABLE requests (
     project_id INT,
     request_text TEXT,
     status ENUM('pending', 'approved', 'rejected'),
-    FOREIGN KEY (manager_id) REFERENCES manager(manager_id),
-    FOREIGN KEY (project_id) REFERENCES project(project_id)
+    FOREIGN KEY (manager_id) REFERENCES manager(manager_id) ON DELETE CASCADE,
+    FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
 );
 
 CREATE TABLE request_employees (
     request_employee_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT,
     employee_id INT,
-    FOREIGN KEY (request_id) REFERENCES requests(request_id),
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (request_id) REFERENCES requests(request_id) ON DELETE CASCADE,
+    FOREIGN KEY (employee_id) REFERENCES employee(employee_id) ON DELETE CASCADE
 );
+
 
