@@ -13,6 +13,10 @@ CREATE TABLE admin (
   UNIQUE (email)
 );
 
+INSERT INTO admin (username, name, email, password) VALUES(
+    "admin123", "Admin", "admin@nucleusteq.com", "Admin@123"
+)
+
 CREATE TABLE employee (
   employee_id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,

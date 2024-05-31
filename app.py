@@ -1306,9 +1306,6 @@ def managerRequestRoute():
         return render_template('managerRequests.html', errorMessage="An error occurred while sending the request")
 
 
-# testig done at above route
-
-
 @ app.route('/managerRequestStatus', methods=['GET'])
 def managerRequestStatus():
     manager_id = session['manager'].get('manager_id')

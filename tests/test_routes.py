@@ -48,6 +48,16 @@ def test_adminloginprocess_route_failure(client, mocker):
     assert b"Please login with correct email and password" in response.data
 
 
+def test_forgetpassword(client):
+    """
+    Test the forget password page rendering.
+    """
+    response = client.get('/forgetPassword')
+    logger.info("Testing the admin login route")
+    assert response.status_code == 200
+    assert b"Forget Your Password" in response.data
+
+
 def test_forgetpassword_route(client):
     """
     Test the forget password route.
@@ -539,6 +549,20 @@ def test_employeeloginprocess(client, mocker):
     assert response.status_code == 302
 
 
+def test_employeepage(client):
+    """
+    Test the employeepage routes
+    """
+    with client.session_transaction() as sess:
+        sess['employee'] = {'employee_id': 1, 'manager_id': 1,
+                            'first_name': 'Mayank', 'last_name': 'Sahu'}
+
+    response = client.get('/employeepage')
+    logger.info("Testing the employee page route")
+    assert response.status_code == 200
+    assert b'View All Employees' in response.data
+
+
 def test_showDetails(client):
     """
     Test the showDetails routes
@@ -660,7 +684,7 @@ def test_managerpage(client, mocker):
 
     response = client.get('/managerpage')
     logger.info("Testing the manager page route")
-    assert response.status_code is 200
+    assert response.status_code == 200
     assert b'Welcome' in response.data
 
 
@@ -675,7 +699,7 @@ def test_showManagerDetails(client):
 
     response = client.get('/showManagerDetails')
     logger.info("Testing the Show Manager page route")
-    assert response.status_code is 200
+    assert response.status_code == 200
     assert b'Manager Details' in response.data
 
 
@@ -695,7 +719,7 @@ def test_viewEmployeePagetoManager(client, mocker):
 
     response = client.get('/viewEmployeePagetoManager', follow_redirects=True)
     logger.info("Testing the view Employee page route")
-    assert response.status_code is 200
+    assert response.status_code == 200
     assert b'Employee List' in response.data
 
 
@@ -713,7 +737,7 @@ def test_viewManagerPagetoManager(client, mocker):
 
     response = client.get('/viewManagerPagetoManager', follow_redirects=True)
     logger.info("Testing the view manager page route")
-    assert response.status_code is 200
+    assert response.status_code == 200
     assert b'Manager List' in response.data
 
 
@@ -729,7 +753,7 @@ def test_viewProjecttoMnager(client, mocker):
 
     response = client.get('/viewManagerPagetoManager', follow_redirects=True)
     logger.info("Testing the view Project page route")
-    assert response.status_code is 200
+    assert response.status_code == 200
 
 
 def test_managerRequests(client, mocker):
@@ -749,7 +773,7 @@ def test_managerRequests(client, mocker):
 
     response = client.get('/managerRequests', follow_redirects=True)
     logger.info("Testing the manager requests route")
-    assert response.status_code is 200
+    assert response.status_code == 200
     assert b'Select Unassign Employee(s):' in response.data
 
 

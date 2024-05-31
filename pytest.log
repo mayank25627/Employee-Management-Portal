@@ -1,51 +1,78 @@
-2024-05-31 00:47:24 INFO Testing the admin login route
-2024-05-31 00:47:24 INFO Testing the admin login process with correct credentials
-2024-05-31 00:47:24 INFO Testing the admin login process with incorrect credentials
-2024-05-31 00:47:24 INFO Testing the forget password route
-2024-05-31 00:47:24 INFO Testing the admin page route
-2024-05-31 00:47:24 INFO Testing the addEmployeePage route
-2024-05-31 00:47:24 INFO Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
-2024-05-31 00:47:24 INFO Add Employee Test Success
-2024-05-31 00:47:24 INFO Testing the add manager page route route
-2024-05-31 00:47:24 INFO Adding manager route Testing
-2024-05-31 00:47:24 INFO Testing the add project page route route
-2024-05-31 00:47:24 INFO Adding project route Testing
-2024-05-31 00:47:24 INFO Testing the view employee page route route
-2024-05-31 00:47:24 INFO Testing the view employee route
-2024-05-31 00:47:25 INFO Testing the update employee route
-2024-05-31 00:47:25 INFO Testing the update employee route
-2024-05-31 00:47:25 INFO Testing the view Project page route
-2024-05-31 00:47:25 INFO Testing the update Project route
-2024-05-31 00:47:25 INFO Testing the update project route
-2024-05-31 00:47:25 INFO Project with ID 11 deleted successfully.
-2024-05-31 00:47:25 INFO Testing the delete project route
-2024-05-31 00:47:25 INFO Testing the view manager route
-2024-05-31 00:47:25 INFO Testing the update manager route
-2024-05-31 00:47:25 INFO Testing updateManager Updates done
-2024-05-31 00:47:25 INFO Testing the delete Manager route
-2024-05-31 00:47:25 INFO Testing the assign project page route
-2024-05-31 00:47:25 INFO Testing the assign project route
-2024-05-31 00:47:25 INFO Testing the unassignassign project page route
-2024-05-31 00:47:25 INFO Testing the unassign employee route
-2024-05-31 00:47:25 INFO Test viewEmployeesWithProjects route
-2024-05-31 00:47:25 INFO Test approveRejectManagerRequest route
-2024-05-31 00:47:25 INFO Testing the approve reject manager request route
-2024-05-31 00:47:25 INFO Testing the reject manager request route
-2024-05-31 00:47:25 INFO Testing the manager request status route
-2024-05-31 00:47:25 INFO Testing the employee login route
-2024-05-31 00:47:25 INFO Testing the employee login process with correct credentials
-2024-05-31 00:47:25 INFO Testing the show details route
-2024-05-31 00:47:25 INFO Testing the ADD Skills route
-2024-05-31 00:47:25 INFO Testing the ADD Skills route
-2024-05-31 00:47:25 INFO Testing the View Employee route
-2024-05-31 00:47:25 INFO Testing the View Manager route
-2024-05-31 00:47:25 INFO Testing the manager Login route
-2024-05-31 00:47:25 INFO Testing the manager login page route
-2024-05-31 00:47:25 INFO Testing the manager page route
-2024-05-31 00:47:25 INFO Testing the Show Manager page route
-2024-05-31 00:47:25 INFO Testing the view Employee page route
-2024-05-31 00:47:25 INFO Testing the view manager page route
-2024-05-31 00:47:25 INFO Testing the view Project page route
-2024-05-31 00:47:25 INFO Testing the manager requests route
-2024-05-31 00:47:25 INFO Testing the manager requests routes route
-2024-05-31 00:47:25 INFO Testing the manager requests status route
+2024-06-01 00:20:44 INFO Testing the admin login route
+2024-06-01 00:20:44 INFO Testing the admin login process with correct credentials
+2024-06-01 00:20:45 INFO Testing the admin login process with incorrect credentials
+2024-06-01 00:20:45 INFO Testing the admin login route
+2024-06-01 00:20:45 INFO Testing the forget password route
+2024-06-01 00:20:45 INFO Testing the admin page route
+2024-06-01 00:20:45 INFO Testing the addEmployeePage route
+2024-06-01 00:20:45 INFO Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-06-01 00:20:45 INFO Add Employee Test Success
+2024-06-01 00:20:45 INFO Testing the add manager page route route
+2024-06-01 00:20:45 INFO Adding manager route Testing
+2024-06-01 00:20:45 INFO Testing the add project page route route
+2024-06-01 00:20:45 INFO Adding project route Testing
+2024-06-01 00:20:45 INFO Testing the view employee page route route
+2024-06-01 00:20:45 INFO Testing the view employee route
+2024-06-01 00:20:45 INFO Testing the update employee route
+2024-06-01 00:20:45 INFO Testing the update employee route
+2024-06-01 00:20:45 INFO Testing the view Project page route
+2024-06-01 00:20:45 INFO Testing the update Project route
+2024-06-01 00:20:45 INFO Testing the update project route
+2024-06-01 00:20:45 INFO Project with ID 11 deleted successfully.
+2024-06-01 00:20:45 INFO Testing the delete project route
+2024-06-01 00:20:45 INFO Testing the view manager route
+2024-06-01 00:20:45 INFO Testing the update manager route
+2024-06-01 00:20:45 INFO Testing updateManager Updates done
+2024-06-01 00:20:45 INFO Testing the delete Manager route
+2024-06-01 00:20:45 INFO Testing the assign project page route
+2024-06-01 00:20:45 INFO Testing the assign project route
+2024-06-01 00:20:45 INFO Testing the unassignassign project page route
+2024-06-01 00:20:45 INFO Testing the unassign employee route
+2024-06-01 00:20:45 INFO Test viewEmployeesWithProjects route
+2024-06-01 00:20:45 INFO Test approveRejectManagerRequest route
+2024-06-01 00:20:45 INFO Testing the approve reject manager request route
+2024-06-01 00:20:45 INFO Testing the reject manager request route
+2024-06-01 00:20:45 INFO Testing the manager request status route
+2024-06-01 00:20:45 INFO Testing the employee login route
+2024-06-01 00:20:45 INFO Testing the employee login process with correct credentials
+2024-06-01 00:20:45 INFO Testing the employee page route
+2024-06-01 00:20:45 INFO Testing the show details route
+2024-06-01 00:20:45 INFO Testing the ADD Skills route
+2024-06-01 00:20:45 INFO Testing the ADD Skills route
+2024-06-01 00:20:45 INFO Testing the View Employee route
+2024-06-01 00:20:45 INFO Testing the View Manager route
+2024-06-01 00:20:45 INFO Testing the manager Login route
+2024-06-01 00:20:45 INFO Testing the manager login page route
+2024-06-01 00:20:45 INFO Testing the manager page route
+2024-06-01 00:20:45 INFO Testing the Show Manager page route
+2024-06-01 00:20:45 INFO Testing the view Employee page route
+2024-06-01 00:20:45 INFO Testing the view manager page route
+2024-06-01 00:20:45 INFO Testing the view Project page route
+2024-06-01 00:20:45 INFO Testing the manager requests route
+2024-06-01 00:20:45 INFO Testing the manager requests routes route
+2024-06-01 00:20:45 INFO Testing the manager requests status route
+2024-06-01 00:20:45 INFO Testing the connection success
+2024-06-01 00:20:45 INFO Testing the connection failure
+2024-06-01 00:20:45 INFO Testing the admin login sucessfully
+2024-06-01 00:20:45 INFO Testing the Employee login sucessfully
+2024-06-01 00:20:45 INFO Testing the Manager login sucessfully
+2024-06-01 00:20:45 INFO Testing the add employee sucessfully
+2024-06-01 00:20:45 INFO Testing the add manager sucessfully
+2024-06-01 00:20:45 INFO Testing the add projects sucessfully
+2024-06-01 00:20:45 INFO Testing the view employee sucessfully
+2024-06-01 00:20:45 INFO Testing the view manager sucessfully
+2024-06-01 00:20:45 INFO Testing the view project sucessfully
+2024-06-01 00:20:45 INFO Testing get unassigned employees who have no project till now sucessfully
+2024-06-01 00:20:45 INFO Testing get unassigned employees with skills who have no project till now sucessfully
+2024-06-01 00:20:45 INFO Testing get assigned employees who have a project till now sucessfully
+2024-06-01 00:20:45 INFO Testing get all projects sucessfully
+2024-06-01 00:20:45 INFO Testing get all manager sucessfully
+2024-06-01 00:20:45 INFO Testing get all employee with thier projects sucessfully
+2024-06-01 00:20:45 INFO Testing the make request by manager
+2024-06-01 00:20:45 INFO Testing the approve request by admin sucessfully
+2024-06-01 00:20:45 INFO Testing the reject request by admin sucessfully
+2024-06-01 00:20:45 INFO Test get all request status successful
+2024-06-01 00:20:45 INFO Test get all request of manager successful
+2024-06-01 00:20:45 INFO Testing the forget admin password sucessfully
+2024-06-01 00:20:45 INFO Testing the forget employee password sucessfully
+2024-06-01 00:20:45 INFO Testing the forget manager password sucessfully
