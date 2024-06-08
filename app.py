@@ -549,7 +549,11 @@ def forgetAdminPassword(email, password):
             WHERE email = %s
         """, (hashed_password, email))
         connection.commit()
-        return "Sucessfully Updated Password"
+
+        if cursor.rowcount == 0:
+            return "No account found with that email."
+
+        return "Successfully Updated Password"
     except Error as e:
         return "Password Change Failed! Please Retry"
     finally:
@@ -572,7 +576,11 @@ def forgotEmployeePassword(email, password):
             WHERE email = %s
         """, (hashed_password, email))
         connection.commit()
-        return "Sucessfully Updated Password"
+
+        if cursor.rowcount == 0:
+            return "No account found with that email."
+
+        return "Successfully Updated Password"
     except Error as e:
         return "Password Change Failed! Please Retry"
     finally:
@@ -595,7 +603,11 @@ def forgotManagerPassword(email, password):
             WHERE email = %s
         """, (hashed_password, email))
         connection.commit()
-        return "Sucessfully Updated Password"
+
+        if cursor.rowcount == 0:
+            return "No account found with that email."
+
+        return "Successfully Updated Password"
     except Error as e:
         return "Password Change Failed! Please Retry"
     finally:
@@ -603,8 +615,21 @@ def forgotManagerPassword(email, password):
         connection.close()
 
 
+def before_request():
+    session.clear()
+    if request.endpoint == 'logout':
+        return redirect('/login')
+
+
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    session.clear()
+    before_request()
     return render_template('index.html')
 
 
@@ -620,11 +645,12 @@ def adminloginprocess():
     email = request.form['email']
     password = request.form['password']
 
-    output = login_admin(email, password)
+    is_authenticated = login_admin(email, password)
     failedtext = 'Please login with correct email and password'
 
-    if output is True:
-        return render_template('adminpage.html')
+    if is_authenticated:
+        session['admin'] = email  # Storing admin email in session
+        return redirect('/adminpage')
     else:
         return render_template('adminlogin.html', failedtext=failedtext)
 
@@ -654,8 +680,12 @@ def forgotPasswordRoute():
     return render_template('forgetpassword.html', message=message)
 
 
-@ app.route('/adminpage')
+@app.route('/adminpage')
 def adminpage():
+    if 'admin' not in session:
+        # Redirect to login page if admin is not logged in
+        return redirect('/adminlogin')
+
     return render_template('adminpage.html')
 
 

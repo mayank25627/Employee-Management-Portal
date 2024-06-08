@@ -1,5 +1,5 @@
 import pytest
-from app import create_connection, login_admin, login_employee, login_manager, addEmployee, addManager, addProjects, viewEmployee, viewManager, viewProject, get_unassigned_employees, get_unassigned_employees_with_skills, get_assigned_employees, get_all_projects, get_managers, viewEmployeesWithProjects, make_request, approvingRequest, rejectingRequest, get_request_status, get_manager_requests, forgetAdminPassword, forgotEmployeePassword, forgotManagerPassword
+from app import create_connection, login_admin, login_employee, login_manager, addEmployee, addManager, addProjects, viewEmployee, viewManager, viewProject, get_unassigned_employees, get_unassigned_employees_with_skills, get_assigned_employees, get_all_projects, get_managers, viewEmployeesWithProjects, make_request, approvingRequest, rejectingRequest, get_request_status, get_manager_requests, forgetAdminPassword, forgotEmployeePassword
 
 from mysql.connector import Error
 import bcrypt
@@ -30,6 +30,14 @@ def test_create_connection_failure(mocker):
 
     logger.info("Testing the connection failure")
     assert connection is None
+
+
+def test_before_request_redirect(client):
+    """
+    Test the before_request function to redirect if the endpoint is logout
+    """
+    response = client.get('/logout')
+    assert response.status_code == 200
 
 
 def test_login_admin_success(mocker):

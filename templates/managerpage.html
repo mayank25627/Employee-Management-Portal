@@ -61,8 +61,16 @@
     </div>
 
     <script>
+         window.onload = function() {
+            if (window.history && window.history.pushState) {
+                window.history.pushState('forward', null, './#forward');
+                window.onpopstate = function() {
+                    window.history.pushState('forward', null, './#forward');
+                };
+            }
+        };
         document.getElementById("logout-button").addEventListener("click", function() {
-            window.location.href = "/mnglogin";
+            window.location.href = "/logout";
         });
         document.getElementById("show-details").addEventListener("click", function() {
             window.location.href = "/showManagerDetails";

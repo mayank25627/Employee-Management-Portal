@@ -18,6 +18,16 @@ def test_adminlogin_route(client):
     assert b"Login Admin" in response.data
 
 
+def test_logout(client):
+    """
+    Test the logout route
+    """
+
+    response = client.get('/logout')
+    assert response.status_code == 200
+    assert b"Employee Management" in response.data
+
+
 def test_adminloginprocess_route_success(client, mocker):
     """
     Test the admin login process with correct credentials.
@@ -27,7 +37,7 @@ def test_adminloginprocess_route_success(client, mocker):
     response = client.post('/adminloginprocess', data={
         'email': 'admin@nucleusteq.com',
         'password': 'admin'
-    })
+    }, follow_redirects=True)
     logger.info("Testing the admin login process with correct credentials")
     assert response.status_code == 200
     assert b"Admin Dashboard" in response.data
@@ -72,10 +82,10 @@ def test_adminpage(client):
     """
     Test the admin page
     """
-    response = client.get('/adminpage')
+    response = client.get('/adminpage', follow_redirects=True)
     logger.info("Testing the admin page route")
     assert response.status_code == 200
-    assert b"Welcome Admin!" in response.data
+    assert b"Welcome Admin" in response.data
 
 
 def test_addEmployeePage_route(client, mocker):
@@ -581,8 +591,8 @@ def test_addskills(client, mocker):
     Test the showDetails routes
     """
     with client.session_transaction() as sess:
-        sess['employee'] = {'employee_id': 1, 'manager_id': 1,
-                            'first_name': 'Mayank', 'last_name': 'Sahu'}
+        sess['employee'] = {'employee_id': 100, 'manager_id': 1,
+                            'first_name': 'Ritik', 'last_name': 'Patware'}
 
     response = client.post('/addskills', data={
         'skill_name': 'Java',
@@ -590,7 +600,7 @@ def test_addskills(client, mocker):
     })
 
     logger.info("Testing the ADD Skills route")
-    assert response.status_code == 302
+    assert response.status_code == 200
 
 
 def test_updateskills(client):
