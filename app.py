@@ -646,13 +646,12 @@ def adminloginprocess():
     password = request.form['password']
 
     is_authenticated = login_admin(email, password)
-    failedtext = 'Please login with correct email and password'
 
     if is_authenticated:
-        session['admin'] = email  # Storing admin email in session
+        session['admin'] = email
         return redirect('/adminpage')
     else:
-        return render_template('adminlogin.html', failedtext=failedtext)
+        return render_template('adminlogin.html', failedtext='Please login with correct email and password')
 
 
 @app.route('/forgetPassword')
