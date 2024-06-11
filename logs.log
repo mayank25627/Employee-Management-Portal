@@ -13893,3 +13893,287 @@
 2024-06-11 00:02:01 - INFO - 127.0.0.1 - - [11/Jun/2024 00:02:01] "[32mPOST /unassignProject HTTP/1.1[0m" 302 -
 2024-06-11 00:02:01 - INFO - 127.0.0.1 - - [11/Jun/2024 00:02:01] "GET /unassignProjectPage HTTP/1.1" 200 -
 2024-06-11 00:02:04 - INFO - 127.0.0.1 - - [11/Jun/2024 00:02:04] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 00:13:45 - INFO - Testing the admin login route
+2024-06-11 00:13:45 - INFO - Testing the admin login process with correct credentials
+2024-06-11 00:13:45 - INFO - Testing the admin login process with incorrect credentials
+2024-06-11 00:13:45 - INFO - Testing the admin login route
+2024-06-11 00:13:45 - INFO - Testing the forget password route
+2024-06-11 00:13:45 - INFO - Testing the admin page route
+2024-06-11 00:13:45 - INFO - Testing the addEmployeePage route
+2024-06-11 00:13:45 - INFO - Received form data: ImmutableMultiDict([('first-name', 'Mayank'), ('last-name', 'Sahu'), ('email', 'sahu25627@nucleusteq.com'), ('phone-number', '8458809510'), ('position', 'Senior Software Developer'), ('address', 'Pithampur MP'), ('manager-id', '1'), ('password', 'Mayank@123')])
+2024-06-11 00:13:45 - INFO - Add Employee Test Success
+2024-06-11 00:13:45 - INFO - Testing the add manager page route route
+2024-06-11 00:13:45 - INFO - Adding manager route Testing
+2024-06-11 00:13:45 - INFO - Testing the add project page route route
+2024-06-11 00:13:45 - INFO - Adding project route Testing
+2024-06-11 00:13:45 - INFO - Testing the view employee page route route
+2024-06-11 00:13:45 - INFO - Testing the view employee route
+2024-06-11 00:13:45 - INFO - Testing the update employee route
+2024-06-11 00:13:45 - INFO - Testing the update employee route
+2024-06-11 00:13:45 - INFO - Testing the view Project page route
+2024-06-11 00:13:45 - INFO - Testing the update Project route
+2024-06-11 00:13:45 - INFO - Testing the update project route
+2024-06-11 00:13:45 - INFO - Project with ID 11 deleted successfully.
+2024-06-11 00:13:45 - INFO - Testing the delete project route
+2024-06-11 00:13:45 - INFO - Testing the view manager route
+2024-06-11 00:13:45 - INFO - Testing the update manager route
+2024-06-11 00:13:45 - INFO - Testing updateManager Updates done
+2024-06-11 00:13:45 - INFO - Testing the delete Manager route
+2024-06-11 00:13:45 - INFO - Testing the assign project page route
+2024-06-11 00:13:45 - INFO - Testing the assign project route
+2024-06-11 00:13:45 - INFO - Testing the unassignassign project page route
+2024-06-11 00:13:45 - INFO - Testing the unassign employee route
+2024-06-11 00:13:45 - INFO - Test viewEmployeesWithProjects route
+2024-06-11 00:13:45 - INFO - Test approveRejectManagerRequest route
+2024-06-11 00:13:45 - INFO - Testing the approve reject manager request route
+2024-06-11 00:13:45 - INFO - Testing the reject manager request route
+2024-06-11 00:13:45 - INFO - Testing the manager request status route
+2024-06-11 00:13:45 - INFO - Testing the employee login route
+2024-06-11 00:13:45 - INFO - Testing the employee login process with correct credentials
+2024-06-11 00:13:45 - INFO - Testing the employee page route
+2024-06-11 00:13:45 - INFO - Testing the show details route
+2024-06-11 00:13:45 - INFO - Testing the ADD Skills route
+2024-06-11 00:13:45 - INFO - Testing the ADD Skills route
+2024-06-11 00:13:45 - INFO - Testing the View Employee route
+2024-06-11 00:13:45 - INFO - Testing the View Manager route
+2024-06-11 00:13:45 - INFO - Testing the manager Login route
+2024-06-11 00:13:45 - INFO - Testing the manager login page route
+2024-06-11 00:13:45 - INFO - Testing the manager page route
+2024-06-11 00:13:45 - INFO - Testing the Show Manager page route
+2024-06-11 00:13:45 - INFO - Testing the view Employee page route
+2024-06-11 00:13:45 - INFO - Testing the view manager page route
+2024-06-11 00:13:45 - INFO - Testing the view Project page route
+2024-06-11 00:13:45 - INFO - Testing the manager requests route
+2024-06-11 00:13:45 - INFO - Testing the manager requests routes route
+2024-06-11 00:13:45 - INFO - Testing the manager requests status route
+2024-06-11 00:13:45 - INFO - Testing the connection success
+2024-06-11 00:13:45 - INFO - Testing the connection failure
+2024-06-11 00:13:45 - INFO - Testing the admin login sucessfully
+2024-06-11 00:13:45 - INFO - Testing the Employee login sucessfully
+2024-06-11 00:13:45 - INFO - Testing the Manager login sucessfully
+2024-06-11 00:13:45 - INFO - Testing the add employee sucessfully
+2024-06-11 00:13:45 - INFO - Testing the add manager sucessfully
+2024-06-11 00:13:45 - INFO - Testing the add projects sucessfully
+2024-06-11 00:13:45 - INFO - Testing the view employee sucessfully
+2024-06-11 00:13:45 - INFO - Testing the view manager sucessfully
+2024-06-11 00:13:45 - INFO - Testing the view project sucessfully
+2024-06-11 00:13:45 - INFO - Testing get unassigned employees who have no project till now sucessfully
+2024-06-11 00:13:45 - INFO - Testing get unassigned employees with skills who have no project till now sucessfully
+2024-06-11 00:13:45 - INFO - Testing get assigned employees who have a project till now sucessfully
+2024-06-11 00:13:45 - INFO - Testing get all projects sucessfully
+2024-06-11 00:13:45 - INFO - Testing get all manager sucessfully
+2024-06-11 00:13:45 - INFO - Testing get all employee with thier projects sucessfully
+2024-06-11 00:13:45 - INFO - Testing the make request by manager
+2024-06-11 00:13:45 - INFO - Testing the approve request by admin sucessfully
+2024-06-11 00:13:45 - INFO - Testing the reject request by admin sucessfully
+2024-06-11 00:13:45 - INFO - Test get all request status successful
+2024-06-11 00:13:45 - INFO - Test get all request of manager successful
+2024-06-11 00:13:45 - INFO - Testing the forget admin password sucessfully
+2024-06-11 00:13:45 - INFO - Testing the forget employee password sucessfully
+2024-06-11 00:13:45 - INFO - Testing the forget manager password sucessfully
+2024-06-11 13:44:28 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-11 13:44:28 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-11 13:44:28 - INFO -  * Restarting with stat
+2024-06-11 13:44:28 - WARNING -  * Debugger is active!
+2024-06-11 13:44:28 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 13:44:30 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:30] "GET / HTTP/1.1" 200 -
+2024-06-11 13:44:31 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:31] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 13:44:31 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-06-11 13:44:46 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:46] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 13:44:55 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:55] "[32mPOST /adminloginprocess HTTP/1.1[0m" 302 -
+2024-06-11 13:44:55 - INFO - 127.0.0.1 - - [11/Jun/2024 13:44:55] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:45:45 - INFO - 127.0.0.1 - - [11/Jun/2024 13:45:45] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:46:03 - INFO - 127.0.0.1 - - [11/Jun/2024 13:46:03] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:46:23 - INFO - 127.0.0.1 - - [11/Jun/2024 13:46:23] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-06-11 13:46:37 - INFO - 127.0.0.1 - - [11/Jun/2024 13:46:37] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:46:50 - INFO - 127.0.0.1 - - [11/Jun/2024 13:46:50] "GET /addEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:47:45 - INFO - 127.0.0.1 - - [11/Jun/2024 13:47:45] "POST /addemployees HTTP/1.1" 200 -
+2024-06-11 13:47:50 - INFO - 127.0.0.1 - - [11/Jun/2024 13:47:50] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:47:53 - INFO - 127.0.0.1 - - [11/Jun/2024 13:47:53] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:48:03 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:03] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:48:06 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:06] "GET /viewManagers HTTP/1.1" 200 -
+2024-06-11 13:48:12 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:12] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:48:13 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:13] "GET /addManagerPage HTTP/1.1" 200 -
+2024-06-11 13:48:19 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:19] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:48:20 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:20] "GET /addProjectPage HTTP/1.1" 200 -
+2024-06-11 13:48:54 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:54] "POST /addprojects HTTP/1.1" 200 -
+2024-06-11 13:48:57 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:57] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:48:59 - INFO - 127.0.0.1 - - [11/Jun/2024 13:48:59] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-06-11 13:49:06 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:06] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:49:09 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:09] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:49:26 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:26] "GET /updateEmployee/8 HTTP/1.1" 200 -
+2024-06-11 13:49:36 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:36] "[32mPOST /updateEmployee/8 HTTP/1.1[0m" 302 -
+2024-06-11 13:49:36 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:36] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:49:50 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:50] "[32mGET /deleteEmployee/17 HTTP/1.1[0m" 302 -
+2024-06-11 13:49:50 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:50] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:49:55 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:55] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:49:59 - INFO - 127.0.0.1 - - [11/Jun/2024 13:49:59] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:50:04 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:04] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:50:08 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:08] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-06-11 13:50:11 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:11] "GET /updateProject/1 HTTP/1.1" 200 -
+2024-06-11 13:50:16 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:16] "[32mPOST /updateProject/1 HTTP/1.1[0m" 302 -
+2024-06-11 13:50:16 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:16] "GET /viewProjectPage HTTP/1.1" 200 -
+2024-06-11 13:50:22 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:22] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:50:33 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:33] "GET /viewManagers HTTP/1.1" 200 -
+2024-06-11 13:50:43 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:43] "GET /updateManager/9 HTTP/1.1" 200 -
+2024-06-11 13:50:46 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:46] "[32mPOST /updateManager/9 HTTP/1.1[0m" 302 -
+2024-06-11 13:50:46 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:46] "GET /viewManagers HTTP/1.1" 200 -
+2024-06-11 13:50:56 - INFO - 127.0.0.1 - - [11/Jun/2024 13:50:56] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:51:03 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:03] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-06-11 13:51:18 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:18] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:51:20 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:20] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:51:22 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:22] "GET /updateEmployee/24 HTTP/1.1" 200 -
+2024-06-11 13:51:30 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:30] "[32mPOST /updateEmployee/24 HTTP/1.1[0m" 302 -
+2024-06-11 13:51:30 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:30] "GET /viewEmployeePage HTTP/1.1" 200 -
+2024-06-11 13:51:32 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:32] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:51:34 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:34] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-06-11 13:51:38 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:38] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:51:41 - INFO - 127.0.0.1 - - [11/Jun/2024 13:51:41] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:54:01 - INFO - 127.0.0.1 - - [11/Jun/2024 13:54:01] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:54:21 - INFO - 127.0.0.1 - - [11/Jun/2024 13:54:21] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:54:23 - INFO - 127.0.0.1 - - [11/Jun/2024 13:54:23] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:54:23 - INFO - 127.0.0.1 - - [11/Jun/2024 13:54:23] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:54:24 - INFO - 127.0.0.1 - - [11/Jun/2024 13:54:24] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:56:02 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:02] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:56:09 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:09] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:56:11 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:11] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-06-11 13:56:12 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:12] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:56:14 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:14] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:56:21 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:21] "[32mPOST /assignProject HTTP/1.1[0m" 302 -
+2024-06-11 13:56:21 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:21] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 13:56:26 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:26] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:56:29 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:29] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-06-11 13:56:32 - INFO - 127.0.0.1 - - [11/Jun/2024 13:56:32] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 13:56:55 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 13:56:55 - INFO -  * Restarting with stat
+2024-06-11 13:56:55 - WARNING -  * Debugger is active!
+2024-06-11 13:56:55 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 13:59:14 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 13:59:14 - INFO -  * Restarting with stat
+2024-06-11 13:59:14 - WARNING -  * Debugger is active!
+2024-06-11 13:59:14 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 13:59:39 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 13:59:39 - INFO -  * Restarting with stat
+2024-06-11 13:59:39 - WARNING -  * Debugger is active!
+2024-06-11 13:59:39 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:00:14 - INFO - 127.0.0.1 - - [11/Jun/2024 14:00:14] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:00:19 - INFO - 127.0.0.1 - - [11/Jun/2024 14:00:19] "[32mPOST /assignProject HTTP/1.1[0m" 302 -
+2024-06-11 14:00:19 - INFO - 127.0.0.1 - - [11/Jun/2024 14:00:19] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:00:56 - INFO - 127.0.0.1 - - [11/Jun/2024 14:00:56] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:01:03 - INFO - 127.0.0.1 - - [11/Jun/2024 14:01:03] "[32mPOST /assignProject HTTP/1.1[0m" 302 -
+2024-06-11 14:01:03 - INFO - 127.0.0.1 - - [11/Jun/2024 14:01:03] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:01:42 - INFO - 127.0.0.1 - - [11/Jun/2024 14:01:42] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:02:06 - INFO - 127.0.0.1 - - [11/Jun/2024 14:02:06] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:02:10 - INFO - 127.0.0.1 - - [11/Jun/2024 14:02:10] "[32mPOST /assignProject HTTP/1.1[0m" 302 -
+2024-06-11 14:02:10 - INFO - 127.0.0.1 - - [11/Jun/2024 14:02:10] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:02:49 - INFO - 127.0.0.1 - - [11/Jun/2024 14:02:49] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:03:02 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:02] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:03:13 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:13] "GET /assignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:03:18 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:18] "[32mGET /adminpage HTTP/1.1[0m" 302 -
+2024-06-11 14:03:18 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:18] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 14:03:24 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:24] "[32mPOST /adminloginprocess HTTP/1.1[0m" 302 -
+2024-06-11 14:03:24 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:24] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:03:36 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:36] "GET /viewEmployeesWithProjects HTTP/1.1" 200 -
+2024-06-11 14:03:41 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:41] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:03:43 - INFO - 127.0.0.1 - - [11/Jun/2024 14:03:43] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:05:54 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:05:54 - INFO -  * Restarting with stat
+2024-06-11 14:05:55 - WARNING -  * Debugger is active!
+2024-06-11 14:05:55 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:05:58 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:05:58 - INFO -  * Restarting with stat
+2024-06-11 14:05:58 - WARNING -  * Debugger is active!
+2024-06-11 14:05:58 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:08:18 - INFO - 127.0.0.1 - - [11/Jun/2024 14:08:18] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:08:40 - INFO - 127.0.0.1 - - [11/Jun/2024 14:08:40] "[32mPOST /unassignProject HTTP/1.1[0m" 302 -
+2024-06-11 14:08:40 - INFO - 127.0.0.1 - - [11/Jun/2024 14:08:40] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:09:04 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:04] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:09:40 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:40] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:09:42 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:42] "[32mGET /adminpage HTTP/1.1[0m" 302 -
+2024-06-11 14:09:42 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:42] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 14:09:44 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:44] "GET / HTTP/1.1" 200 -
+2024-06-11 14:09:44 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:44] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 14:09:51 - INFO - 127.0.0.1 - - [11/Jun/2024 14:09:51] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 14:10:01 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:01] "[32mPOST /adminloginprocess HTTP/1.1[0m" 302 -
+2024-06-11 14:10:01 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:01] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:10:14 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:14] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 14:10:15 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:15] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:10:17 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:17] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-06-11 14:10:25 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:25] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:10:26 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:26] "GET /requestStatus HTTP/1.1" 200 -
+2024-06-11 14:10:49 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:49] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-06-11 14:10:51 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:51] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:10:54 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:54] "GET /logout HTTP/1.1" 200 -
+2024-06-11 14:10:54 - INFO - 127.0.0.1 - - [11/Jun/2024 14:10:54] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 14:11:00 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:00] "GET /mnglogin HTTP/1.1" 200 -
+2024-06-11 14:11:25 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:25] "POST /managerloginprocess HTTP/1.1" 200 -
+2024-06-11 14:11:29 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:29] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 14:11:37 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:37] "POST /managerRequestRoute HTTP/1.1" 200 -
+2024-06-11 14:11:40 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:40] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 14:11:46 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:46] "GET /managerRequestStatus HTTP/1.1" 200 -
+2024-06-11 14:11:47 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:47] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 14:11:50 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:50] "GET /managerRequestStatus HTTP/1.1" 200 -
+2024-06-11 14:11:52 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:52] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 14:11:54 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:54] "GET /logout HTTP/1.1" 200 -
+2024-06-11 14:11:54 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:54] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 14:11:56 - INFO - 127.0.0.1 - - [11/Jun/2024 14:11:56] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 14:12:03 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:03] "[32mPOST /adminloginprocess HTTP/1.1[0m" 302 -
+2024-06-11 14:12:03 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:03] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:12:09 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:09] "GET /approveRejectManagerRequest HTTP/1.1" 200 -
+2024-06-11 14:12:19 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:19] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:12:21 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:21] "GET /requestStatus HTTP/1.1" 200 -
+2024-06-11 14:12:24 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:24] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 14:12:33 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:33] "GET /logout HTTP/1.1" 200 -
+2024-06-11 14:12:33 - INFO - 127.0.0.1 - - [11/Jun/2024 14:12:33] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 14:29:26 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:29:26 - INFO -  * Restarting with stat
+2024-06-11 14:29:26 - WARNING -  * Debugger is active!
+2024-06-11 14:29:26 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:29:28 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:29:28 - INFO -  * Restarting with stat
+2024-06-11 14:29:28 - WARNING -  * Debugger is active!
+2024-06-11 14:29:28 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:48:45 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:48:45 - INFO -  * Restarting with stat
+2024-06-11 14:48:45 - WARNING -  * Debugger is active!
+2024-06-11 14:48:45 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 14:51:41 - INFO -  * Detected change in 'D:\\Employee Management Portal\\Employee Management Portal\\app.py', reloading
+2024-06-11 14:51:41 - INFO -  * Restarting with stat
+2024-06-11 14:51:41 - WARNING -  * Debugger is active!
+2024-06-11 14:51:41 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 15:32:17 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-11 15:32:17 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-11 15:32:17 - INFO -  * Restarting with stat
+2024-06-11 15:32:17 - WARNING -  * Debugger is active!
+2024-06-11 15:32:18 - INFO -  * Debugger PIN: 654-176-432
+2024-06-11 15:32:18 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:18] "GET /mnglogin HTTP/1.1" 200 -
+2024-06-11 15:32:25 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:25] "POST /managerloginprocess HTTP/1.1" 200 -
+2024-06-11 15:32:28 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:28] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 15:32:34 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:34] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 15:32:35 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:35] "GET /logout HTTP/1.1" 200 -
+2024-06-11 15:32:35 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:35] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 15:32:36 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:36] "GET /adminlogin HTTP/1.1" 200 -
+2024-06-11 15:32:42 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:42] "[32mPOST /adminloginprocess HTTP/1.1[0m" 302 -
+2024-06-11 15:32:42 - INFO - 127.0.0.1 - - [11/Jun/2024 15:32:42] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 15:35:01 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:01] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 15:35:06 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:06] "[32mPOST /unassignProject HTTP/1.1[0m" 302 -
+2024-06-11 15:35:06 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:06] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 15:35:09 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:09] "[32mPOST /unassignProject HTTP/1.1[0m" 302 -
+2024-06-11 15:35:09 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:09] "GET /unassignProjectPage HTTP/1.1" 200 -
+2024-06-11 15:35:12 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:12] "GET /adminpage HTTP/1.1" 200 -
+2024-06-11 15:35:14 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:14] "GET /logout HTTP/1.1" 200 -
+2024-06-11 15:35:14 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:14] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -
+2024-06-11 15:35:15 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:15] "GET /mnglogin HTTP/1.1" 200 -
+2024-06-11 15:35:22 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:22] "POST /managerloginprocess HTTP/1.1" 200 -
+2024-06-11 15:35:24 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:24] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 15:35:48 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:48] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 15:35:54 - INFO - 127.0.0.1 - - [11/Jun/2024 15:35:54] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 15:41:04 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:04] "GET /managerRequests HTTP/1.1" 200 -
+2024-06-11 15:41:33 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:33] "POST /managerRequestRoute HTTP/1.1" 200 -
+2024-06-11 15:41:34 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:34] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 15:41:38 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:38] "GET /managerRequestStatus HTTP/1.1" 200 -
+2024-06-11 15:41:40 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:40] "GET /managerpage HTTP/1.1" 200 -
+2024-06-11 15:41:41 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:41] "GET /logout HTTP/1.1" 200 -
+2024-06-11 15:41:41 - INFO - 127.0.0.1 - - [11/Jun/2024 15:41:41] "[36mGET /static/images/image.png HTTP/1.1[0m" 304 -

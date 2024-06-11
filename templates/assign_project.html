@@ -5,71 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assign Project</title>
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f8f9fa, #e0e0e0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
         #assign-form {
             max-width: 500px;
+            width: 100%;
             margin: 40px auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            margin-top: 10px;
         }
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
         select, input[type="submit"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        select {
+            background-color: #f9f9f9;
         }
         input[type="submit"] {
             background-color: #4CAF50;
             color: #fff;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         input[type="submit"]:hover {
-            background-color: #3e8e41;
+            background-color: #45a049;
+        }
+        .admin-dashboard {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .admin-dashboard:hover {
+            background-color: #45a049;
+        }
+        .alert {
+            padding: 15px;
+            color: Black;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .alert.error {
+            background-color: #f44336;
         }
     </style>
 </head>
 <body>
+    <button class="admin-dashboard" id="admin-dashboard">Admin Dashboard</button>
 
-    <div style="position: absolute; right: 20px; top:15px">
-        <button style="background-color: #4CAF50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
-      </div>
+    <div id="assign-form">
+        <h1>Assign Project</h1>
+        <form action="/assignProject" method="post">
+            <label for="employee">Select Employee:</label>
+            <select id="employee" name="employee_id" required>
+                <option value="" disabled selected>Select Employee</option>
+                {% for employee in unassigned_employees %}
+                    <option value="{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="project">Select Project:</label>
+            <select id="project" name="project_id" required>
+                <option value="" disabled selected>Select Project</option>
+                {% for project in projects %}
+                    <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+                {% endfor %}
+            </select>
 
-      
-    <form action="/assignProject" method="post" id="assign-form">
-        <label for="employee">Select Employee:</label>
-        <select id="employee" name="employee_id" required>
-            <option value="" disabled selected>Select Employee</option>
-            {% for employee in unassigned_employees %}
-                <option value="{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
-            {% endfor %}
-        </select>
-        
-        <label for="project">Select Project:</label>
-        <select id="project" name="project_id" required>
-            <option value="" disabled selected>Select Project</option>
-            {% for project in projects %}
-                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
-            {% endfor %}
-        </select>
+            <input type="submit" value="Assign Project">
+        </form>
 
-        <input type="submit" value="Assign Project">
-    </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script>
+        document.getElementById("admin-dashboard").addEventListener("click", function() {
+            window.location.href = "/adminpage";
+        });
+    </script>
 </body>
-<script>
-    document.getElementById("admin-dashboard").addEventListener("click", function() {
-        window.location.href = "/adminpage"
-      });
-  </script>
 </html>

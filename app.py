@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect,  session, has_request_context
+from flask import Flask, render_template, request, redirect,  session, has_request_context, flash
 import bcrypt
 import mysql.connector
 from mysql.connector import Error
@@ -409,7 +409,6 @@ def make_request(selected_employee_ids, project_id, request_text, manager_id):
 
 def get_requests_data():
     try:
-        # Get database connection
         connection = create_connection()
         cursor = connection.cursor(dictionary=True)
 
@@ -438,7 +437,7 @@ def get_requests_data():
                 'status': request_data['status'],
                 'employees': [{'first_name': request_data['employee_first_name'], 'last_name': request_data['employee_last_name']}]
             }
-            # Check if the request already exists in the list
+            
             for request in requests:
                 if request['request_id'] == request_info['request_id']:
                     request['employees'].append(
@@ -1016,6 +1015,7 @@ def assignProject():
         cursor.execute(
             "INSERT INTO EmployeeProject (employee_id, project_id) VALUES (%s, %s)", (employee_id, project_id))
         con.commit()
+        flash("Successfully assigned project", "success")
         return redirect('/assignProjectPage')
     except Error as e:
         logger.error(f"Database error: {e}")
@@ -1044,6 +1044,7 @@ def unassignProject():
         cursor.execute(
             "DELETE FROM EmployeeProject WHERE employee_id = %s", (employee_id,))
         con.commit()
+        flash("Successfully unassigned project", "success")
         return redirect('/unassignProjectPage')
     except Error as e:
         return render_template('unassign_project.html', error="An error occurred while unassigning the project.", assigned_employees=get_assigned_employees())
@@ -1131,7 +1132,7 @@ def show_details():
 
     cursor = con.cursor(dictionary=True)
     try:
-        # Fetch assigned project details
+        # Fetch assigned project
         cursor.execute("""
             SELECT project.project_id, project.project_name
             FROM EmployeeProject
