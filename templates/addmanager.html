@@ -14,7 +14,7 @@
     }
 
     .container {
-      max-width: 500px;
+      max-width: 50%;
       margin: 40px auto;
       padding: 20px;
       border: 1px solid #ccc;
@@ -31,9 +31,10 @@
     input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
       width: 100%;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box;
     }
 
     input[type="submit"] {
@@ -57,54 +58,123 @@
     #message-show h1 {
       color: red;
     }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #admin-dashboard {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
   </style>
 </head>
 <body>
 
-  <div style="position: absolute; right: 20px; top:15px">
-    <button style="background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
-  </div>
+  <button id="admin-dashboard">Admin Dashboard</button>
 
   <div class="container">
     <h1 style="text-align: center;">Add Manager</h1>
     <form id="manager-details-form" action="/addmanagers" method="post" enctype="multipart/form-data">
       <label for="first-name">First Name:</label>
-      <input type="text" id="first-name" name="first-name" required><br><br>
+      <input type="text" id="first-name" name="first-name" required>
+      <span class="error" id="first-name-error"></span><br><br>
       
       <label for="last-name">Last Name:</label>
-      <input type="text" id="last-name" name="last-name" required><br><br>
+      <input type="text" id="last-name" name="last-name" required>
+      <span class="error" id="last-name-error"></span><br><br>
       
       <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required><br><br>
+      <input type="email" id="email" name="email" required>
+      <span class="error" id="email-error"></span><br><br>
       
       <label for="phone-number">Phone Number:</label>
-      <input type="tel" id="phone-number" name="phone-number" required><br><br>
+      <input type="tel" id="phone-number" name="phone-number" required>
+      <span class="error" id="phone-number-error"></span><br><br>
       
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br><br>
+      <input type="password" id="password" name="password" required>
+      <span class="error" id="password-error"></span><br><br>
       
       <input type="submit" value="Add Manager">
-  </form>
-  
+    </form>
     
-  <div id="message-show">
-    {% if successMessage %}
-        <h1 style="color: green;">{{ successMessage }}</h1>
-    {% endif %}
-    {% if failMessage %}
-        <h1 style="color: red;">{{ failMessage }}</h1>
-    {% endif %}
-  </div>
+    <div id="message-show">
+      {% if successMessage %}
+          <h1 style="color: green;">{{ successMessage }}</h1>
+      {% endif %}
+      {% if failMessage %}
+          <h1 style="color: red;">{{ failMessage }}</h1>
+      {% endif %}
+    </div>
   </div>
 
   <script>
     document.getElementById("admin-dashboard").addEventListener("click", function() {
         window.location.href = "/adminpage";
+    });
+
+    document.getElementById("manager-details-form").addEventListener("submit", function(event) {
+        var firstName = document.getElementById("first-name").value;
+        var lastName = document.getElementById("last-name").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phone-number").value;
+        var password = document.getElementById("password").value;
+
+        var nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@nucleusteq\.com$/;
+        var phoneRegex = /^[789]\d{9}$/;
+        var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        var valid = true;
+
+        if (!nameRegex.test(firstName)) {
+            document.getElementById("first-name-error").textContent = "First Name must start with a capital letter and be at least 3 characters long, containing only letters.";
+            valid = false;
+        } else {
+            document.getElementById("first-name-error").textContent = "";
+        }
+
+        if (!nameRegex.test(lastName)) {
+            document.getElementById("last-name-error").textContent = "Last Name must start with a capital letter and contain only letters.";
+            valid = false;
+        } else {
+            document.getElementById("last-name-error").textContent = "";
+        }
+
+        if (!emailRegex.test(email)) {
+            document.getElementById("email-error").textContent = "Email must be in the format name@nucleusteq.com.";
+            valid = false;
+        } else {
+            document.getElementById("email-error").textContent = "";
+        }
+
+        if (!phoneRegex.test(phoneNumber)) {
+            document.getElementById("phone-number-error").textContent = "Phone Number must be a 10-digit number starting with 7, 8, or 9.";
+            valid = false;
+        } else {
+            document.getElementById("phone-number-error").textContent = "";
+        }
+
+        if (!passwordRegex.test(password)) {
+            document.getElementById("password-error").textContent = "Password must be at least 6 characters long, containing at least one uppercase letter and one lowercase letter.";
+            valid = false;
+        } else {
+            document.getElementById("password-error").textContent = "";
+        }
+
+        if (!valid) {
+            event.preventDefault();
+        }
     });
   </script>
 </body>

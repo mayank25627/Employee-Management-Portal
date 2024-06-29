@@ -5,98 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Employee</title>
     <style>
-        #employee-details-form {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            padding: 30px;
+            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
         }
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
         }
-        input[type="text"], input[type="email"], input[type="tel"], textarea {
+        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 5px;
             border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: 0.3s;
         }
-        input[type="submit"] {
+        input[type="text"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.1);
+        }
+        input[type="submit"], button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        #view-employee {
             background-color: #4CAF50;
             color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            transition: 0.3s;
         }
-        input[type="submit"]:hover {
-            background-color: #3e8e41;
+        #view-employee:hover {
+            background-color: #45a049;
         }
-
-        #cancel{
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
     </style>
 </head>
 <body>
+    <button id="view-employee">View Employee</button>
+    <div class="container">
+        <h1>Update Employee</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form action="/updateEmployee/{{ employee.employee_id }}" method="post" enctype="multipart/form-data" id="employee-details-form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" value="{{ employee.first_name }}" required>
+            <span class="error" id="first-name-error"></span><br><br>
 
-    <div style="position: absolute; right: 20px; top:15px">
-        <button style="background-color: #4CAF50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;" id="view-employee" >View Employee</button>
-      </div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" value="{{ employee.last_name }}" required>
+            <span class="error" id="last-name-error"></span><br><br>
 
-    <h1 style="text-align: center;">Update Employee</h1>  
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" value="{{ employee.email }}" disabled><br><br>
 
-    <form action="/updateEmployee/{{ employee.employee_id }}" method="post" enctype="multipart/form-data" id="employee-details-form">
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="phone-number" value="{{ employee.phone_number }}" required>
+            <span class="error" id="phone-number-error"></span><br><br>
 
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" name="first-name" value="{{ employee.first_name }}"><br><br>
-        
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" name="last-name" value="{{ employee.last_name }}"><br><br>
-        
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" value="{{ employee.email }}" required><br><br>
-        
-        <label for="phone-number">Phone Number:</label>
-        <input type="tel" id="phone-number" name="phone-number" value="{{ employee.phone_number }}"><br><br>
-        
-        <label for="position">Position:</label>
-        <input type="text" id="position" name="position" value="{{ employee.position }}"><br><br>
-        
-        <label for="address">Address:</label>
-        <textarea id="address" name="address">{{ employee.address }}</textarea><br><br>
-        
-        <label for="manager-id">Manager ID:</label>
-        <input type="text" id="manager-id" name="manager-id" value="{{ employee.manager_id }}"><br><br>
-        
-        <input type="submit" value="Update Employee">
-        <button id="cancel">Cancel Update</button>
-    </form>
+            <label for="position">Position:</label>
+            <select id="position-id" name="position-id" required>
+                <option value="">Select a position</option>
+                {% for position in positions %}
+                    <option value="{{ position.id }}" {% if position.id == employee.position_id %}selected{% endif %}>{{ position.position_name }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required>{{ employee.address }}</textarea><br><br>
+
+            <label for="manager-id">Manager:</label>
+            <select id="manager-id" name="manager-id" required>
+                {% for mgr in managers %}
+                    <option value="{{ mgr.manager_id }}" {% if mgr.manager_id == employee.manager_id %}selected{% endif %}>{{ mgr.manager_name }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <input type="submit" value="Update Employee">
+            <button type="button" id="cancel">Cancel Update</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("view-employee").addEventListener("click", function() {
+            window.location.href = "/viewEmployeePage";
+        });
+
+        document.getElementById("cancel").addEventListener("click", function() {
+            window.location.href = "/viewEmployeePage";
+        });
+
+        document.getElementById("employee-details-form").addEventListener("submit", function(event) {
+            var firstName = document.getElementById("first-name").value;
+            var lastName = document.getElementById("last-name").value;
+            var phoneNumber = document.getElementById("phone-number").value;
+
+            var nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+            var phoneRegex = /^[789]\d{9}$/;
+
+            var valid = true;
+
+            if (!nameRegex.test(firstName)) {
+                document.getElementById("first-name-error").textContent = "First Name must start with a capital letter and be at least 3 characters long, containing only letters.";
+                valid = false;
+            } else {
+                document.getElementById("first-name-error").textContent = "";
+            }
+
+            if (!nameRegex.test(lastName)) {
+                document.getElementById("last-name-error").textContent = "Last Name must start with a capital letter and contain only letters.";
+                valid = false;
+            } else {
+                document.getElementById("last-name-error").textContent = "";
+            }
+
+            if (!phoneRegex.test(phoneNumber)) {
+                document.getElementById("phone-number-error").textContent = "Phone Number must be a 10-digit number starting with 7, 8, or 9.";
+                valid = false;
+            } else {
+                document.getElementById("phone-number-error").textContent = "";
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
-
-<script>
-      document.getElementById("view-employee").addEventListener("click", function() {
-      window.location.href = "/viewEmployeePage"
-    });
-
-    document.getElementById("cancel").addEventListener("click", function() {
-      window.location.href = "/viewEmployeePage"
-    });
-
-    
-</script>
-
 </html>

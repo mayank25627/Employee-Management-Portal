@@ -5,39 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Request</title>
     <style>
-        #assign-form {
-            max-width: 500px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
-        select, input[type="submit"], textarea {
+
+        select, textarea {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 14px;
         }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #3e8e41;
-        }
+
         .dropdown {
             position: relative;
             display: inline-block;
             width: 100%;
+            margin-bottom: 20px;
         }
+
         .dropdown-btn {
             width: 100%;
             padding: 10px;
@@ -47,80 +60,117 @@
             text-align: left;
             background-color: #fff;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            min-width: 100%;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
+
         .dropdown-content div {
             padding: 12px 16px;
             cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
+
         .dropdown-content div:hover {
             background-color: #f1f1f1;
         }
-        .dropdown-content input[type="checkbox"] {
-            margin-right: 10px;
-        }
+
         .show {
             display: block;
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
         .message {
             text-align: center;
             color: green;
+            margin-top: 10px;
         }
+
         .error {
             text-align: center;
             color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div style="position: absolute; right: 20px; top:15px">
-        <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" id="manager-dashboard">Manager Dashboard</button>
-    </div>
-    
-    <form action="/managerRequestRoute" method="post" id="assign-form">
-        <label for="employee">Select Unassign Employee(s):</label>
-        <div class="dropdown">
-            <button type="button" class="dropdown-btn" onclick="toggleDropdown()">Select Employee(s)</button>
-            <div class="dropdown-content" id="dropdown-content">
-                {% for employee in unassignEmployee %}
-                    <div>
-                        <input type="checkbox" id="employee_{{ employee.employee_id }}" name="employee_ids" value="{{ employee.employee_id }}">
-                        <label for="employee_{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}{% if employee.skills %} - {{ employee.skills }}{% endif %}</label>
+    <div class="container">
+        <h1>Manager Request</h1>
+
+        <form action="/managerRequestRoute" method="post" id="assign-form">
+            <div class="form-group">
+                <label for="employee">Select Unassigned Employee(s):</label>
+                <div class="dropdown">
+                    <button type="button" class="dropdown-btn" onclick="toggleDropdown()">Select Employee(s)</button>
+                    <div class="dropdown-content" id="dropdown-content">
+                        {% for employee in unassignEmployee %}
+                            <div>
+                                <input type="checkbox" id="employee_{{ employee.employee_id }}" name="employee_ids" value="{{ employee.employee_id }}">
+                                <label for="employee_{{ employee.employee_id }}">{{ employee.first_name }} {{ employee.last_name }}{% if employee.skills %} - {{ employee.skills }}{% endif %}</label>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
-        </div>
-        
-        <br><br>
-        
-        <label for="project">Select Project:</label>
-        <select id="project" name="project_id" required>
-            <option value="" disabled selected>Select Project</option>
-            {% for project in allProjects %}
-                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
-            {% endfor %}
-        </select>
 
-        <textarea rows="4" cols="50" name="request-text" maxlength="500" placeholder="Enter Your Request" id="textarea"></textarea>
-        <br><br>
-        <input type="submit" value="Make Request">
-    </form>
+            <div class="form-group">
+                <label for="project">Select Project:</label>
+                <select id="project" name="project_id" required>
+                    <option value="" disabled selected>Select Project</option>
+                    {% for project in allProjects %}
+                        <option value="{{ project.project_id }}" data-skills="{{ project.skills }}">{{ project.project_name }} ,Skills Req:  {{project.skills}}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-    {% if successMessage %}
+            <div class="form-group">
+                <label for="textarea">Request Details:</label>
+                <textarea rows="4" cols="50" name="request-text" maxlength="500" placeholder="Enter Your Request" id="textarea"></textarea>
+            </div>
+
+            <div class="button-container">
+                <input type="submit" value="Make Request">
+            </div>
+        </form>
+
+        {% if successMessage %}
             <p class="message">{{ successMessage }}</p>
         {% elif errorMessage %}
             <p class="error">{{ errorMessage }}</p>
         {% endif %}
+    </div>
 
     <script>
         document.getElementById("manager-dashboard").addEventListener("click", function() {
-            window.location.href = "/managerpage"
+            window.location.href = "/managerpage";
         });
 
         function toggleDropdown() {

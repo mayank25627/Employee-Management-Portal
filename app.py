@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect,  session, has_request_context, flash
+from flask import Flask, render_template, request, redirect,  session, has_request_context, flash, url_for
 import bcrypt
 import mysql.connector
 from mysql.connector import Error
@@ -50,6 +50,24 @@ def create_connection():
         return connection
     except Error as e:
         return None
+
+
+def get_positions():
+    connection = create_connection()
+    if connection is None:
+        return []
+
+    cursor = connection.cursor(dictionary=True)
+    try:
+        cursor.execute("SELECT id, position_name FROM positions")
+        positions = cursor.fetchall()
+        return positions
+    except Error as e:
+        logger.error(f"Error fetching positions: {e}")
+        return []
+    finally:
+        cursor.close()
+        connection.close()
 
 
 def login_admin(email, password):
@@ -127,7 +145,7 @@ def login_manager(email, password):
         con.close()
 
 
-def addEmployee(first_name, last_name, email, phone_number, position, address, manager_id, password):
+def addEmployee(first_name, last_name, email, phone_number, position_id, address, manager_id, password):
     connection = create_connection()
     if connection is None:
         return False
@@ -137,12 +155,13 @@ def addEmployee(first_name, last_name, email, phone_number, position, address, m
 
     try:
         cursor.execute("""
-            INSERT INTO employee (first_name, last_name, email, phone_number, position, address, manager_id, password)
+            INSERT INTO employee (first_name, last_name, email, phone_number, position_id, address, manager_id, password)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """, (first_name, last_name, email, phone_number, position, address, manager_id, hashed_password))
+        """, (first_name, last_name, email, phone_number, position_id, address, manager_id, hashed_password))
         connection.commit()
         return True
     except Error as e:
+        logger.error(f"Error adding employee: {e}")
         return False
     finally:
         cursor.close()
@@ -171,7 +190,7 @@ def addManager(first_name, last_name, email, phone_number, password):
         connection.close()
 
 
-def addProjects(project_name, description):
+def addProjects(project_name, description, skills):
     connection = create_connection()
     if connection is None:
         return False
@@ -180,9 +199,9 @@ def addProjects(project_name, description):
 
     try:
         cursor.execute("""
-            INSERT INTO project (project_name, description)
-            VALUES (%s, %s)
-        """, (project_name, description))
+            INSERT INTO project (project_name, description, skills)
+            VALUES (%s, %s, %s)
+        """, (project_name, description, skills))
         connection.commit()
         return True
     except Error as e:
@@ -192,6 +211,27 @@ def addProjects(project_name, description):
         connection.close()
 
 
+def updateEmployeeDetails(employee_id, first_name, last_name, phone_number, position_id, address, manager_id):
+    con = create_connection()
+    if con is None:
+        return False, "Database connection failed."
+
+    cursor = con.cursor()
+    try:
+        cursor.execute("""
+            UPDATE Employee
+            SET first_name = %s, last_name = %s, phone_number = %s, position_id = %s, address = %s, manager_id = %s
+            WHERE employee_id = %s
+        """, (first_name, last_name, phone_number, position_id, address, manager_id, employee_id))
+        con.commit()
+        return True, None
+    except Error as e:
+        return False, f"Error updating employee: {e}"
+    finally:
+        cursor.close()
+        con.close()
+
+
 def viewEmployee():
     con = create_connection()
     if con is None:
@@ -199,13 +239,20 @@ def viewEmployee():
 
     cursor = con.cursor(dictionary=True)
     try:
-        cursor.execute("SELECT * FROM employee")
+        cursor.execute("""
+            SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number,
+                   p.position_name, e.address, CONCAT(m.first_name, ' ', m.last_name) AS manager_name
+            FROM Employee e
+            LEFT JOIN Positions p ON e.position_id = p.position_id
+            LEFT JOIN Manager m ON e.manager_id = m.manager_id
+        """)
         result = cursor.fetchall()
         if not result:
             return False, None
         else:
             return True, result
     except Error as e:
+        print(f"Error retrieving employees: {e}")
         return False, None
     finally:
         cursor.close()
@@ -239,13 +286,17 @@ def viewProject():
 
     cursor = con.cursor(dictionary=True)
     try:
-        cursor.execute("SELECT * FROM project")
+        cursor.execute("""
+            SELECT project_id, project_name, description, skills
+            FROM project
+        """)
         result = cursor.fetchall()
-        if not result:
-            return False, None
+        if result:
+            return True, result  # Return True and the list of projects if projects are found
         else:
-            return True, result
+            return False, None   # Return False and None if no projects are found
     except Error as e:
+        print(f"Error retrieving projects: {e}")
         return False, None
     finally:
         cursor.close()
@@ -319,9 +370,11 @@ def get_all_projects():
         return []
     cursor = con.cursor(dictionary=True)
     try:
-        cursor.execute("SELECT project_id, project_name FROM Project")
+        cursor.execute(
+            "SELECT project_id, project_name, description, skills FROM Project")
         return cursor.fetchall()
     except Error as e:
+        print(f"Error fetching projects: {e}")
         return []
     finally:
         cursor.close()
@@ -437,7 +490,7 @@ def get_requests_data():
                 'status': request_data['status'],
                 'employees': [{'first_name': request_data['employee_first_name'], 'last_name': request_data['employee_last_name']}]
             }
-            
+
             for request in requests:
                 if request['request_id'] == request_info['request_id']:
                     request['employees'].append(
@@ -620,6 +673,32 @@ def before_request():
         return redirect('/login')
 
 
+def viewEmployee():
+    con = create_connection()
+    if con is None:
+        return False, None
+
+    cursor = con.cursor(dictionary=True)
+    try:
+        cursor.execute("""
+            SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, p.position_name, e.address, CONCAT(m.first_name, ' ', m.last_name) as manager_name
+            FROM employee e
+            LEFT JOIN positions p ON e.position_id = p.id
+            LEFT JOIN manager m ON e.manager_id = m.manager_id
+        """)
+        result = cursor.fetchall()
+        if not result:
+            return False, None
+        else:
+            return True, result
+    except Error as e:
+        print(f"Error retrieving employees: {e}")
+        return False, None
+    finally:
+        cursor.close()
+        con.close()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -687,20 +766,21 @@ def adminpage():
     return render_template('adminpage.html')
 
 
-@ app.route('/addEmployeePage')
+@app.route('/addEmployeePage')
 def addEmployeePage():
     managers = get_managers()
-    return render_template('addemployee.html', managers=managers)
+    positions = get_positions()
+    return render_template('addemployee.html', managers=managers, positions=positions)
 
 
-@ app.route('/addemployees', methods=['POST'])
+@app.route('/addemployees', methods=['POST'])
 def addemployees():
     try:
         firstname = request.form['first-name']
         lastname = request.form['last-name']
         email = request.form['email']
         phone = request.form['phone-number']
-        position = request.form['position']
+        position_id = request.form['position-id']
         address = request.form['address']
         manager_id = request.form['manager-id']
         password = request.form['password']
@@ -708,14 +788,14 @@ def addemployees():
         logger.info(f"Received form data: {request.form}")
 
         ifAddSucess = addEmployee(
-            firstname, lastname, email, phone, position, address, manager_id, password)
+            firstname, lastname, email, phone, position_id, address, manager_id, password)
 
         if ifAddSucess:
             successMessage = f'Successfully added employee {firstname}'
-            return render_template('addemployee.html', successMessage=successMessage, managers=get_managers())
+            return render_template('addemployee.html', successMessage=successMessage, managers=get_managers(), positions=get_positions())
         else:
             failMessage = f'Please add employee again!'
-            return render_template('addemployee.html', failMessage=failMessage, managers=get_managers())
+            return render_template('addemployee.html', failMessage=failMessage, managers=get_managers(), positions=get_positions())
     except Exception as e:
         logger.error(f"Error processing form data: {e}")
         return "An error occurred", 500
@@ -746,7 +826,7 @@ def addmanagers():
     return render_template('addmanager.html')
 
 
-@ app.route('/addProjectPage')
+@app.route('/addProjectPage')
 def addProjectPage():
     return render_template('addproject.html')
 
@@ -756,8 +836,9 @@ def addprojects():
     if request.method == 'POST':
         project_name = request.form['project-name']
         description = request.form['description']
+        skills = request.form['skills']
 
-        ifAddSucess = addProjects(project_name, description)
+        ifAddSucess = addProjects(project_name, description, skills)
 
         if ifAddSucess:
             successMessage = f'Successfully added Project {project_name}'
@@ -768,7 +849,7 @@ def addprojects():
     return render_template('addproject.html')
 
 
-@ app.route('/viewEmployeePage')
+@app.route('/viewEmployeePage')
 def viewEmployeePage():
     success, employees = viewEmployee()
     if success:
@@ -777,40 +858,37 @@ def viewEmployeePage():
         return render_template('viewemployee.html', error="No employees found or an error occurred.")
 
 
-@ app.route('/updateEmployee/<int:employee_id>', methods=['GET', 'POST'])
-def update_employee(employee_id):
-    con = create_connection()
-
-    cursor = con.cursor(dictionary=True)
+@app.route('/updateEmployee/<int:employee_id>', methods=['GET', 'POST'])
+def updateEmployee(employee_id):
     if request.method == 'POST':
         first_name = request.form['first-name']
         last_name = request.form['last-name']
-        email = request.form['email']
         phone_number = request.form['phone-number']
-        position = request.form['position']
+        position_id = request.form['position-id']
         address = request.form['address']
         manager_id = request.form['manager-id']
 
-        try:
-            cursor.execute("""
-                UPDATE employee
-                SET first_name = %s, last_name = %s, email = %s, phone_number = %s, position = %s, address = %s, manager_id = %s
-                WHERE employee_id = %s
-            """, (first_name, last_name, email, phone_number, position, address, manager_id, employee_id))
-            con.commit()
-            return redirect('/viewEmployeePage')
-        except Error as e:
-            return "Update failed.", 500
-        finally:
-            cursor.close()
-            con.close()
-    else:
-        cursor.execute(
-            "SELECT * FROM employee WHERE employee_id = %s", (employee_id,))
-        employee = cursor.fetchone()
-        if employee is None:
-            return "Employee not found.", 404
-        return render_template('update_employee.html', employee=employee)
+        success, message = updateEmployeeDetails(
+            employee_id, first_name, last_name, phone_number, position_id, address, manager_id)
+        if success:
+            return redirect(url_for('viewEmployeePage'))
+        else:
+            return render_template('update_employee.html', error=message)
+
+    con = create_connection()
+    cursor = con.cursor(dictionary=True)
+    cursor.execute(
+        "SELECT * FROM Employee WHERE employee_id = %s", (employee_id,))
+    employee = cursor.fetchone()
+    cursor.execute("SELECT * FROM positions")
+    positions = cursor.fetchall()
+    cursor.execute(
+        "SELECT manager_id, CONCAT(first_name, ' ', last_name) AS manager_name FROM manager")
+    managers = cursor.fetchall()
+    cursor.close()
+    con.close()
+
+    return render_template('update_employee.html', employee=employee, positions=positions, managers=managers)
 
 
 @ app.route('/deleteEmployee/<int:employee_id>')
@@ -834,11 +912,11 @@ def delete_employee(employee_id):
 
 @ app.route('/viewProjectPage')
 def viewProjectPage():
-    success, project = viewProject()
+    success, projects = viewProject()
     if success:
-        return render_template('viewproject.html', project=project)
+        return render_template('viewproject.html', projects=projects)
     else:
-        return render_template('viewproject.html', error="No employees found or an error occurred.")
+        return render_template('viewproject.html', error="No projects found or an error occurred.")
 
 
 @ app.route('/updateProject/<int:project_id>', methods=['GET'])
@@ -950,7 +1028,6 @@ def update_manager(manager_id):
     else:
         first_name = request.form['first_name']
         last_name = request.form['last_name']
-        email = request.form['email']
         phone_number = request.form['phone_number']
 
         con = create_connection()
@@ -961,9 +1038,9 @@ def update_manager(manager_id):
         try:
             cursor.execute("""
                 UPDATE manager
-                SET first_name = %s, last_name = %s, email = %s, phone_number = %s
+                SET first_name = %s, last_name = %s, phone_number = %s
                 WHERE manager_id = %s
-            """, (first_name, last_name, email, phone_number, manager_id))
+            """, (first_name, last_name, phone_number, manager_id))
             con.commit()
             return redirect('/viewManagers')
         except Error as e:
@@ -1053,13 +1130,14 @@ def unassignProject():
         con.close()
 
 
-@ app.route('/viewEmployeesWithProjects')
+@app.route('/viewEmployeesWithProjects')
 def viewEmployeesWithProjectsPage():
     success, employees = viewEmployeesWithProjects()
     if success:
         return render_template('employee_with_project.html', employees=employees)
     else:
-        return render_template('employee_with_project.html', error="No employees found or an error occurred.")
+        error_message = employees if employees else "No employees found or an error occurred."
+        return render_template('employee_with_project.html', error=error_message)
 
 
 @ app.route('/approveRejectManagerRequest')
@@ -1270,11 +1348,11 @@ def show_manager_details():
 
     cursor = con.cursor(dictionary=True)
     try:
-        # Fetch employees managed by this manager
         cursor.execute("""
-            SELECT employee_id, first_name, last_name, email, phone_number, position
-            FROM employee
-            WHERE manager_id = %s
+            SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, p.position_name
+            FROM employee e
+            LEFT JOIN positions p ON e.position_id = p.id
+            WHERE e.manager_id = %s
         """, (manager['manager_id'],))
         employees = cursor.fetchall()
 

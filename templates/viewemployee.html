@@ -63,7 +63,7 @@
                     <th>Phone</th>
                     <th>Position</th>
                     <th>Address</th>
-                    <th>Manager ID</th>
+                    <th>Manager</th> <!-- Changed from Manager ID to Manager -->
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -75,9 +75,9 @@
                         <td>{{ employee.last_name }}</td>
                         <td>{{ employee.email }}</td>
                         <td>{{ employee.phone_number }}</td>
-                        <td>{{ employee.position }}</td>
+                        <td>{{ employee.position_name }}</td>
                         <td>{{ employee.address }}</td>
-                        <td>{{ employee.manager_id }}</td>
+                        <td>{{ employee.manager_name }}</td> <!-- Changed from manager_id to manager_name -->
                         <td class="actions">
                             <button onclick="window.location.href='/updateEmployee/{{ employee.employee_id }}'">Update</button>
                             <button class="delete" onclick="deleteEmployee({{ employee.employee_id }})">Delete</button>

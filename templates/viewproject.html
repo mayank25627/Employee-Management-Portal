@@ -69,9 +69,15 @@
     </style>
 </head>
 <body>
-    <div style="position: absolute; right: 20px; top:15px">
-        <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" id="admin-dashboard">Admin Dashboard</button>
-    </div>
+    
+  <div style="position: absolute; right: 20px; top:15px">
+    <button style="background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
+  </div>
 
     <div class="container">
         <h1>Project List</h1>
@@ -84,18 +90,20 @@
                         <th>Project ID</th>
                         <th>Project Name</th>
                         <th>Description</th>
+                        <th>Skills Required</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for proj in project %}
+                    {% for project in projects %}
                         <tr>
-                            <td>{{ proj.project_id }}</td>
-                            <td>{{ proj.project_name }}</td>
-                            <td>{{ proj.description }}</td>
+                            <td>{{ project.project_id }}</td>
+                            <td>{{ project.project_name }}</td>
+                            <td>{{ project.description }}</td>
+                            <td>{{ project.skills }}</td>
                             <td class="actions">
-                                <button onclick="window.location.href='/updateProject/{{ proj.project_id }}'">Update</button>
-                                <button class="delete" onclick="deleteProject({{ proj.project_id }})">Delete</button>
+                                <button onclick="window.location.href='/updateProject/{{ project.project_id }}'">Update</button>
+                                <button class="delete" onclick="deleteProject({{ project.project_id }})">Delete</button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -115,5 +123,6 @@
             window.location.href = "/adminpage"
         });
     </script>
+   
 </body>
 </html>

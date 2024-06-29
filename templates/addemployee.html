@@ -4,44 +4,59 @@
     <meta charset="UTF-8">
     <title>Add Employee</title>
     <style>
-        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 200px;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
+            width: 50%;
+            padding: 30px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        .container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 30px;
         }
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #555;
         }
         input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea, select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.1);
         }
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 14px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.3s;
         }
         input[type="submit"]:hover {
             background-color: #45a049;
@@ -49,39 +64,58 @@
         .message {
             text-align: center;
             color: green;
+            font-weight: bold;
         }
         .error {
-            text-align: center;
             color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        #admin-dashboard {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            transition: 0.3s;
+        }
+        #admin-dashboard:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-  <div style="position: absolute; right: 20px; top:15px">
-    <button style="background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;" id="admin-dashboard" >Admin Dashboard</button>
-  </div>
+    <button id="admin-dashboard">Admin Dashboard</button>
     <div class="container">
         <h1>Add Employee</h1>
         <form action="/addemployees" method="post" enctype="multipart/form-data" id="employee-details-form">
             <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required><br><br>
+            <input type="text" id="first-name" name="first-name" required>
+            <span class="error" id="first-name-error"></span><br><br>
 
             <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required><br><br>
+            <input type="text" id="last-name" name="last-name" required>
+            <span class="error" id="last-name-error"></span><br><br>
 
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="email-error"></span><br><br>
 
             <label for="phone-number">Phone Number:</label>
-            <input type="tel" id="phone-number" name="phone-number" required><br><br>
+            <input type="tel" id="phone-number" name="phone-number" required>
+            <span class="error" id="phone-number-error"></span><br><br>
 
             <label for="position">Position:</label>
-            <input type="text" id="position" name="position" required><br><br>
+            <select id="position-id" name="position-id" required>
+                <option value="">Select a position</option>
+                {% for position in positions %}
+                    <option value="{{ position.id }}">{{ position.position_name }}</option>
+                {% endfor %}
+            </select><br><br>
 
             <label for="address">Address:</label>
             <textarea id="address" name="address" required></textarea><br><br>
@@ -95,7 +129,8 @@
             </select><br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <input type="password" id="password" name="password" required>
+            <span class="error" id="password-error"></span><br><br>
 
             <input type="submit" value="Add Employee">
         </form>
@@ -106,10 +141,65 @@
             <p class="error">{{ failMessage }}</p>
         {% endif %}
     </div>
+
+    <script>
+        document.getElementById("admin-dashboard").addEventListener("click", function() {
+            window.location.href = "/adminpage";
+        });
+
+        document.getElementById("employee-details-form").addEventListener("submit", function(event) {
+            var firstName = document.getElementById("first-name").value;
+            var lastName = document.getElementById("last-name").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phone-number").value;
+            var password = document.getElementById("password").value;
+
+            var nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@nucleusteq\.com$/;
+            var phoneRegex = /^[789]\d{9}$/;
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+            var valid = true;
+
+            if (!nameRegex.test(firstName)) {
+                document.getElementById("first-name-error").textContent = "First Name must start with a capital letter and be at least 3 characters long, containing only letters.";
+                valid = false;
+            } else {
+                document.getElementById("first-name-error").textContent = "";
+            }
+
+            if (!nameRegex.test(lastName)) {
+                document.getElementById("last-name-error").textContent = "Last Name must start with a capital letter and contain only letters.";
+                valid = false;
+            } else {
+                document.getElementById("last-name-error").textContent = "";
+            }
+
+            if (!emailRegex.test(email)) {
+                document.getElementById("email-error").textContent = "Email must be in the format name@nucleusteq.com.";
+                valid = false;
+            } else {
+                document.getElementById("email-error").textContent = "";
+            }
+
+            if (!phoneRegex.test(phoneNumber)) {
+                document.getElementById("phone-number-error").textContent = "Phone Number must be a 10-digit number starting with 7, 8, or 9.";
+                valid = false;
+            } else {
+                document.getElementById("phone-number-error").textContent = "";
+            }
+
+            if (!passwordRegex.test(password)) {
+                document.getElementById("password-error").textContent = "Password must be at least 6 characters long, containing at least one uppercase letter and one lowercase letter.";
+                valid = false;
+            } else {
+                document.getElementById("password-error").textContent = "";
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
-<script>
-  document.getElementById("admin-dashboard").addEventListener("click", function() {
-      window.location.href = "/adminpage"
-    });
-</script>
 </html>
